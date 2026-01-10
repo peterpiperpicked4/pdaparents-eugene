@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDA Parents of Eugene</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+
+  <!-- Meta -->
+  <meta name="description" content="A calm, confidential community for parents raising PDA-profile kids in Eugene, Oregon. Monthly meetups, local resources, and practical tools.">
+  <meta property="og:title" content="PDA Parents of Eugene" />
+  <meta property="og:description" content="A calm, confidential community for parents raising PDA-profile kids." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pdaparents.org/eugene" />
+  <meta property="og:image" content="https://pdaparents.org/eugene/pdaparents-og-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://pdaparents.org/eugene/pdaparents-og-1200x630.jpg" />
+
+  <style>
+    /* ========================================
+       SANCTUARY DESIGN SYSTEM
+       Color palette inspired by the PDA Parents logo
+       ======================================== */
+
+    :root {
+      /* Warm backgrounds - cream/linen family */
+      --cream: #FBF8F4;
+      --cream-dark: #F5EFE7;
+      --linen: #EBE4DA;
+      --stone: #D9D0C3;
+
+      /* Logo-inspired accents */
+      --plum: #9B4B96;
+      --plum-light: #B066AA;
+      --plum-dark: #7D3C79;
+      --coral: #E67347;
+      --coral-light: #F08A62;
+      --coral-dark: #D4623A;
+      --peach: #F5CBA8;
+      --peach-light: #FAE0C8;
+
+      /* Warm neutrals */
+      --bark: #5C4A42;
+      --charcoal: #4A3F3A;
+      --ink: #2D2420;
+
+      /* Shadows - warm tinted */
+      --shadow-sm: 0 2px 8px rgba(92, 74, 66, 0.06);
+      --shadow-md: 0 4px 24px rgba(92, 74, 66, 0.08);
+      --shadow-lg: 0 8px 40px rgba(92, 74, 66, 0.12);
+      --shadow-glow: 0 0 60px rgba(155, 75, 150, 0.1);
+
+      /* Typography */
+      --font-display: 'Libre Baskerville', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 10rem;
+
+      /* Transitions */
+      --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration-slow: 0.6s;
+      --duration-medium: 0.4s;
+      --duration-fast: 0.2s;
+    }
+
+    /* Dark theme - cozy evening */
+    [data-theme="dark"] {
+      --cream: #1F1B18;
+      --cream-dark: #262220;
+      --linen: #302A26;
+      --stone: #3D3530;
+      --plum: #C47DBF;
+      --plum-light: #D498CF;
+      --plum-dark: #A866A3;
+      --coral: #F08A62;
+      --coral-light: #F9A080;
+      --coral-dark: #E67347;
+      --peach: #4A3D35;
+      --peach-light: #5A4A40;
+      --bark: #D4C8BE;
+      --charcoal: #E5DED6;
+      --ink: #F5EFE7;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ========================================
+       BASE STYLES
+       ======================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 10000;
+    }
+
+    ::selection {
+      background: var(--peach);
+      color: var(--ink);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.01em; }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+
+    p { max-width: 65ch; }
+
+    a {
+      color: var(--plum);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-gentle);
+    }
+
+    a:hover { color: var(--plum-dark); }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--plum);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ========================================
+       ACCESSIBILITY
+       ======================================== */
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--space-md);
+      background: var(--plum);
+      color: var(--cream);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 0 0 8px 8px;
+      font-weight: 500;
+      z-index: 10001;
+      transition: top var(--duration-fast) var(--ease-gentle);
+    }
+
+    .skip-link:focus { top: 0; outline: none; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: var(--space-sm) var(--space-lg);
+      background: linear-gradient(to bottom, var(--cream) 60%, transparent 100%);
+      transition: all var(--duration-medium) var(--ease-gentle);
+    }
+
+    .nav.scrolled {
+      background: var(--cream);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-xs) var(--space-lg);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-xs);
+      border-radius: 8px;
+      transition: transform var(--duration-fast) var(--ease-gentle);
+    }
+
+    .nav-logo:hover { transform: scale(1.02); }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav.scrolled .nav-logo img {
+      height: 42px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .nav-link {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      border-radius: 8px;
+      transition: all var(--duration-fast) var(--ease-gentle);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--linen);
+      color: var(--plum);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--linen);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: var(--space-sm);
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .theme-toggle:hover {
+      background: var(--stone);
+      transform: rotate(15deg);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: var(--linen);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .nav-logo img { height: 44px; }
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 99;
+      padding: 100px var(--space-lg) var(--space-lg);
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .mobile-menu.active { display: flex; }
+
+    .mobile-menu .nav-link {
+      font-size: 1.25rem;
+      padding: var(--space-md);
+      text-align: left;
+      width: 100%;
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: float 12s ease-in-out infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero-blob {
+        filter: blur(40px);
+        animation-duration: 15s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-blob {
+        animation: none;
+      }
+    }
+
+    .hero-blob-1 {
+      top: 10%;
+      right: 5%;
+      width: 40vw;
+      height: 40vw;
+      background: var(--peach);
+      opacity: 0.4;
+    }
+
+    .hero-blob-2 {
+      bottom: 10%;
+      left: 5%;
+      width: 35vw;
+      height: 35vw;
+      background: var(--plum-light);
+      opacity: 0.15;
+      animation-delay: -4s;
+    }
+
+    .hero-blob-3 {
+      top: 50%;
+      left: 30%;
+      width: 25vw;
+      height: 25vw;
+      background: var(--coral-light);
+      opacity: 0.15;
+      animation-delay: -8s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(2%, -2%) scale(1.02); }
+      66% { transform: translate(-1%, 1%) scale(0.98); }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo {
+      margin-bottom: var(--space-lg);
+      animation: fadeInUp 0.8s var(--ease-gentle) both;
+    }
+
+    .hero-logo img {
+      height: 140px;
+      width: auto;
+    }
+
+    @media (max-width: 600px) {
+      .hero-logo img { height: 100px; }
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-md);
+      animation: fadeInUp 0.8s var(--ease-gentle) 0.1s both;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--charcoal);
+      line-height: 1.8;
+      margin-bottom: var(--space-sm);
+      animation: fadeInUp 0.8s var(--ease-gentle) 0.2s both;
+    }
+
+    .hero-note {
+      font-size: 0.95rem;
+      color: var(--bark);
+      font-style: italic;
+      margin-bottom: var(--space-xl);
+      animation: fadeInUp 0.8s var(--ease-gentle) 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Meetup Card */
+    .meetup-card {
+      background: var(--cream-dark);
+      border: 1px solid var(--linen);
+      border-radius: 20px;
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-lg);
+      text-align: left;
+      box-shadow: var(--shadow-md);
+      animation: fadeInUp 0.8s var(--ease-gentle) 0.4s both;
+      transition: transform var(--duration-medium) var(--ease-gentle), box-shadow var(--duration-medium) var(--ease-gentle);
+    }
+
+    .meetup-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .meetup-date {
+      background: var(--plum);
+      color: var(--cream);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 12px;
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .meetup-date-day {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .meetup-date-month {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    .meetup-info-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--plum);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .meetup-info-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .meetup-info-time {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+
+    /* CTA Buttons */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+      animation: fadeInUp 0.8s var(--ease-gentle) 0.5s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-gentle);
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--plum);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: var(--plum-dark);
+      color: var(--cream);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--cream-dark);
+      color: var(--ink);
+      border: 1px solid var(--stone);
+    }
+
+    .btn-secondary:hover {
+      background: var(--linen);
+      border-color: var(--plum-light);
+    }
+
+    .btn-warm {
+      background: var(--coral);
+      color: white;
+    }
+
+    .btn-warm:hover {
+      background: var(--coral-dark);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ========================================
+       SECTIONS
+       ======================================== */
+
+    .section {
+      padding: var(--space-2xl) var(--space-lg);
+      position: relative;
+    }
+
+    .section-alt { background: var(--cream-dark); }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .section-header h2 { margin-bottom: var(--space-sm); }
+
+    .section-header p {
+      color: var(--charcoal);
+      font-size: 1.1rem;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       CARDS & COMPONENTS
+       ======================================== */
+
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 16px;
+      padding: var(--space-lg);
+      transition: all var(--duration-medium) var(--ease-gentle);
+    }
+
+    .section-alt .card {
+      background: var(--cream-dark);
+      border-color: var(--stone);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-accent {
+      border-left: 3px solid var(--coral);
+    }
+
+    .card-highlight {
+      background: linear-gradient(135deg, var(--peach-light) 0%, var(--peach) 100%);
+      border: none;
+    }
+
+    [data-theme="dark"] .card-highlight {
+      background: linear-gradient(135deg, var(--peach) 0%, var(--peach-light) 100%);
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--peach-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+      transition: all var(--duration-medium) var(--ease-gentle);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--peach);
+      transform: scale(1.05);
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .feature-desc {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+    }
+
+    /* Quotes */
+    .quotes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .quote-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--coral);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: var(--space-xs);
+    }
+
+    .quote-context {
+      font-size: 0.85rem;
+      color: var(--bark);
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .quick-link-card {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 16px;
+      padding: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-gentle);
+      font-family: inherit;
+      font-size: inherit;
+      text-align: left;
+      width: 100%;
+    }
+
+    .section-alt .quick-link-card { background: var(--cream-dark); }
+
+    .quick-link-card:hover {
+      border-color: var(--plum-light);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-link-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--peach-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: background var(--duration-fast) var(--ease-gentle);
+    }
+
+    .quick-link-card:hover .quick-link-icon { background: var(--peach); }
+
+    .quick-link-label {
+      font-weight: 500;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .quick-link-arrow {
+      color: var(--stone);
+      font-size: 1.25rem;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .quick-link-card:hover .quick-link-arrow {
+      transform: translateX(4px);
+      color: var(--plum);
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      border-radius: 100px;
+      border: 1px solid var(--linen);
+      background: var(--cream);
+      color: var(--charcoal);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .tab:hover { border-color: var(--plum-light); }
+
+    .tab.active {
+      background: var(--plum);
+      color: white;
+      border-color: var(--plum);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Norms/List Items */
+    .norm-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
+      background: var(--cream-dark);
+      border-radius: 8px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .norm-icon { font-size: 1.25rem; }
+    .norm-text { color: var(--charcoal); font-size: 0.95rem; }
+
+    /* Steps */
+    .step-card {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      margin-bottom: var(--space-md);
+    }
+
+    .step-number {
+      background: var(--plum);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .step-tip {
+      color: var(--plum);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* Resource Cards */
+    .resource-card {
+      margin-bottom: var(--space-md);
+    }
+
+    .resource-card h3 {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+    }
+
+    .resource-card-type {
+      color: var(--plum);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+    }
+
+    .resource-card-notes {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: var(--space-xs);
+    }
+
+    .resource-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .resource-tag {
+      background: var(--linen);
+      color: var(--bark);
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+    }
+
+    /* Tools Layout */
+    .tools-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 768px) {
+      .tools-layout { grid-template-columns: 1fr; }
+      .tools-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: var(--space-sm);
+      }
+      .tool-nav-btn { white-space: nowrap; }
+    }
+
+    .tools-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .tool-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      background: var(--cream);
+      color: var(--charcoal);
+      border: 1px solid var(--linen);
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .tool-nav-btn:hover { border-color: var(--plum-light); }
+
+    .tool-nav-btn.active {
+      background: var(--plum);
+      color: white;
+      border-color: var(--plum);
+    }
+
+    .tool-panel { display: none; }
+    .tool-panel.active { display: block; }
+
+    .tool-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .tool-content h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--ink);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+
+    .tool-content p {
+      color: var(--charcoal);
+      margin-bottom: var(--space-sm);
+    }
+
+    .tool-content ul {
+      color: var(--charcoal);
+      padding-left: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .tool-content li { margin-bottom: var(--space-xs); }
+
+    .tool-example {
+      background: var(--cream-dark);
+      padding: var(--space-md);
+      border-radius: 10px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .tool-example-before {
+      color: var(--bark);
+      font-size: 0.9rem;
+      text-decoration: line-through;
+      margin-bottom: var(--space-xs);
+    }
+
+    .tool-example-after {
+      color: var(--plum);
+      font-weight: 500;
+    }
+
+    .tool-wisdom {
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+      background: var(--peach-light);
+      border-radius: 10px;
+    }
+
+    .tool-wisdom p {
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* Forms */
+    .form-group { margin-bottom: var(--space-md); }
+
+    .form-label {
+      display: block;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--linen);
+      border-radius: 10px;
+      background: var(--cream-dark);
+      color: var(--ink);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color var(--duration-fast) var(--ease-gentle);
+    }
+
+    .form-input:focus { border-color: var(--plum); }
+
+    .form-textarea { resize: vertical; min-height: 100px; }
+
+    /* Link Items */
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .link-item:hover {
+      border-color: var(--plum-light);
+      background: var(--cream-dark);
+      color: var(--ink);
+    }
+
+    .link-item-name { font-weight: 500; }
+    .link-item-note { display: block; color: var(--bark); font-size: 0.85rem; }
+    .link-item-arrow { color: var(--plum); }
+
+    /* Topic Pills */
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+
+    .topic-pill {
+      background: var(--linen);
+      color: var(--charcoal);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: 100px;
+      font-size: 0.85rem;
+    }
+
+    /* Disclaimers */
+    .disclaimer {
+      border-left: 3px solid var(--coral);
+      background: var(--cream-dark);
+      padding: var(--space-md);
+      border-radius: 0 10px 10px 0;
+      margin-bottom: var(--space-lg);
+    }
+
+    .disclaimer p {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* Chat Norms Box */
+    .chat-norms {
+      background: var(--cream-dark);
+      padding: var(--space-md);
+      border-radius: 10px;
+      margin-bottom: var(--space-md);
+    }
+
+    .chat-norms-title {
+      color: var(--bark);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+    }
+
+    .chat-norms ul {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      padding-left: var(--space-md);
+      margin: 0;
+    }
+
+    /* Document Checklist */
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--cream-dark);
+      border-radius: 6px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .doc-checkbox { color: var(--plum); }
+    .doc-name { color: var(--charcoal); font-size: 0.9rem; }
+
+    /* Script Boxes */
+    .script-box {
+      padding: var(--space-md);
+      background: var(--cream-dark);
+      border-radius: 10px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .script-label {
+      color: var(--bark);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .script-text {
+      color: var(--ink);
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+
+    .footer {
+      background: var(--cream-dark);
+      border-top: 1px solid var(--linen);
+      padding: var(--space-xl) var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    .footer-section h4 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-section p {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-logo img { height: 40px; width: auto; }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: var(--space-lg) auto 0;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--linen);
+      text-align: center;
+      color: var(--charcoal);
+      font-size: 0.85rem;
+    }
+
+    .footer-disclaimer {
+      margin-top: var(--space-sm);
+      font-size: 0.8rem;
+      color: var(--bark);
+    }
+
+    /* ========================================
+       PAGE VISIBILITY
+       ======================================== */
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ========================================
+       ANIMATIONS
+       ======================================== */
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-gentle), transform 0.6s var(--ease-gentle);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s var(--ease-gentle), transform 0.5s var(--ease-gentle);
+    }
+
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.4s; }
+
+    .stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       UTILITIES
+       ======================================== */
+
+    .mb-sm { margin-bottom: var(--space-sm); }
+    .mb-md { margin-bottom: var(--space-md); }
+    .mb-lg { margin-bottom: var(--space-lg); }
+    .mt-lg { margin-top: var(--space-lg); }
+    .text-center { text-align: center; }
+
+    /* External links */
+    a[target="_blank"]::after {
+      content: " ↗";
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+
+    /* Print */
+    @media print {
+      .nav, .mobile-menu, .footer, .btn, .theme-toggle { display: none !important; }
+      body { background: white; color: black; }
+      .page { display: block !important; }
+    }
+
+    /* Event Cards (generated) */
+    .event-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .event-card.event-next {
+      border-left: 3px solid var(--coral);
+    }
+
+    .event-date {
+      color: white;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 12px;
+      text-align: center;
+      min-width: 70px;
+      background: var(--plum);
+    }
+
+    .event-next .event-date {
+      background: var(--coral);
+    }
+
+    .event-date-day {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .event-date-month {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    .event-badge {
+      display: inline-block;
+      background: var(--plum);
+      color: white;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .event-title {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .event-time {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <button class="nav-logo" onclick="showPage('home')" aria-label="Go to home page">
+        <img src="logo-main.png" alt="PDA Parents of Eugene">
+      </button>
+
+      <div class="nav-links">
+        <button class="nav-link active" data-page="home">Home</button>
+        <button class="nav-link" data-page="start-here">Start Here</button>
+        <button class="nav-link" data-page="events">Events</button>
+        <button class="nav-link" data-page="resources">Resources</button>
+        <button class="nav-link" data-page="services">Services</button>
+        <button class="nav-link" data-page="tools">Tools</button>
+        <button class="nav-link" data-page="join">Join</button>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span id="menu-icon" aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="nav-link" data-page="home">Home</button>
+    <button class="nav-link" data-page="start-here">Start Here</button>
+    <button class="nav-link" data-page="events">Events</button>
+    <button class="nav-link" data-page="resources">Resources</button>
+    <button class="nav-link" data-page="services">Services</button>
+    <button class="nav-link" data-page="tools">Tools</button>
+    <button class="nav-link" data-page="join">Join</button>
+    <button class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ==================== HOME ==================== -->
+    <div id="page-home" class="page active">
+      <section class="hero">
+        <div class="hero-bg">
+          <div class="hero-blob hero-blob-1"></div>
+          <div class="hero-blob hero-blob-2"></div>
+          <div class="hero-blob hero-blob-3"></div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="logo-main.png" alt="PDA Parents of Eugene">
+          </div>
+
+          <h1>A quiet place for<br>PDA parents</h1>
+
+          <p class="hero-subtitle">
+            Coffee, understanding, and practical support for parents raising children with PDA profiles.
+            No judgment. No fixing. Just people who get it.
+          </p>
+
+          <p class="hero-note">
+            For parents and caregivers who identify their child as having a PDA profile—formal diagnosis not required.
+          </p>
+
+          <div class="meetup-card">
+            <div class="meetup-date">
+              <div class="meetup-date-day" id="meetup-day">11</div>
+              <div class="meetup-date-month" id="meetup-month">Jan</div>
+            </div>
+            <div>
+              <div class="meetup-info-label">Next Meetup</div>
+              <div class="meetup-info-title" id="meetup-title">Saturday, January 11th</div>
+              <div class="meetup-info-time">10:00 AM · Email for location</div>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary">
+              Get Meetup Reminders
+            </a>
+            <button class="btn btn-secondary" onclick="showPage('start-here')">
+              New Here? Start Here
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>What to Expect</h2>
+            <p>No pressure, no judgment—just understanding.</p>
+          </div>
+
+          <div class="features stagger">
+            <div class="card feature-card">
+              <div class="feature-icon" aria-hidden="true">🤫</div>
+              <h3 class="feature-title">Confidential</h3>
+              <p class="feature-desc">What's shared here stays here. No recording, no social media posts.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon" aria-hidden="true">💚</div>
+              <h3 class="feature-title">No Judgment</h3>
+              <p class="feature-desc">We get it. We've all had the meltdown in the parking lot. You're not alone.</p>
+            </div>
+            <div class="card feature-card">
+              <div class="feature-icon" aria-hidden="true">🛋️</div>
+              <h3 class="feature-title">Come As You Are</h3>
+              <p class="feature-desc">Come late, leave early, step out anytime. You're welcome to just listen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>What Brings People Here</h2>
+            <p>If any of this sounds familiar, you're in the right place.</p>
+          </div>
+
+          <div class="quotes stagger">
+            <div class="quote-card">
+              <p class="quote-text">"Parents often come here hoping to find out they're not the only ones going through this."</p>
+            </div>
+            <div class="quote-card">
+              <p class="quote-text">"Many families describe feeling like daily life revolves entirely around their child's needs."</p>
+            </div>
+            <div class="quote-card">
+              <p class="quote-text">"Letting go of expectations and treating any progress as a bonus helps many parents cope."</p>
+              <p class="quote-context">— How we stay sane</p>
+            </div>
+            <div class="quote-card">
+              <p class="quote-text">"Sometimes the biggest relief is just being around people who truly understand what your life is like."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>Explore</h2>
+          </div>
+
+          <div class="quick-links stagger">
+            <button class="quick-link-card" onclick="showPage('events')">
+              <span class="quick-link-icon" aria-hidden="true">📅</span>
+              <span class="quick-link-label">Events & Meetups</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card" onclick="showPage('resources')">
+              <span class="quick-link-icon" aria-hidden="true">📚</span>
+              <span class="quick-link-label">Resources</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card" onclick="showPage('services')">
+              <span class="quick-link-icon" aria-hidden="true">📋</span>
+              <span class="quick-link-label">DDS & Paperwork</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card" onclick="showPage('tools')">
+              <span class="quick-link-icon" aria-hidden="true">🧰</span>
+              <span class="quick-link-label">Practical Tools</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="section-inner text-center animate-on-scroll" style="max-width: 500px;">
+          <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+            Room cost is ~$50 per meetup. If you'd like to pitch in, thank you.
+            If not, truly no pressure—your presence is enough.
+          </p>
+          <a href="https://account.venmo.com/u/Peter-Hollens" target="_blank" rel="noopener noreferrer" class="btn btn-warm">
+            Support the Space
+            <span class="sr-only">(opens in new tab)</span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== START HERE ==================== -->
+    <div id="page-start-here" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-narrow">
+          <div class="section-header animate-on-scroll">
+            <h2>Start Here</h2>
+            <p>Everything you need to know before your first meetup.</p>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+              <span aria-hidden="true">🧠</span> What is PDA?
+            </h3>
+            <p style="margin-bottom: var(--space-sm);">
+              <strong>PDA (Pathological Demand Avoidance)</strong>—also called <strong>Persistent Drive for Autonomy</strong> by many in the community—is a widely recognized profile that many autistic people and families identify with. It describes an anxiety-driven need to avoid everyday demands and maintain a sense of control.
+            </p>
+            <p style="font-style: italic; color: var(--bark); margin-bottom: var(--space-md);">
+              Note: PDA is not currently a formal DSM diagnosis in the United States, but it's increasingly recognized by clinicians and researchers. Many families find the PDA framework helpful for understanding their child's needs.
+            </p>
+            <p style="margin-bottom: var(--space-xs);">Kids who fit the PDA profile often:</p>
+            <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+              <li>Resist demands in ways that go beyond typical behavior</li>
+              <li>Need a high level of control over their environment</li>
+              <li>Use social strategies to avoid demands (negotiating, distracting, giving excuses)</li>
+              <li>Experience sudden mood changes and "meltdowns"</li>
+              <li>May appear socially skilled but struggle with underlying anxiety</li>
+            </ul>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+              <span aria-hidden="true">💬</span> What This Group Is (and Isn't)
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg);">
+              <div>
+                <div style="font-weight: 600; color: var(--plum); margin-bottom: var(--space-xs);">✓ We Are</div>
+                <ul style="padding-left: var(--space-md); color: var(--charcoal); font-size: 0.95rem;">
+                  <li>Peer support community</li>
+                  <li>A safe space to vent</li>
+                  <li>Resource sharing</li>
+                  <li>Practical tips exchange</li>
+                  <li>Understanding listeners</li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-weight: 600; color: var(--coral); margin-bottom: var(--space-xs);">✗ We Are Not</div>
+                <ul style="padding-left: var(--space-md); color: var(--charcoal); font-size: 0.95rem;">
+                  <li>Therapy or treatment</li>
+                  <li>Medical advice</li>
+                  <li>Legal guidance</li>
+                  <li>Diagnosis providers</li>
+                  <li>School advocates</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+              <span aria-hidden="true">📋</span> Meetup Norms
+            </h3>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">🔒</span><span class="norm-text">Confidentiality: Stories shared stay in the room</span></div>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">📵</span><span class="norm-text">No recordings or photos without explicit consent</span></div>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">🚪</span><span class="norm-text">You can step out anytime—no explanation needed</span></div>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">👂</span><span class="norm-text">Listening is enough—you don't have to share</span></div>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">🤝</span><span class="norm-text">No pressuring others to share or participate</span></div>
+            <div class="norm-item"><span class="norm-icon" aria-hidden="true">💡</span><span class="norm-text">We share what worked for us, not prescriptions</span></div>
+          </div>
+
+          <div class="card card-accent mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+              <span aria-hidden="true">💛</span> A Note on Trauma
+            </h3>
+            <p style="color: var(--charcoal);">
+              Many of us carry deep stress from this journey—PTSD-like symptoms aren't uncommon. Tears happen here. Stepping out is okay. You're not required to share your story or have answers. If you feel overwhelmed, that's valid. We've been there too.
+            </p>
+          </div>
+
+          <div class="card card-highlight mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm); color: var(--ink);">
+              <span aria-hidden="true">🌱</span> The Long Game: Brain Development Continues
+            </h3>
+            <p style="color: var(--ink); margin-bottom: var(--space-sm);">
+              The prefrontal cortex—the part of the brain responsible for executive function, impulse control, and emotional regulation—isn't fully developed until around age 25. This is why many parents focus on the long-term trajectory, not day-to-day battles.
+            </p>
+            <p style="color: var(--ink);">
+              Parents of older PDA kids report significant improvements as their children mature. Young adults who couldn't apply for jobs suddenly can. Kids who couldn't tolerate any demands become more flexible. It's not a guarantee, but it's real hope.
+            </p>
+          </div>
+
+          <div class="card animate-on-scroll" style="background: var(--cream-dark);">
+            <h3 style="margin-bottom: var(--space-md);">✨ New Here? Quick Checklist</h3>
+            <button class="quick-link-card mb-sm" onclick="showPage('events')">
+              <span class="quick-link-icon" aria-hidden="true">📅</span>
+              <span class="quick-link-label">Save the next meetup date</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card mb-sm" onclick="showPage('join')">
+              <span class="quick-link-icon" aria-hidden="true">📧</span>
+              <span class="quick-link-label">Join the email list</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card mb-sm" onclick="showPage('join')">
+              <span class="quick-link-icon" aria-hidden="true">💬</span>
+              <span class="quick-link-label">Join the private chat (optional)</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="quick-link-card" onclick="showPage('resources')">
+              <span class="quick-link-icon" aria-hidden="true">📚</span>
+              <span class="quick-link-label">Browse resources</span>
+              <span class="quick-link-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== EVENTS ==================== -->
+    <div id="page-events" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-narrow">
+          <div class="section-header animate-on-scroll">
+            <h2>Events & Meetups</h2>
+            <p>Second Saturday of each month, plus special sessions as needed.</p>
+          </div>
+
+          <div class="card card-highlight mb-lg animate-on-scroll" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);" aria-hidden="true">📅</div>
+            <h3 style="color: var(--ink); margin-bottom: var(--space-xs);">Second Saturday of Every Month</h3>
+            <p style="color: var(--ink); margin-bottom: 0;">10:00 AM PT · Email for location</p>
+          </div>
+
+          <h3 style="margin-bottom: var(--space-md);">Upcoming Dates</h3>
+          <p style="color: var(--charcoal); margin-bottom: var(--space-md); font-size: 0.95rem;">
+            These dates are calculated automatically—no need to check if they're current!
+          </p>
+
+          <div id="upcoming-events" class="stagger" style="margin-bottom: var(--space-xl);"></div>
+
+          <div class="card card-accent mb-lg animate-on-scroll">
+            <h4 style="display: flex; align-items: center; gap: var(--space-xs); margin: 0 0 var(--space-xs);">
+              <span aria-hidden="true">✨</span> Special Events
+            </h4>
+            <p style="color: var(--charcoal); font-size: 0.95rem; margin: 0;">
+              We occasionally host paperwork co-working nights and other special sessions. These are announced via the email list—<a href="#" onclick="showPage('join'); return false;">join to stay in the loop</a>.
+            </p>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="margin-bottom: var(--space-md);">What to Expect at a Meetup</h3>
+            <div style="color: var(--charcoal); font-size: 0.95rem;">
+              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">🚗 Arrive: Parking available</p>
+              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">☕ Settle in: Grab coffee, find a seat</p>
+              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">👋 Introductions: Quick name & kid age (optional)</p>
+              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">💬 Open sharing: Topics emerge organically</p>
+              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">👥 Breakouts: Sometimes split by age group</p>
+              <p style="padding: var(--space-sm) 0; margin: 0;">🚪 Leave anytime: No explanation needed</p>
+            </div>
+          </div>
+
+          <div class="card text-center animate-on-scroll" style="background: var(--cream-dark);">
+            <h3 style="margin-bottom: var(--space-xs);">Have a Topic in Mind?</h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">We're collecting topics parents want to discuss.</p>
+            <button class="btn btn-primary" onclick="showPage('join')">Suggest a Topic →</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== RESOURCES ==================== -->
+    <div id="page-resources" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-inner" style="max-width: 900px;">
+          <div class="section-header animate-on-scroll">
+            <h2>Resources</h2>
+            <p>Community-shared resources. Not endorsements—verify fit for your family.</p>
+          </div>
+
+          <div class="disclaimer animate-on-scroll">
+            <p><strong>⚠️ Important:</strong> These are parent-shared strategies and resources, not professional recommendations. What works for one family may not work for another. Always verify credentials, current availability, and fit for your specific situation.</p>
+          </div>
+
+          <div class="card card-highlight mb-lg animate-on-scroll">
+            <h3 style="color: var(--ink); margin-bottom: var(--space-xs);">📋 USA PDA-Positive Providers Database</h3>
+            <p style="color: var(--ink); margin-bottom: var(--space-md);">Community-maintained list of PDA-aware providers across the United States.</p>
+            <a href="https://docs.google.com/spreadsheets/d/1spHdt8caThR5nMhpRGV6gEcA0p7ZoLcJ81n0sa3hKzw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              View Provider Database
+              <span class="sr-only">(opens in new tab)</span>
+            </a>
+          </div>
+
+          <div class="tabs animate-on-scroll" role="tablist" aria-label="Resource categories">
+            <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-local" id="tab-btn-local" onclick="showResourceTab('local', this)">📍 Local</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-national" id="tab-btn-national" onclick="showResourceTab('national', this)">🌎 National</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-socials" id="tab-btn-socials" onclick="showResourceTab('socials', this)">📱 Social</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-activities" id="tab-btn-activities" onclick="showResourceTab('activities', this)">🎯 Activities</button>
+          </div>
+
+          <!-- Local Tab -->
+          <div id="tab-local" class="tab-content active" role="tabpanel" aria-labelledby="tab-btn-local">
+            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+              The local resources below were mentioned positively by parents in our group. For contact details and the latest information, please check with the group or the provider directly.
+            </p>
+
+            <div class="card resource-card">
+              <h3>Neuropsychology (community-recommended)</h3>
+              <div class="resource-card-type">Evaluation · Eugene</div>
+              <div class="resource-card-notes">Parents have found helpful neuropsych evaluators locally who are familiar with PDA profile assessments. Ask in the group for current recommendations.</div>
+              <div class="resource-tags">
+                <span class="resource-tag">neuropsych</span>
+                <span class="resource-tag">evaluation</span>
+                <span class="resource-tag">ask-in-group</span>
+              </div>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Psychiatry options</h3>
+              <div class="resource-card-type">Psychiatry · Eugene</div>
+              <div class="resource-card-notes">Multiple PDA families in our group have found psychiatrists locally who understand demand avoidance. Ask for current recommendations.</div>
+              <div class="resource-tags">
+                <span class="resource-tag">psychiatry</span>
+                <span class="resource-tag">medication</span>
+                <span class="resource-tag">ask-in-group</span>
+              </div>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Teach Northwest</h3>
+              <div class="resource-card-type">Education · Eugene Area</div>
+              <div class="resource-card-notes">Homeschool program. Parents describe staff as understanding and flexible with neurodivergent kids.</div>
+              <div class="resource-tags">
+                <span class="resource-tag">homeschool</span>
+                <span class="resource-tag">flexible</span>
+              </div>
+              <p style="margin-top: var(--space-sm);"><a href="https://teachnorthwest.org" target="_blank" rel="noopener noreferrer">teachnorthwest.org</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>CMASAS (Christa McAuliffe Academy)</h3>
+              <div class="resource-card-type">Education · Online</div>
+              <div class="resource-card-notes">Online homeschool program. Self-paced with weekly meetings with education coach. Works well for kids who need control over their schedule.</div>
+              <div class="resource-tags">
+                <span class="resource-tag">online</span>
+                <span class="resource-tag">self-paced</span>
+              </div>
+              <p style="margin-top: var(--space-sm);"><a href="https://cmasas.org" target="_blank" rel="noopener noreferrer">cmasas.org</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Autism Society of Oregon</h3>
+              <div class="resource-card-type">Support/Navigation · Statewide</div>
+              <div class="resource-card-notes">Very helpful for navigating DDS/service paperwork. Will walk you through the process step by step.</div>
+              <div class="resource-tags">
+                <span class="resource-tag">navigation</span>
+                <span class="resource-tag">DDS-help</span>
+              </div>
+              <p style="margin-top: var(--space-sm);"><a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer">autismsocietyoregon.org</a></p>
+            </div>
+
+            <div class="card text-center mt-lg" style="background: var(--cream-dark);">
+              <h3 style="margin-bottom: var(--space-xs);">Know a Great Resource?</h3>
+              <p style="color: var(--charcoal); margin-bottom: var(--space-md);">Help other families by adding to our community spreadsheet.</p>
+              <a href="https://docs.google.com/spreadsheets/d/1spHdt8caThR5nMhpRGV6gEcA0p7ZoLcJ81n0sa3hKzw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Add to Spreadsheet
+                <span class="sr-only">(opens in new tab)</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- National Tab -->
+          <div id="tab-national" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-national">
+            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+              Curated national resources for understanding and supporting PDA-profile kids.
+            </p>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">🚀 Getting Started</h4>
+
+            <a href="https://www.pdanorthamerica.org" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">PDA North America</span>
+                <span class="link-item-note">U.S.-focused resources and community</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">PDA Society (UK)</span>
+                <span class="link-item-note">The most comprehensive PDA resource globally</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://neuroclastic.com" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">Neuroclastic</span>
+                <span class="link-item-note">Autism spectrum info by autistic people</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">📚 Essential Books</h4>
+
+            <a href="https://www.amazon.com/Understanding-Pathological-Demand-Avoidance-Children/dp/1849050740" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">Understanding Pathological Demand Avoidance</span>
+                <span class="link-item-note">The foundational text—start here</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.amazon.com/PDA-Paradox-Demand-Avoidance-Recognition/dp/1785925210" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">The PDA Paradox</span>
+                <span class="link-item-note">Deep dive into the PDA experience</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.amazon.com/Declarative-Language-Handbook-Thoughtful-Communication/dp/1736069306" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">The Declarative Language Handbook</span>
+                <span class="link-item-note">Essential for communication strategies</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.amazon.com/Explosive-Child-Understanding-Frustrated-Chronically/dp/0062270451" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">The Explosive Child</span>
+                <span class="link-item-note">Collaborative problem solving approach</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Socials Tab -->
+          <div id="tab-socials" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-socials">
+            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+              The most helpful PDA-affirming voices on Instagram, YouTube, and TikTok.
+            </p>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">⭐ The "Big Three" (Start Here)</h4>
+
+            <div class="card resource-card">
+              <h3>At Peace Parents (Casey Ehrlich)</h3>
+              <div class="resource-card-type">Instagram / Podcast</div>
+              <div class="resource-card-notes">The gold standard for "radical acceptance" and nervous system regulation. If you follow only one account, make it this one.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/atpeaceparents" target="_blank" rel="noopener noreferrer">@atpeaceparents</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Low Demand Amanda (Amanda Diekman)</h3>
+              <div class="resource-card-type">Instagram</div>
+              <div class="resource-card-notes">Author of "Low Demand Parenting." Incredible practical scripts and examples of how to drop demands without losing authority.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/lowdemandamanda" target="_blank" rel="noopener noreferrer">@lowdemandamanda</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Kristy Forbes (inTune Pathways)</h3>
+              <div class="resource-card-type">Instagram / YouTube</div>
+              <div class="resource-card-notes">Australian PDA autistic adult and parent. Widely considered the "godmother" of the modern PDA parenting movement.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/_kristyforbes/" target="_blank" rel="noopener noreferrer">@_kristyforbes</a></p>
+            </div>
+          </div>
+
+          <!-- Activities Tab -->
+          <div id="tab-activities" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-activities">
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+              Eugene-area activities that tend to work well for PDA kids.
+            </p>
+
+            <div class="disclaimer mb-lg">
+              <p><strong>5 Questions to Ask Any Program:</strong><br>
+              1. Can they opt out of parts without punishment?<br>
+              2. Can we preview the space and routine first?<br>
+              3. Do you allow breaks / headphones / sensory tools?<br>
+              4. How do you handle refusal—coaching or consequences?<br>
+              5. Can we start with a short trial?</p>
+            </div>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">🧗 Movement & Regulation</h4>
+
+            <div class="card resource-card">
+              <h3>Elevation Bouldering Gym</h3>
+              <div class="resource-card-type">Climbing · Ages 6-18</div>
+              <div class="resource-card-notes">Self-paced puzzle with immediate feedback. Kids can take micro-breaks without it being a "failure." Great proprioceptive input.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://climberelevation.com" target="_blank" rel="noopener noreferrer">climberelevation.com</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>Bridgeway House</h3>
+              <div class="resource-card-type">Recreation + Summer Camps · Eugene</div>
+              <div class="resource-card-notes">Game night, family swim, fitness, social groups. Staff are used to autism profiles—can support social practice without shame.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://bridgewayhouse.org" target="_blank" rel="noopener noreferrer">bridgewayhouse.org</a></p>
+            </div>
+
+            <div class="card resource-card">
+              <h3>KindTree – Autism Rocks</h3>
+              <div class="resource-card-type">Community / Arts / Recreation · Eugene</div>
+              <div class="resource-card-notes">Friday socials, drawing club, "intro to adulting." Belonging with autistic peers reduces constant performance pressure.</div>
+              <p style="margin-top: var(--space-sm);"><a href="https://kindtree.org" target="_blank" rel="noopener noreferrer">kindtree.org</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== SERVICES ==================== -->
+    <div id="page-services" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-narrow">
+          <div class="section-header animate-on-scroll">
+            <h2>Services & Paperwork</h2>
+            <p>Navigating DDS, Lane County, and OHP—step by step.</p>
+          </div>
+
+          <div class="disclaimer animate-on-scroll">
+            <p><strong>⚠️ Important:</strong> These are parent-shared strategies, not professional recommendations. This is not legal or official guidance. Processes change—always verify current requirements directly with Lane County DDS or relevant agencies.</p>
+          </div>
+
+          <div class="card card-accent mb-lg animate-on-scroll">
+            <p style="color: var(--charcoal);">
+              Getting services for your child can feel overwhelming. The system is confusing, the paperwork is endless, and the order matters. This page breaks it down based on what parents in our group have learned the hard way.
+            </p>
+          </div>
+
+          <h3 style="margin-bottom: var(--space-lg);">📋 The Basic Process</h3>
+
+          <div class="stagger">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div>
+                <div class="step-title">Start with Lane County</div>
+                <div class="step-desc">Contact Lane County Developmental Disabilities Services first. Don't start with state paperwork.</div>
+                <div class="step-tip">💡 Call and say: "I'm lost—can you tell me the next step?"</div>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div>
+                <div class="step-title">Complete County Application</div>
+                <div class="step-desc">Fill out the Lane County intake forms. Have your diagnoses, contact info, and medical records ready.</div>
+                <div class="step-tip">💡 Answer questions as if it's their worst day—describe needs without your supports.</div>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div>
+                <div class="step-title">Needs Assessment Interview</div>
+                <div class="step-desc">They'll interview you (and possibly your child) to assess support needs.</div>
+                <div class="step-tip">💡 Don't defend or minimize. The worse the picture, the more help you qualify for.</div>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <div>
+                <div class="step-title">Then State Paperwork (ONE Oregon)</div>
+                <div class="step-desc">After county steps, you may need to complete state applications through ONE Oregon.</div>
+                <div class="step-tip">💡 Doing this out of order can reset your progress—ask the county first.</div>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">5</div>
+              <div>
+                <div class="step-title">Get Assigned Hours</div>
+                <div class="step-desc">Based on your assessment, you'll receive a certain number of support hours.</div>
+                <div class="step-tip">💡 PDA diagnosis + inability to do healthcare tasks independently can increase hours.</div>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">6</div>
+              <div>
+                <div class="step-title">Choose a Provider Agency</div>
+                <div class="step-desc">Select an agency to provide DSP (Direct Support Professional) services.</div>
+                <div class="step-tip">💡 Ask other parents who they use. Interview potential DSPs—you can fire them!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mt-lg mb-lg animate-on-scroll" style="background: var(--cream-dark);">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+              <span aria-hidden="true">🧠</span> Interview Mindset
+            </h3>
+            <div style="background: var(--cream); padding: var(--space-md); border-radius: 10px; border: 1px solid var(--linen);">
+              <p style="font-style: italic; color: var(--ink); margin-bottom: var(--space-sm);">
+                "Answer questions as if it were their worst day. Do not try to defend your child. Don't say 'well, they do okay when...' They're doing okay because YOU are putting in all the supports. Answer as if they didn't have your support."
+              </p>
+              <p style="color: var(--charcoal); margin: 0;">
+                Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
+              </p>
+            </div>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="margin-bottom: var(--space-md);">📄 Documents to Have Ready</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-xs);">
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Diagnosis documentation</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Neuropsych evaluation</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">IEP or 504 plan</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Medical records</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Provider contact info</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Insurance information</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Birth certificate</span></div>
+              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Social Security number</span></div>
+            </div>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="margin-bottom: var(--space-md);">📞 Helpful Scripts</h3>
+            <div class="script-box">
+              <div class="script-label">When you're lost:</div>
+              <div class="script-text">"Hi, I'm trying to get services for my child. I'm lost—can you tell me what my next step should be?"</div>
+            </div>
+            <div class="script-box">
+              <div class="script-label">When checking progress:</div>
+              <div class="script-text">"Can you confirm I've completed step 1 and tell me what step 2 is?"</div>
+            </div>
+            <div class="script-box">
+              <div class="script-label">When stuck on paperwork:</div>
+              <div class="script-text">"I'm having trouble with this form. Is there someone who can walk me through it?"</div>
+            </div>
+          </div>
+
+          <div class="card card-highlight mb-lg animate-on-scroll">
+            <h3 style="color: var(--ink); margin-bottom: var(--space-sm);">👥 Can't Face the Paperwork Alone?</h3>
+            <p style="color: var(--ink); margin-bottom: var(--space-sm);">
+              "Body doubling" helps—having someone sit with you while you tackle forms. We host occasional paperwork co-working sessions. Or ask a friend: "Can you sit with me for an hour while I do this? You don't have to help, just be there."
+            </p>
+            <p style="color: var(--ink); font-size: 0.9rem; margin: 0;">
+              📅 Check our Events page for upcoming paperwork nights.
+            </p>
+          </div>
+
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--space-md);">🔗 Helpful Links</h3>
+            <a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">Autism Society of Oregon</span>
+                <span class="link-item-note">Will walk you through the process</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://www.lanecounty.org" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">Lane County DD Services</span>
+                <span class="link-item-note">Start here first</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="https://one.oregon.gov" target="_blank" rel="noopener noreferrer" class="link-item">
+              <div>
+                <span class="link-item-name">ONE Oregon</span>
+                <span class="link-item-note">State benefits portal</span>
+              </div>
+              <span class="link-item-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== TOOLS ==================== -->
+    <div id="page-tools" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>Practical Tools</h2>
+            <p>Strategies that actually work—not from books, from parents in the trenches.</p>
+          </div>
+
+          <div class="disclaimer animate-on-scroll">
+            <p><strong>⚠️ Important:</strong> These are parent-shared strategies, not professional recommendations. Every child is different—what works for one family may not work for yours. Use your judgment and consult professionals when needed.</p>
+          </div>
+
+          <div class="tools-layout">
+            <div class="tools-nav" role="tablist" aria-label="Practical tools">
+              <button class="tool-nav-btn active" data-tool="talk-less" role="tab" aria-selected="true" aria-controls="tool-talk-less" id="tool-btn-talk-less">🤫 Talk Less</button>
+              <button class="tool-nav-btn" data-tool="declarative" role="tab" aria-selected="false" aria-controls="tool-declarative" id="tool-btn-declarative">💬 Declarative</button>
+              <button class="tool-nav-btn" data-tool="decompression" role="tab" aria-selected="false" aria-controls="tool-decompression" id="tool-btn-decompression">🏠 Decompression</button>
+              <button class="tool-nav-btn" data-tool="strewing" role="tab" aria-selected="false" aria-controls="tool-strewing" id="tool-btn-strewing">🌱 Strewing</button>
+              <button class="tool-nav-btn" data-tool="autonomy" role="tab" aria-selected="false" aria-controls="tool-autonomy" id="tool-btn-autonomy">🎯 Tiny Autonomy</button>
+              <button class="tool-nav-btn" data-tool="screens" role="tab" aria-selected="false" aria-controls="tool-screens" id="tool-btn-screens">🎮 Screens</button>
+              <button class="tool-nav-btn" data-tool="feeding" role="tab" aria-selected="false" aria-controls="tool-feeding" id="tool-btn-feeding">🍽️ Feeding</button>
+              <button class="tool-nav-btn" data-tool="doesnt-work" role="tab" aria-selected="false" aria-controls="tool-doesnt-work" id="tool-btn-doesnt-work">🚫 What Doesn't Work</button>
+            </div>
+
+            <div class="card tool-content">
+              <!-- Talk Less -->
+              <div id="tool-talk-less" class="tool-panel active" role="tabpanel" aria-labelledby="tool-btn-talk-less">
+                <h3><span aria-hidden="true">🤫</span> Talk Less</h3>
+                <p>One of the most powerful PDA strategies is simply using fewer words. Every word is a potential demand. Especially when they're dysregulated, more words can feel overwhelming or even threatening.</p>
+
+                <h4>The Basics</h4>
+                <ul>
+                  <li>Cut your sentences in half, then half again</li>
+                  <li>State facts, don't explain reasoning</li>
+                  <li>Avoid "why" explanations—they feel like lectures</li>
+                  <li>One instruction at a time</li>
+                  <li>Wait longer than feels comfortable for responses</li>
+                </ul>
+
+                <h4>Instead Of → Try</h4>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Please put your plate in the sink because we need to keep the kitchen clean and bugs will come if we leave food out"</div>
+                  <div class="tool-example-after">→ "Plate. Sink."</div>
+                </div>
+                <div class="tool-example">
+                  <div class="tool-example-before">"We need to leave in 10 minutes so you should probably start getting your shoes on now"</div>
+                  <div class="tool-example-after">→ "Shoes are by the door." (then walk away)</div>
+                </div>
+                <div class="tool-example">
+                  <div class="tool-example-before">"I know you're upset but you can't hit me because that hurts and it's not okay"</div>
+                  <div class="tool-example-after">→ "Ouch." (then create distance)</div>
+                </div>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "Questions are demands and explanations can feel like pressure. I can see it in her—she responds as if I've been lecturing her when I explain too much."</p>
+                </div>
+              </div>
+
+              <!-- Declarative -->
+              <div id="tool-declarative" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-declarative">
+                <h3><span aria-hidden="true">💬</span> Declarative Language</h3>
+                <p>Declarative language states observations or facts without demanding action. It removes the pressure of questions and commands while still communicating.</p>
+
+                <h4>Commands → Observations</h4>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Put on your shoes"</div>
+                  <div class="tool-example-after">→ "Your shoes are by the door"</div>
+                </div>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Eat your dinner"</div>
+                  <div class="tool-example-after">→ "Dinner's on the table"</div>
+                </div>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Stop hitting"</div>
+                  <div class="tool-example-after">→ "Bodies stay safe"</div>
+                </div>
+
+                <h4>Questions → Statements</h4>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Did you finish your work?"</div>
+                  <div class="tool-example-after">→ "I see some papers on your desk"</div>
+                </div>
+                <div class="tool-example">
+                  <div class="tool-example-before">"Are you hungry?"</div>
+                  <div class="tool-example-after">→ "There's a snack in the kitchen"</div>
+                </div>
+              </div>
+
+              <!-- Decompression -->
+              <div id="tool-decompression" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-decompression">
+                <h3><span aria-hidden="true">🏠</span> After-School Decompression</h3>
+                <p>After holding it together all day at school, PDA kids need time to decompress. This isn't being lazy—it's nervous system recovery. Fighting it makes everything worse.</p>
+
+                <h4>What Works (from parents)</h4>
+                <ul>
+                  <li>Create a "sensory deprivation chamber" with couch cushions, headphones, tablet</li>
+                  <li>Don't talk to them when they first get home—just exist nearby</li>
+                  <li>Slide food in like "feeding a wild animal"</li>
+                  <li>Screen time IS regulation for many PDA kids—lean into it</li>
+                  <li>No questions about school until they bring it up (maybe never)</li>
+                </ul>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "Now I know that when she comes home, I just need to not interact with her. I create a sensory deprivation chamber with couch cushions, put her headphones in there with her tablet, and sometimes slide food in."</p>
+                </div>
+              </div>
+
+              <!-- Strewing -->
+              <div id="tool-strewing" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-strewing">
+                <h3><span aria-hidden="true">🌱</span> Strewing</h3>
+                <p>Strewing is placing things in their environment without directing attention to them. Let them "discover" it themselves. This works for food, activities, information—anything.</p>
+
+                <h4>How It Works</h4>
+                <ul>
+                  <li>Put the thing where they'll find it</li>
+                  <li>Walk away</li>
+                  <li>Say nothing</li>
+                  <li>Let them decide if/when to engage</li>
+                  <li>Never mention you put it there</li>
+                </ul>
+
+                <h4>Examples</h4>
+                <div class="tool-example">
+                  <p><strong>Food:</strong> Make their preferred snack, leave it on the counter, walk away. Don't say "I made you a snack."</p>
+                </div>
+                <div class="tool-example">
+                  <p><strong>Learning:</strong> Leave an interesting book open to an engaging page on the couch.</p>
+                </div>
+                <div class="tool-example">
+                  <p><strong>Hygiene:</strong> Put toothbrush with toothpaste already on it by the sink.</p>
+                </div>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "If I say 'here's this thing,' he doesn't want it. But if I make it and put it in front of him and walk away and don't say anything, he'll find it on his own and decide to eat it when he's ready."</p>
+                </div>
+              </div>
+
+              <!-- Tiny Autonomy -->
+              <div id="tool-autonomy" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-autonomy">
+                <h3><span aria-hidden="true">🎯</span> Tiny Autonomy</h3>
+                <p>PDA kids need to feel in control. Sometimes the smallest amount of control is enough to shift the dynamic completely.</p>
+
+                <h4>The "6 Minutes Early" Trick</h4>
+                <div class="tool-example">
+                  <p><strong>Situation:</strong> "Please pick me up early" every single day.<br>
+                  <strong>Parent assumption:</strong> She wants to leave at lunch like last year.<br>
+                  <strong>Reality check:</strong> "I can pick you up 6 minutes early."<br>
+                  <strong>Kid's response:</strong> "Okay."<br>
+                  <strong>Result:</strong> Problem solved. She just needed to feel she had a choice.</p>
+                </div>
+
+                <h4>More Tiny Autonomy Ideas</h4>
+                <ul>
+                  <li>"Do you want to walk or skip to the car?"</li>
+                  <li>"Red cup or blue cup?"</li>
+                  <li>"Which route should we take home?"</li>
+                  <li>"What order do you want to do these things?"</li>
+                  <li>Let them set the timer for how long until transition</li>
+                </ul>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Key insight:</strong> The amount of control doesn't have to be big—it just has to exist. 6 minutes of control over pickup time was enough to completely change the daily dynamic.</p>
+                </div>
+              </div>
+
+              <!-- Screens -->
+              <div id="tool-screens" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-screens">
+                <h3><span aria-hidden="true">🎮</span> Screens & Gaming</h3>
+                <p>Reframing how we think about screen time:</p>
+
+                <h4>The Reframe</h4>
+                <p><strong>"Screen time IS regulation"</strong> — not "rotting their brain." For many PDA kids, screens provide predictable, controllable, low-demand engagement that helps regulate their nervous system.</p>
+
+                <h4>Safety Tools</h4>
+                <ul>
+                  <li>Family Safety app for monitoring</li>
+                  <li>YouTube Kids with approved videos only</li>
+                  <li>Roblox parental controls</li>
+                </ul>
+
+                <h4>Roblox/Minecraft as Real Skills</h4>
+                <ul>
+                  <li>Roblox Studio: Kids can create and even monetize games</li>
+                  <li>Video creation and editing</li>
+                  <li>Pixel art and design</li>
+                  <li>Social connection in a controlled environment</li>
+                </ul>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "We don't have a support system. Screens ARE our support system. My husband and I play Stardew Valley together—it's the only 'us time' we get."</p>
+                </div>
+              </div>
+
+              <!-- Feeding -->
+              <div id="tool-feeding" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-feeding">
+                <h3><span aria-hidden="true">🍽️</span> Feeding & ARFID</h3>
+                <p>ARFID (Avoidant/Restrictive Food Intake Disorder) is common alongside PDA. Here's what helps:</p>
+
+                <h4>Reframe Expectations</h4>
+                <ul>
+                  <li>3-5 safe foods is common, not unusual</li>
+                  <li>Therapeutic goal: "Just eating more of what they already eat"</li>
+                  <li>Any calories are good calories</li>
+                </ul>
+
+                <h4>Practical Strategies</h4>
+                <ul>
+                  <li><strong>Snack drawer:</strong> 3-drawer plastic thing they can access anytime</li>
+                  <li><strong>Strewing food:</strong> Make it, leave it, walk away—don't announce it</li>
+                  <li><strong>Skip "meals":</strong> Grazing throughout the day is fine</li>
+                  <li><strong>Liquid calories:</strong> Smoothies, protein shakes, milk</li>
+                  <li><strong>Carbonation:</strong> Can help with fullness tolerance</li>
+                </ul>
+
+                <h4>The Control Piece</h4>
+                <p>If YOU give them food, they don't want it. If they "discover" it, they might eat it. The demand of receiving food from a parent can trigger avoidance.</p>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "I was organic-only mom... now McDonald's is fine. Any calories are good calories."</p>
+                </div>
+              </div>
+
+              <!-- What Doesn't Work -->
+              <div id="tool-doesnt-work" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-doesnt-work">
+                <h3><span aria-hidden="true">🚫</span> What Doesn't Work</h3>
+                <p>Save yourself years of trial and error. Many PDA families report that these approaches typically backfire:</p>
+                <p style="font-size: 0.85rem; color: var(--bark); font-style: italic;">Note: Some families report different experiences; this reflects our community's general consensus.</p>
+
+                <h4>Behavioral Approaches That Backfire</h4>
+                <ul>
+                  <li>Sticker charts and reward systems</li>
+                  <li>ABA (Applied Behavior Analysis) and other compliance-based behavioral interventions</li>
+                  <li>Consequences and punishments</li>
+                  <li>"Teaching obedience" or compliance training</li>
+                  <li>Time-outs</li>
+                </ul>
+
+                <h4>Communication That Backfires</h4>
+                <ul>
+                  <li>Explaining "why" (feels like a lecture)</li>
+                  <li>Asking questions (questions are demands)</li>
+                  <li>Gentle parenting scripts that still contain demands</li>
+                  <li>Vague language like "in a few minutes"</li>
+                </ul>
+
+                <h4>School Environments That Often Struggle</h4>
+                <ul>
+                  <li>Waldorf schools (too many hidden demands)</li>
+                  <li>IB or language immersion programs (high demand load)</li>
+                  <li>Large, rigid classroom settings</li>
+                </ul>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "Many years of sticker charts that were a terrible idea."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== JOIN ==================== -->
+    <div id="page-join" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-narrow" style="max-width: 650px;">
+          <div class="section-header animate-on-scroll">
+            <h2>Join & Connect</h2>
+            <p>Low-friction ways to stay in the loop.</p>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+              <span aria-hidden="true">📧</span> Email List
+            </h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+              Get meetup reminders, location details, and occasional updates. 1-2 emails per month max. Unsubscribe anytime.
+            </p>
+            <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Join Email List →
+            </a>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+              <span aria-hidden="true">💬</span> Private Chat
+            </h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+              Connect with other parents between meetups. Ask questions, vent, share wins.
+            </p>
+            <div class="chat-norms">
+              <div class="chat-norms-title">Chat Norms:</div>
+              <ul>
+                <li>Confidentiality applies here too</li>
+                <li>No unsolicited advice—ask first</li>
+                <li>Be kind; we're all struggling</li>
+                <li>No child names or identifying details</li>
+              </ul>
+            </div>
+            <a href="mailto:eugenePDAparents@gmail.com?subject=Chat%20Access%20Request" class="btn btn-secondary">
+              Request Chat Access →
+            </a>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+              <span aria-hidden="true">✉️</span> Contact Us
+            </h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+              Questions? Suggestions? Want to help?
+            </p>
+            <a href="mailto:eugenePDAparents@gmail.com" class="btn btn-primary">
+              Email Us →
+            </a>
+          </div>
+
+          <div class="card animate-on-scroll" style="background: var(--cream-dark);">
+            <h3 style="margin-bottom: var(--space-sm);">💡 Suggest a Meetup Topic</h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
+              What would be helpful to discuss? Some ideas from past meetups:
+            </p>
+            <div class="topic-pills">
+              <span class="topic-pill">IEP vs 504</span>
+              <span class="topic-pill">In-laws & holidays</span>
+              <span class="topic-pill">Sibling trauma</span>
+              <span class="topic-pill">Parent self-care</span>
+              <span class="topic-pill">Teen independence</span>
+              <span class="topic-pill">School refusal</span>
+              <span class="topic-pill">Medication</span>
+              <span class="topic-pill">ARFID/feeding</span>
+            </div>
+            <a href="mailto:eugenePDAparents@gmail.com?subject=Topic%20Suggestion" class="btn btn-primary mt-lg">
+              Suggest a Topic →
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== DONATE (hidden page) ==================== -->
+    <div id="page-donate" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="section-narrow text-center" style="max-width: 550px;">
+          <div class="section-header animate-on-scroll">
+            <h2>Support the Space</h2>
+            <p>Help keep our meetups going.</p>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll">
+            <div style="font-size: 3rem; margin-bottom: var(--space-sm);" aria-hidden="true">💛</div>
+            <h3 style="margin-bottom: var(--space-md);">Room Cost: ~$50 per meetup</h3>
+            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+              We rent a room for about $25/hour. A typical meetup runs 2 hours. Your contribution helps cover this cost and keeps the space available for everyone.
+            </p>
+            <a href="https://account.venmo.com/u/Peter-Hollens" target="_blank" rel="noopener noreferrer" class="btn btn-warm" style="width: 100%; justify-content: center;">
+              Donate via Venmo
+              <span class="sr-only">(opens in new tab)</span>
+            </a>
+            <p style="color: var(--bark); font-size: 0.85rem; margin-top: var(--space-sm);">@Peter-Hollens on Venmo</p>
+          </div>
+
+          <div class="card mb-lg animate-on-scroll" style="background: var(--cream-dark); text-align: left;">
+            <h3 style="margin-bottom: var(--space-sm);">Other Ways to Help</h3>
+            <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+              <li>Sponsor a month ($50-100)</li>
+              <li>Bring snacks to a meetup</li>
+              <li>Help with the website</li>
+              <li>Contribute to the resource list</li>
+              <li>Spread the word to other PDA parents</li>
+            </ul>
+          </div>
+
+          <div class="card animate-on-scroll" style="border: 1px solid var(--linen);">
+            <p style="font-style: italic; font-size: 1.1rem; color: var(--ink);">
+              "If money is tight, your presence is enough."
+            </p>
+            <p style="color: var(--bark); font-size: 0.9rem; margin-top: var(--space-xs); margin-bottom: 0;">
+              No one will ever be turned away for inability to donate.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="logo-main.png" alt="PDA Parents of Eugene">
+        </div>
+        <p>A peer support community.<br>Not medical or legal advice.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Privacy</h4>
+        <p>We respect your privacy. Email list uses BCC. No analytics or ad tracking.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Crisis Resources</h4>
+        <p>
+          <strong>988</strong> Suicide & Crisis Lifeline<br>
+          <strong>541-682-1001</strong> Lane County Crisis
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Made with care by Eugene PDA parents, for Eugene PDA parents
+      <div class="footer-disclaimer">
+        Eugene-based parent community. Not affiliated with pdaparents.com.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========================================
+    // PAGE NAVIGATION
+    // ========================================
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const page = document.getElementById('page-' + pageId);
+      if (page) page.classList.add('active');
+
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.remove('active');
+        if (l.dataset.page === pageId) l.classList.add('active');
+      });
+
+      closeMobileMenu();
+      window.scrollTo({ top: 0 });
+      setTimeout(initScrollAnimations, 100);
+
+      // Focus management for accessibility
+      setTimeout(() => {
+        const heading = page?.querySelector('h1, h2');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus();
+          heading.removeAttribute('tabindex');
+        }
+      }, 150);
+    }
+
+    // ========================================
+    // THEME
+    // ========================================
+
+    function setTheme(isDark) {
+      if (isDark) {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').textContent = '☀️';
+      } else {
+        document.body.removeAttribute('data-theme');
+        document.getElementById('theme-icon').textContent = '🌙';
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.hasAttribute('data-theme');
+      const newTheme = !isDark;
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        setTheme(saved === 'dark');
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme(true);
+      }
+    }
+
+    initTheme();
+
+    // ========================================
+    // MOBILE MENU
+    // ========================================
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.mobile-menu-btn');
+      const icon = document.getElementById('menu-icon');
+      const isOpen = menu.classList.toggle('active');
+      btn.setAttribute('aria-expanded', isOpen);
+      icon.textContent = isOpen ? '✕' : '☰';
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+      document.getElementById('menu-icon').textContent = '☰';
+    }
+
+    // ========================================
+    // SCROLL EFFECTS
+    // ========================================
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.animate-on-scroll, .stagger').forEach(el => {
+        el.classList.remove('visible');
+        observer.observe(el);
+      });
+    }
+
+    // ========================================
+    // TABS (Resources)
+    // ========================================
+
+    function showResourceTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tabs .tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById('tab-' + tabId).classList.add('active');
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+
+    // ========================================
+    // TOOLS NAV
+    // ========================================
+
+    document.querySelectorAll('.tool-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const toolId = btn.dataset.tool;
+        document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tool-nav-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        document.getElementById('tool-' + toolId).classList.add('active');
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      });
+    });
+
+    // ========================================
+    // MEETUP DATES
+    // ========================================
+
+    function getSecondSaturday(year, month) {
+      let d = new Date(year, month, 1), count = 0;
+      while (count < 2) {
+        if (d.getDay() === 6) { count++; if (count < 2) d.setDate(d.getDate() + 1); }
+        else d.setDate(d.getDate() + 1);
+      }
+      return d;
+    }
+
+    function getNextMeetup() {
+      const today = new Date(); today.setHours(0,0,0,0);
+      let y = today.getFullYear(), m = today.getMonth();
+      let meetup = getSecondSaturday(y, m);
+      if (meetup < today) { m++; if (m > 11) { m = 0; y++; } meetup = getSecondSaturday(y, m); }
+      return meetup;
+    }
+
+    function updateMeetupDisplay() {
+      const m = getNextMeetup();
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const fullMonths = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const day = m.getDate();
+      const suffix = (day === 1 || day === 21 || day === 31) ? 'st' : (day === 2 || day === 22) ? 'nd' : (day === 3 || day === 23) ? 'rd' : 'th';
+
+      document.getElementById('meetup-day').textContent = day;
+      document.getElementById('meetup-month').textContent = months[m.getMonth()];
+      document.getElementById('meetup-title').textContent = `Saturday, ${fullMonths[m.getMonth()]} ${day}${suffix}`;
+    }
+
+    function generateUpcomingEvents() {
+      const container = document.getElementById('upcoming-events');
+      if (!container) return;
+
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const fullMonths = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const today = new Date(); today.setHours(0,0,0,0);
+      let events = [], y = today.getFullYear(), m = today.getMonth();
+
+      while (events.length < 3) {
+        const meetup = getSecondSaturday(y, m);
+        if (meetup >= today) events.push(meetup);
+        m++; if (m > 11) { m = 0; y++; }
+      }
+
+      container.innerHTML = events.map((d, i) => {
+        const day = d.getDate();
+        const suffix = (day === 1 || day === 21 || day === 31) ? 'st' : (day === 2 || day === 22) ? 'nd' : (day === 3 || day === 23) ? 'rd' : 'th';
+        const isNext = i === 0;
+        return `
+          <div class="card event-card${isNext ? ' event-next' : ''}">
+            <div class="event-date">
+              <div class="event-date-day">${day}</div>
+              <div class="event-date-month">${months[d.getMonth()]}</div>
+            </div>
+            <div>
+              ${isNext ? '<span class="event-badge">Next Meetup</span>' : ''}
+              <div class="event-title">Monthly Coffee Meetup</div>
+              <div class="event-time">Saturday, ${fullMonths[d.getMonth()]} ${day}${suffix} · 10:00 AM PT</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ========================================
+    // INIT
+    // ========================================
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateMeetupDisplay();
+      generateUpcomingEvents();
+      initScrollAnimations();
+
+      document.querySelectorAll('[data-page]').forEach(el => {
+        el.addEventListener('click', () => {
+          if (el.dataset.page) showPage(el.dataset.page);
+        });
+      });
+
+      // External links SR text
+      document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        if (!link.querySelector('.sr-only')) {
+          const sr = document.createElement('span');
+          sr.className = 'sr-only';
+          sr.textContent = ' (opens in new tab)';
+          link.appendChild(sr);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
