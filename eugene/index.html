@@ -49,7 +49,7 @@
       --peach-light: #FAE0C8;
 
       /* Warm neutrals */
-      --bark: #5C4A42;
+      --bark: #4D3D36;
       --charcoal: #4A3F3A;
       --ink: #2D2420;
 
@@ -1283,6 +1283,20 @@
     .mb-lg { margin-bottom: var(--space-lg); }
     .mt-lg { margin-top: var(--space-lg); }
     .text-center { text-align: center; }
+    .pt-page { padding-top: 140px; }
+    .max-w-narrow { max-width: 800px; margin-left: auto; margin-right: auto; }
+    .max-w-form { max-width: 650px; margin-left: auto; margin-right: auto; }
+    .max-w-small { max-width: 550px; margin-left: auto; margin-right: auto; }
+    .max-w-medium { max-width: 900px; margin-left: auto; margin-right: auto; }
+    .flex-center { display: flex; align-items: center; gap: var(--space-xs); }
+    .text-charcoal { color: var(--charcoal); }
+    .text-ink { color: var(--ink); }
+    .text-bark { color: var(--bark); }
+    .text-italic { font-style: italic; }
+    .font-sm { font-size: 0.9rem; }
+    .font-xs { font-size: 0.85rem; }
+    .bg-cream-dark { background: var(--cream-dark); }
+    .btn-full { width: 100%; justify-content: center; }
 
     /* External links */
     a[target="_blank"]::after {
@@ -1365,7 +1379,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <button class="nav-logo" onclick="showPage('home')" aria-label="Go to home page">
-        <img src="logo-main.png" alt="PDA Parents of Eugene">
+        <img src="logo-main.png" alt="">
       </button>
 
       <div class="nav-links">
@@ -1533,7 +1547,7 @@
       </section>
 
       <section class="section section-alt">
-        <div class="section-inner text-center animate-on-scroll" style="max-width: 500px;">
+        <div class="section-inner text-center animate-on-scroll max-w-small">
           <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
             Room cost is ~$50 per meetup. If you'd like to pitch in, thank you.
             If not, truly no pressure—your presence is enough.
@@ -1548,7 +1562,7 @@
 
     <!-- ==================== START HERE ==================== -->
     <div id="page-start-here" class="page">
-      <section class="section" style="padding-top: 140px;">
+      <section class="section pt-page">
         <div class="section-narrow">
           <div class="section-header animate-on-scroll">
             <h2>Start Here</h2>
@@ -1665,7 +1679,7 @@
 
     <!-- ==================== EVENTS ==================== -->
     <div id="page-events" class="page">
-      <section class="section" style="padding-top: 140px;">
+      <section class="section pt-page">
         <div class="section-narrow">
           <div class="section-header animate-on-scroll">
             <h2>Events & Meetups</h2>
@@ -1717,8 +1731,8 @@
 
     <!-- ==================== RESOURCES ==================== -->
     <div id="page-resources" class="page">
-      <section class="section" style="padding-top: 140px;">
-        <div class="section-inner" style="max-width: 900px;">
+      <section class="section pt-page">
+        <div class="section-inner max-w-medium">
           <div class="section-header animate-on-scroll">
             <h2>Resources</h2>
             <p>Community-shared resources. Not endorsements—verify fit for your family.</p>
@@ -1951,7 +1965,7 @@
 
     <!-- ==================== SERVICES ==================== -->
     <div id="page-services" class="page">
-      <section class="section" style="padding-top: 140px;">
+      <section class="section pt-page">
         <div class="section-narrow">
           <div class="section-header animate-on-scroll">
             <h2>Services & Paperwork</h2>
@@ -2110,7 +2124,7 @@
 
     <!-- ==================== TOOLS ==================== -->
     <div id="page-tools" class="page">
-      <section class="section" style="padding-top: 140px;">
+      <section class="section pt-page">
         <div class="section-inner">
           <div class="section-header animate-on-scroll">
             <h2>Practical Tools</h2>
@@ -2373,8 +2387,8 @@
 
     <!-- ==================== JOIN ==================== -->
     <div id="page-join" class="page">
-      <section class="section" style="padding-top: 140px;">
-        <div class="section-narrow" style="max-width: 650px;">
+      <section class="section pt-page">
+        <div class="section-narrow max-w-form">
           <div class="section-header animate-on-scroll">
             <h2>Join & Connect</h2>
             <p>Low-friction ways to stay in the loop.</p>
@@ -2387,7 +2401,7 @@
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
               Get meetup reminders, location details, and occasional updates. 1-2 emails per month max. Unsubscribe anytime.
             </p>
-            <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary btn-full">
               Join Email List →
             </a>
           </div>
@@ -2450,8 +2464,8 @@
 
     <!-- ==================== DONATE (hidden page) ==================== -->
     <div id="page-donate" class="page">
-      <section class="section" style="padding-top: 140px;">
-        <div class="section-narrow text-center" style="max-width: 550px;">
+      <section class="section pt-page">
+        <div class="section-narrow text-center max-w-small">
           <div class="section-header animate-on-scroll">
             <h2>Support the Space</h2>
             <p>Help keep our meetups going.</p>
@@ -2463,7 +2477,7 @@
             <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
               We rent a room for about $25/hour. A typical meetup runs 2 hours. Your contribution helps cover this cost and keeps the space available for everyone.
             </p>
-            <a href="https://account.venmo.com/u/Peter-Hollens" target="_blank" rel="noopener noreferrer" class="btn btn-warm" style="width: 100%; justify-content: center;">
+            <a href="https://account.venmo.com/u/Peter-Hollens" target="_blank" rel="noopener noreferrer" class="btn btn-warm btn-full">
               Donate via Venmo
               <span class="sr-only">(opens in new tab)</span>
             </a>
@@ -2500,7 +2514,7 @@
     <div class="footer-inner">
       <div class="footer-section">
         <div class="footer-logo">
-          <img src="logo-main.png" alt="PDA Parents of Eugene">
+          <img src="logo-main.png" alt="" aria-hidden="true">
         </div>
         <p>A peer support community.<br>Not medical or legal advice.</p>
       </div>
@@ -2600,12 +2614,48 @@
       const isOpen = menu.classList.toggle('active');
       btn.setAttribute('aria-expanded', isOpen);
       icon.textContent = isOpen ? '✕' : '☰';
+
+      if (isOpen) {
+        // Focus first menu item
+        const firstLink = menu.querySelector('.nav-link');
+        if (firstLink) firstLink.focus();
+        // Add focus trap
+        document.addEventListener('keydown', trapFocus);
+      } else {
+        document.removeEventListener('keydown', trapFocus);
+      }
+    }
+
+    function trapFocus(e) {
+      const menu = document.getElementById('mobileMenu');
+      if (!menu.classList.contains('active')) return;
+
+      const focusable = menu.querySelectorAll('.nav-link');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        document.querySelector('.mobile-menu-btn').focus();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
 
     function closeMobileMenu() {
       document.getElementById('mobileMenu').classList.remove('active');
       document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
       document.getElementById('menu-icon').textContent = '☰';
+      document.removeEventListener('keydown', trapFocus);
     }
 
     // ========================================
@@ -2717,14 +2767,14 @@
         const isNext = i === 0;
         return `
           <div class="card event-card${isNext ? ' event-next' : ''}">
-            <div class="event-date">
+            <div class="event-date" aria-hidden="true">
               <div class="event-date-day">${day}</div>
               <div class="event-date-month">${months[d.getMonth()]}</div>
             </div>
             <div>
-              ${isNext ? '<span class="event-badge">Next Meetup</span>' : ''}
+              ${isNext ? '<span class="event-badge" aria-label="Next meetup">Next Meetup</span>' : ''}
               <div class="event-title">Monthly Coffee Meetup</div>
-              <div class="event-time">Saturday, ${fullMonths[d.getMonth()]} ${day}${suffix} · 10:00 AM PT</div>
+              <div class="event-time"><span class="sr-only">Date: </span>Saturday, ${fullMonths[d.getMonth()]} ${day}${suffix} · 10:00 AM PT</div>
             </div>
           </div>
         `;
