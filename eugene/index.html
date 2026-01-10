@@ -11,7 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
 
   <!-- Meta -->
   <meta name="description" content="A calm, confidential community for parents raising PDA-profile kids in Eugene, Oregon. Monthly meetups, local resources, and practical tools.">
@@ -579,12 +581,12 @@
 
     .btn-warm {
       background: var(--coral);
-      color: white;
+      color: var(--cream);
     }
 
     .btn-warm:hover {
       background: var(--coral-dark);
-      color: white;
+      color: var(--cream);
       transform: translateY(-1px);
       box-shadow: var(--shadow-md);
     }
@@ -819,7 +821,7 @@
 
     .tab.active {
       background: var(--plum);
-      color: white;
+      color: var(--cream);
       border-color: var(--plum);
     }
 
@@ -850,7 +852,7 @@
 
     .step-number {
       background: var(--plum);
-      color: white;
+      color: var(--cream);
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -968,7 +970,7 @@
 
     .tool-nav-btn.active {
       background: var(--plum);
-      color: white;
+      color: var(--cream);
       border-color: var(--plum);
     }
 
@@ -1301,6 +1303,7 @@
     .mb-xl { margin-bottom: var(--space-xl); }
     .mb-0 { margin-bottom: 0; }
     .m-0 { margin: 0; }
+    .mt-0 { margin-top: 0; }
     .p-md { padding: var(--space-md); }
     .text-plum { color: var(--plum); }
     .text-coral { color: var(--coral); }
@@ -1335,7 +1338,7 @@
     }
 
     .event-date {
-      color: white;
+      color: var(--cream);
       padding: var(--space-sm) var(--space-md);
       border-radius: 12px;
       text-align: center;
@@ -1363,7 +1366,7 @@
     .event-badge {
       display: inline-block;
       background: var(--plum);
-      color: white;
+      color: var(--cream);
       font-size: 0.7rem;
       padding: 2px 8px;
       border-radius: 100px;
@@ -1711,7 +1714,7 @@
           <div id="upcoming-events" class="stagger mb-xl"></div>
 
           <div class="card card-accent mb-lg animate-on-scroll">
-            <h4 style="display: flex; align-items: center; gap: var(--space-xs); margin: 0 0 var(--space-xs);">
+            <h4 class="flex-center mb-xs mt-0">
               <span aria-hidden="true">✨</span> Special Events
             </h4>
             <p style="color: var(--charcoal); font-size: 0.95rem; margin: 0;">
@@ -2055,11 +2058,11 @@
             <h3 class="flex-center mb-md">
               <span aria-hidden="true">🧠</span> Interview Mindset
             </h3>
-            <div style="background: var(--cream); padding: var(--space-md); border-radius: 10px; border: 1px solid var(--linen);">
-              <p style="font-style: italic; color: var(--ink); margin-bottom: var(--space-sm);">
+            <div class="card-inner">
+              <p class="text-italic text-ink mb-sm">
                 "Answer questions as if it were their worst day. Do not try to defend your child. Don't say 'well, they do okay when...' They're doing okay because YOU are putting in all the supports. Answer as if they didn't have your support."
               </p>
-              <p style="color: var(--charcoal); margin: 0;">
+              <p class="text-charcoal m-0">
                 Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
               </p>
             </div>
