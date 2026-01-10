@@ -1603,6 +1603,297 @@
       font-size: 0.9rem;
       color: var(--charcoal);
     }
+
+    /* ========================================
+       SCRIPT LIBRARY
+       ======================================== */
+
+    .scripts-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+    }
+
+    .filter-btn {
+      padding: var(--space-xs) var(--space-md);
+      min-height: 40px;
+      border-radius: 100px;
+      border: 1px solid var(--linen);
+      background: var(--cream);
+      color: var(--charcoal);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .filter-btn:hover { border-color: var(--plum-light); }
+
+    .filter-btn.active {
+      background: var(--plum);
+      color: var(--cream);
+      border-color: var(--plum);
+    }
+
+    .script-category {
+      margin-bottom: var(--space-xl);
+    }
+
+    .script-category-header {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--peach);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .script-card {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 12px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-alt .script-card {
+      background: var(--cream-dark);
+    }
+
+    .script-card h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: var(--space-sm);
+    }
+
+    .script-swaps {
+      margin-bottom: var(--space-sm);
+    }
+
+    .script-swap {
+      display: flex;
+      gap: var(--space-sm);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--linen);
+      font-size: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .script-swap:last-child {
+      border-bottom: none;
+    }
+
+    .script-swap .swap-before {
+      color: var(--bark);
+      text-decoration: line-through;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .script-swap .swap-arrow {
+      color: var(--plum);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .script-swap .swap-after {
+      color: var(--plum);
+      font-weight: 500;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .script-tip {
+      background: var(--peach-light);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-top: var(--space-sm);
+    }
+
+    @media (max-width: 600px) {
+      .script-swap {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+      .script-swap .swap-arrow {
+        align-self: flex-start;
+      }
+    }
+
+    /* ========================================
+       SCHOOL TOOLKIT
+       ======================================== */
+
+    .school-tabs {
+      display: flex;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .school-tab {
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      border-radius: 100px;
+      border: 1px solid var(--linen);
+      background: var(--cream);
+      color: var(--charcoal);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .school-tab:hover { border-color: var(--plum-light); }
+
+    .school-tab.active {
+      background: var(--plum);
+      color: var(--cream);
+      border-color: var(--plum);
+    }
+
+    .school-tab-content { display: none; }
+    .school-tab-content.active { display: block; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--space-lg);
+      font-size: 0.95rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      border-bottom: 1px solid var(--linen);
+    }
+
+    .comparison-table th {
+      background: var(--cream-dark);
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .comparison-table td {
+      color: var(--charcoal);
+    }
+
+    .comparison-table tr:hover td {
+      background: var(--cream-dark);
+    }
+
+    .accommodation-item {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 10px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-alt .accommodation-item {
+      background: var(--cream-dark);
+    }
+
+    .accommodation-item h4 {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+      font-size: 1rem;
+    }
+
+    .accommodation-item p {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .accommodation-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .accommodation-tag {
+      background: var(--linen);
+      color: var(--bark);
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+    }
+
+    .template-box {
+      background: var(--cream-dark);
+      border: 1px solid var(--linen);
+      border-radius: 10px;
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .template-box h4 {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-sm);
+    }
+
+    .template-content {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 8px;
+      padding: var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    .template-note {
+      font-size: 0.85rem;
+      color: var(--bark);
+      font-style: italic;
+      margin-top: var(--space-sm);
+    }
+
+    .runbook-step {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+      align-items: flex-start;
+    }
+
+    .runbook-number {
+      background: var(--coral);
+      color: var(--cream);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .runbook-content h4 {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .runbook-content p {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
@@ -1622,6 +1913,8 @@
         <button class="nav-link" data-page="resources">Resources</button>
         <button class="nav-link" data-page="services">Services</button>
         <button class="nav-link" data-page="tools">Tools</button>
+        <button class="nav-link" data-page="scripts">Scripts</button>
+        <button class="nav-link" data-page="school">School</button>
         <button class="nav-link" data-page="join">Join</button>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <span id="theme-icon">🌙</span>
@@ -1642,6 +1935,8 @@
     <button class="nav-link" data-page="resources">Resources</button>
     <button class="nav-link" data-page="services">Services</button>
     <button class="nav-link" data-page="tools">Tools</button>
+    <button class="nav-link" data-page="scripts">Scripts</button>
+    <button class="nav-link" data-page="school">School</button>
     <button class="nav-link" data-page="join">Join</button>
     <button class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
   </div>
@@ -2452,6 +2747,10 @@
                   <div class="tool-example-before">"Are you hungry?"</div>
                   <div class="tool-example-after">→ "There's a snack in the kitchen"</div>
                 </div>
+
+                <div class="tool-wisdom">
+                  <p>💡 <strong>Parent wisdom:</strong> "It felt weird at first—like I was talking to myself. But once I stopped asking questions, the arguments stopped too. She actually started doing things when I stopped asking her to."</p>
+                </div>
               </div>
 
               <!-- Decompression -->
@@ -2984,6 +3283,824 @@
       </section>
     </div>
 
+    <!-- ==================== SCRIPT LIBRARY ==================== -->
+    <div id="page-scripts" class="page">
+      <section class="section pt-page">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>Script Library</h2>
+            <p>Copy-paste phrases for everyday PDA moments. Fewer words, less pressure.</p>
+          </div>
+
+          <div class="disclaimer animate-on-scroll">
+            <p><strong>Remember:</strong> These are starting points, not magic words. Delivery matters—calm voice, then walk away. What works today may not work tomorrow. Adapt freely.</p>
+          </div>
+
+          <div class="scripts-filter animate-on-scroll" role="tablist" aria-label="Script categories">
+            <button class="filter-btn active" onclick="filterScripts('all', this)">All</button>
+            <button class="filter-btn" onclick="filterScripts('morning', this)">Morning</button>
+            <button class="filter-btn" onclick="filterScripts('transitions', this)">Transitions</button>
+            <button class="filter-btn" onclick="filterScripts('school', this)">School</button>
+            <button class="filter-btn" onclick="filterScripts('quick', this)">Quick Wins</button>
+          </div>
+
+          <!-- MORNING & GETTING OUT -->
+          <div class="script-category" data-category="morning">
+            <h3 class="script-category-header"><span aria-hidden="true">🌅</span> Morning & Getting Out</h3>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Won't wake up / get out of bed</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Wake up! You need to get up now!"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Light's coming on in 2 minutes."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Come on, get up, we're going to be late"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Breakfast is ready when you are."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Open curtains, leave the room. Let natural light and hunger do the work.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Won't get dressed</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Get dressed now, we're running late"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Clothes are on the bed."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Why aren't you dressed yet?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm getting dressed in my room."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"You can't wear that, put on something else"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"It's cold today. Jacket's by the door."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Lay out clothes the night before. Accept "good enough" clothing choices.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Won't eat breakfast</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"You need to eat something before school"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"There's toast on the counter."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Sit down and eat your breakfast"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Grab-and-go option in the car if you want."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Strewing works for food too—make it, leave it, say nothing.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Won't leave the house</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"We need to go NOW"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm heading to the car."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Hurry up, let's go!"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Car's leaving in 3 minutes."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Why do we go through this every day?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'll be outside."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 State what YOU will do, then actually do it. Remove yourself as the pressure source.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Won't get in the car</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Get in the car right now"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm starting the car. Music's ready."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"We're going to be late because of you"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Door's open when you're ready."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Let them choose their seat, control the music, have a comfort item. Tiny autonomy helps.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Running late / time pressure</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"We're late! Hurry up!"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">(Stay calm. Say less. They feel your stress.)</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"If you'd gotten up when I asked..."</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"We're leaving now. Shoes can go on in the car."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Build in buffer time. Being late is better than a morning meltdown that ruins the whole day.</div>
+            </div>
+          </div>
+
+          <!-- TRANSITIONS -->
+          <div class="script-category" data-category="transitions">
+            <h3 class="script-category-header"><span aria-hidden="true">🔄</span> Transitions</h3>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Ending screen time</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Turn it off now, time's up"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Screens off in 5. What's a good stopping point?"</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"I'm taking the iPad"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Let me know when you've saved your game."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"You've been on that thing all day"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Dinner's ready. Device stays here."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Give them control of the stopping point within your timeframe. Never yank the device.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Activity changes</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Stop what you're doing, we need to..."</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"In 10 minutes, we're switching to..."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Come here right now"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'll be in the kitchen when you're ready."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Countdown warnings help—but vague time ("soon") feels more threatening than specific ("7 minutes").</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Coming inside</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Time to come in!"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Door's open. Snack on the counter."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Get inside right now"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm going in. Join me when you're ready."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Make inside more appealing than demanding they leave outside.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Leaving fun places</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"We're leaving in 5 minutes whether you like it or not"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"5 more minutes. What's one last thing you want to do?"</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Time to go, say goodbye"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm walking to the car. See you there."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Let them have the "last" thing. It gives closure and control.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Unexpected changes</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Change of plans, we're doing X instead"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Something changed. Here's what's happening now: [brief facts]"</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"I know you wanted to, but..."</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"This is hard. The new plan is [X]. What would help?"</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Acknowledge the disappointment briefly, state facts, offer one choice within the new reality.</div>
+            </div>
+          </div>
+
+          <!-- SCHOOL MOMENTS -->
+          <div class="script-category" data-category="school">
+            <h3 class="script-category-header"><span aria-hidden="true">🏫</span> School Moments</h3>
+
+            <div class="script-card animate-on-scroll">
+              <h4>School morning stress</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"You have to go to school"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"School today. What do you need to get through it?"</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Everyone else goes to school"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I know it's hard. I'll be here at pickup."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Focus on "getting through" rather than "being happy about it." Validate the difficulty.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Pickup meltdowns</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"How was school? What happened?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">(Silence. Just drive. Snack available.)</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Why are you upset? What's wrong?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm here." (Then nothing else.)</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 After-school restraint collapse is real. They held it together all day. Zero demands for at least 30 minutes.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Homework mentions</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Did you do your homework?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Homework stuff is on the table if you need it."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"You need to finish your homework before..."</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">(Consider: Is homework worth the battle? Email the teacher.)</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Many PDA families eliminate homework entirely. School is enough demand. Ask your teacher about alternatives.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>"How was school?"</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"How was school? What did you learn?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">(Don't ask. If they want to tell you, they will.)</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Did you have a good day?"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm glad you're home."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Questions are demands. "How was school?" feels like an interrogation after a hard day.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>School refusal starting</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"You HAVE to go to school"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Something about school feels really hard right now."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"What's wrong with you? Everyone goes to school"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Let's figure out what part feels impossible."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 School refusal is a symptom, not defiance. See our <a href="#" onclick="showPage('school'); return false;">School Toolkit</a> for next steps.</div>
+            </div>
+          </div>
+
+          <!-- QUICK WINS -->
+          <div class="script-category" data-category="quick">
+            <h3 class="script-category-header"><span aria-hidden="true">⚡</span> Quick Wins</h3>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Hygiene refusal (teeth, bath, etc.)</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Go brush your teeth"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Toothbrush is ready." (Toothpaste already on it.)</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"You need to take a bath"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Bath's running. Bubbles are in."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Reduce steps. Toothpaste on brush. Clothes laid out. Water already running. Each step is a demand.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Mealtime basics</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Come eat dinner"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Food's on the table."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Sit down and eat"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Plate's here when you're hungry."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"You need to try one bite"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Safe foods are here. New thing is just visiting the plate."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 See our <a href="#" onclick="showPage('tools'); showTool('feeding'); return false;">Feeding & ARFID</a> section for more strategies.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Bedtime start</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Time for bed, let's go"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"Bedtime routine starting in 10. What do you want to do first?"</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Go to bed right now"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm heading to read in your room. Join me if you want."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Give choice within structure. "Teeth or PJs first?" Both happen, but they chose the order.</div>
+            </div>
+
+            <div class="script-card animate-on-scroll">
+              <h4>Public meltdown</h4>
+              <div class="script-swaps">
+                <div class="script-swap">
+                  <span class="swap-before">"Stop it, people are watching"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"We're going somewhere quieter."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"Calm down right now"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"I'm here. We can leave when you're ready."</span>
+                </div>
+                <div class="script-swap">
+                  <span class="swap-before">"If you don't stop, we're never coming back"</span>
+                  <span class="swap-arrow">→</span>
+                  <span class="swap-after">"This is hard. Let's find a quiet spot."</span>
+                </div>
+              </div>
+              <div class="script-tip">💡 Ignore the audience. Prioritize your child's nervous system. You can process with them later—not during.</div>
+            </div>
+          </div>
+
+          <div class="card card-highlight text-center mt-lg animate-on-scroll">
+            <h3 class="mb-sm" style="color: var(--ink);">Need more scripts?</h3>
+            <p style="color: var(--ink); margin-bottom: var(--space-md);">This library is growing. Check our <a href="#" onclick="showPage('tools'); return false;">Tools</a> page for deeper dives on specific strategies.</p>
+            <button class="btn btn-secondary" onclick="showPage('tools')">View All Tools →</button>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== SCHOOL TOOLKIT ==================== -->
+    <div id="page-school" class="page">
+      <section class="section pt-page">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>Oregon School Toolkit</h2>
+            <p>Practical guidance for navigating school with a PDA kid. Not legal advice—parent-to-parent strategies.</p>
+          </div>
+
+          <div class="disclaimer animate-on-scroll">
+            <p><strong>⚠️ Important:</strong> This is parent-shared information, not legal or professional advice. Every school district is different. Always verify current policies with your specific school, and consult with advocates or attorneys when needed. We are NOT school advocates—we're parents sharing what worked for us.</p>
+          </div>
+
+          <div class="school-tabs animate-on-scroll" role="tablist" aria-label="School toolkit sections">
+            <button class="school-tab active" role="tab" aria-selected="true" aria-controls="school-iep" id="school-tab-iep" onclick="showSchoolTab('iep', this)">📋 IEP vs 504</button>
+            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-accommodations" id="school-tab-accommodations" onclick="showSchoolTab('accommodations', this)">🎯 Accommodations</button>
+            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-refusal" id="school-tab-refusal" onclick="showSchoolTab('refusal', this)">🚫 School Refusal</button>
+            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-templates" id="school-tab-templates" onclick="showSchoolTab('templates', this)">📧 Templates</button>
+          </div>
+
+          <!-- IEP vs 504 Tab -->
+          <div id="school-iep" class="school-tab-content active" role="tabpanel" aria-labelledby="school-tab-iep">
+            <h3 class="mb-md">IEP vs 504: Plain-Language Comparison</h3>
+            <p class="text-charcoal mb-lg">Both provide accommodations. The difference is in how they work and what they require.</p>
+
+            <table class="comparison-table animate-on-scroll">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>504 Plan</th>
+                  <th>IEP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>What it is</strong></td>
+                  <td>Accommodation plan</td>
+                  <td>Special education services + accommodations</td>
+                </tr>
+                <tr>
+                  <td><strong>Law</strong></td>
+                  <td>Section 504 (civil rights)</td>
+                  <td>IDEA (special education)</td>
+                </tr>
+                <tr>
+                  <td><strong>Requires</strong></td>
+                  <td>Disability that limits major life activity</td>
+                  <td>Disability + educational impact + need for specialized instruction</td>
+                </tr>
+                <tr>
+                  <td><strong>What you get</strong></td>
+                  <td>Accommodations in regular classroom</td>
+                  <td>Specialized instruction, services, goals, and accommodations</td>
+                </tr>
+                <tr>
+                  <td><strong>Easier to get?</strong></td>
+                  <td>Generally yes</td>
+                  <td>Requires evaluation, more documentation</td>
+                </tr>
+                <tr>
+                  <td><strong>More protection?</strong></td>
+                  <td>Basic protections</td>
+                  <td>Stronger procedural protections</td>
+                </tr>
+                <tr>
+                  <td><strong>Review frequency</strong></td>
+                  <td>Varies (often annual)</td>
+                  <td>Annual (at minimum)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card card-accent animate-on-scroll">
+              <h4 class="mt-0">When to Request What (Oregon)</h4>
+              <p class="text-charcoal mb-sm"><strong>Start with 504</strong> if your child needs accommodations but is keeping up academically and doesn't need specialized instruction.</p>
+              <p class="text-charcoal mb-sm"><strong>Request IEP evaluation</strong> if your child needs specialized teaching methods, has significant academic impact, or needs services beyond accommodations (speech, OT, counseling, etc.).</p>
+              <p class="text-charcoal mb-0"><strong>You can have both:</strong> Some families start with 504, then later request IEP evaluation as needs become clearer.</p>
+            </div>
+
+            <div class="card animate-on-scroll mt-lg">
+              <h4 class="mt-0">Oregon-Specific Terms</h4>
+              <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+                <li><strong>ODE</strong> - Oregon Department of Education</li>
+                <li><strong>ESD</strong> - Education Service District (regional support)</li>
+                <li><strong>Child Find</strong> - School's obligation to identify kids who may need services</li>
+                <li><strong>PWN</strong> - Prior Written Notice (required when school proposes/refuses changes)</li>
+                <li><strong>Manifestation Determination</strong> - Review to determine if behavior was caused by disability (important for discipline)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Accommodations Tab -->
+          <div id="school-accommodations" class="school-tab-content" role="tabpanel" aria-labelledby="school-tab-accommodations">
+            <h3 class="mb-md">Accommodation Bank</h3>
+            <p class="text-charcoal mb-lg">Copy-paste language for your IEP/504 meetings. Organized by need.</p>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">Anxiety & Demand Reduction</h4>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Reduced Homework</h4>
+              <p>"Student will receive modified homework expectations, with homework reduced to [X minutes] or eliminated when school day demands are sufficient."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">anxiety</span>
+                <span class="accommodation-tag">demand-reduction</span>
+                <span class="accommodation-tag">all-ages</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Private Redirection</h4>
+              <p>"All behavior corrections will be delivered privately, not in front of peers. Staff will use proximity and quiet voice rather than calling out across the room."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">anxiety</span>
+                <span class="accommodation-tag">dignity</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Opt-Out from Being Called On</h4>
+              <p>"Student may volunteer answers but will not be cold-called. Teacher will use agreed-upon signal if student wants to participate."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">anxiety</span>
+                <span class="accommodation-tag">autonomy</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Flexible Deadlines</h4>
+              <p>"Student will receive extended time on assignments without penalty. Late work will be accepted and graded on content, not timeliness."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">demand-reduction</span>
+                <span class="accommodation-tag">flexibility</span>
+              </div>
+            </div>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">Transitions & Regulation</h4>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Transition Warnings</h4>
+              <p>"Student will receive 10-minute and 2-minute warnings before any transition. Visual timer will be available for student use."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">transitions</span>
+                <span class="accommodation-tag">predictability</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Break Pass (No Questions Asked)</h4>
+              <p>"Student may leave classroom to designated safe space using break pass without asking permission or providing explanation. Maximum [X] minutes, [X] times per day."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">regulation</span>
+                <span class="accommodation-tag">autonomy</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Safe Person Access</h4>
+              <p>"Student may access [specific staff member] when dysregulated. Staff member will be available during [times] and will provide co-regulation support."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">regulation</span>
+                <span class="accommodation-tag">safety</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Modified Arrival/Dismissal</h4>
+              <p>"Student may arrive [X] minutes early/late to avoid crowded transitions. Dismissal will be [X] minutes before/after general dismissal."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">transitions</span>
+                <span class="accommodation-tag">sensory</span>
+              </div>
+            </div>
+
+            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">Communication & Instruction</h4>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Declarative Language</h4>
+              <p>"Staff will use declarative language (observations, statements) rather than direct commands or questions when possible. Example: 'Math books are coming out' vs. 'Get your math book.'"</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">communication</span>
+                <span class="accommodation-tag">demand-reduction</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Choice Within Structure</h4>
+              <p>"Student will be offered choices within non-negotiable tasks. Example: 'Would you like to start with reading or math?' rather than 'Do your reading now.'"</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">autonomy</span>
+                <span class="accommodation-tag">flexibility</span>
+              </div>
+            </div>
+
+            <div class="accommodation-item animate-on-scroll">
+              <h4>Written Instructions</h4>
+              <p>"Multi-step directions will be provided in writing. Student may refer to written instructions rather than relying on verbal recall."</p>
+              <div class="accommodation-tags">
+                <span class="accommodation-tag">instruction</span>
+                <span class="accommodation-tag">processing</span>
+              </div>
+            </div>
+
+            <div class="card card-highlight mt-lg animate-on-scroll">
+              <p style="color: var(--ink); margin: 0;"><strong>Pro tip:</strong> When writing accommodations, be specific. "Extended time" is vague. "150% of standard time on all assessments" is enforceable.</p>
+            </div>
+          </div>
+
+          <!-- School Refusal Tab -->
+          <div id="school-refusal" class="school-tab-content" role="tabpanel" aria-labelledby="school-tab-refusal">
+            <h3 class="mb-md">School Refusal Runbook</h3>
+            <p class="text-charcoal mb-lg">When they won't go—or can't go—here's a path forward.</p>
+
+            <div class="card card-accent mb-lg animate-on-scroll">
+              <p class="text-charcoal m-0"><strong>First, understand:</strong> School refusal in PDA kids is "can't," not "won't." Their nervous system perceives school as threat. Forcing attendance without addressing the root cause typically makes things worse.</p>
+            </div>
+
+            <h4 class="mb-md">Step-by-Step</h4>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">1</div>
+              <div class="runbook-content">
+                <h4>Stop the Morning Battle (Temporarily)</h4>
+                <p>If mornings are violent or traumatic, pause. One week of calm at home is better than daily damage. This isn't giving up—it's stabilizing before you can problem-solve.</p>
+              </div>
+            </div>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">2</div>
+              <div class="runbook-content">
+                <h4>Document Everything</h4>
+                <p>Start a log: Date, what happened, how long it lasted, what you tried. You'll need this for the school and possibly for medical documentation.</p>
+              </div>
+            </div>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">3</div>
+              <div class="runbook-content">
+                <h4>Get Medical Documentation</h4>
+                <p>See your pediatrician or psychiatrist. Get a letter stating your child has a condition affecting school attendance. This protects you from truancy issues and opens doors for accommodations.</p>
+              </div>
+            </div>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">4</div>
+              <div class="runbook-content">
+                <h4>Contact the School (In Writing)</h4>
+                <p>Email the principal and counselor. State that your child is experiencing anxiety-based school avoidance and request a meeting to discuss accommodations. See our Templates tab for sample language.</p>
+              </div>
+            </div>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">5</div>
+              <div class="runbook-content">
+                <h4>Request Evaluation (If Not Already Done)</h4>
+                <p>If your child doesn't have an IEP, request a special education evaluation in writing. The school has 60 days to complete it in Oregon.</p>
+              </div>
+            </div>
+
+            <div class="runbook-step animate-on-scroll">
+              <div class="runbook-number">6</div>
+              <div class="runbook-content">
+                <h4>Explore Alternatives While Working the Process</h4>
+                <p>Part-time schedule, homebound instruction, online school, homeschool—know your options. Don't wait for the school to suggest them.</p>
+              </div>
+            </div>
+
+            <div class="card mt-lg animate-on-scroll">
+              <h4 class="mt-0">Oregon Alternative Paths</h4>
+              <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+                <li><strong>Homebound Instruction:</strong> School provides tutoring at home. Usually requires medical documentation. Limited hours (often 5/week).</li>
+                <li><strong>Part-Time Enrollment:</strong> Attend for specific classes/times. Negotiate based on what's tolerable.</li>
+                <li><strong>Online Public School:</strong> Oregon Connections Academy, Oregon Virtual Academy, and others. Free, public school at home.</li>
+                <li><strong>Private Online:</strong> CMASAS (flexible, self-paced, coach support). Costs money but highly flexible.</li>
+                <li><strong>Homeschool:</strong> File with your ESD. Most flexible option. Can be very low-demand.</li>
+              </ul>
+            </div>
+
+            <div class="card card-highlight mt-lg animate-on-scroll">
+              <p style="color: var(--ink); margin: 0;"><strong>Key insight:</strong> The goal isn't necessarily returning to full-time traditional school. The goal is finding an educational path that works for your specific child. Sometimes that's accommodations, sometimes it's a different setting entirely.</p>
+            </div>
+          </div>
+
+          <!-- Templates Tab -->
+          <div id="school-templates" class="school-tab-content" role="tabpanel" aria-labelledby="school-tab-templates">
+            <h3 class="mb-md">Communication Templates</h3>
+            <p class="text-charcoal mb-lg">Copy, customize, send. Keep copies of everything.</p>
+
+            <div class="template-box animate-on-scroll">
+              <h4>Initial Accommodation Request</h4>
+              <div class="template-content">Subject: Accommodation Request for [Child's Name]
+
+Dear [Principal/Counselor],
+
+I am writing to formally request a meeting to discuss accommodations for my child, [Name], in [Grade/Class].
+
+[Name] has been diagnosed with [diagnosis] and experiences significant anxiety related to [specific challenges: demands, transitions, sensory overload, etc.]. This is affecting their ability to [attend school / participate fully / complete work / etc.].
+
+I am requesting that we meet to discuss a 504 plan [or IEP evaluation] and specific accommodations that would help [Name] access their education.
+
+I am available [dates/times]. Please confirm receipt of this request and let me know next steps.
+
+Thank you,
+[Your Name]
+[Phone]
+[Email]</div>
+              <p class="template-note">Send via email so you have a written record. Follow up if no response in 5 school days.</p>
+            </div>
+
+            <div class="template-box animate-on-scroll">
+              <h4>Follow-Up When Ignored</h4>
+              <div class="template-content">Subject: Follow-Up: Accommodation Request for [Child's Name] - Second Request
+
+Dear [Principal/Counselor],
+
+I am following up on my email dated [date] regarding accommodations for [Name]. I have not received a response.
+
+As a reminder, I formally requested [a 504 meeting / an IEP evaluation / specific accommodations]. Under [Section 504 / IDEA], the school is required to respond to parent requests within a reasonable timeframe.
+
+Please respond within 5 school days with available meeting times or written explanation of why this request cannot be accommodated.
+
+If I do not hear back, I will contact the district's 504 Coordinator [or Special Education Director] to escalate this request.
+
+Thank you,
+[Your Name]</div>
+              <p class="template-note">CC the district-level coordinator on this email. Keep your tone professional.</p>
+            </div>
+
+            <div class="template-box animate-on-scroll">
+              <h4>Request for IEP Evaluation</h4>
+              <div class="template-content">Subject: Written Request for Special Education Evaluation - [Child's Name]
+
+Dear [Principal and Special Education Coordinator],
+
+I am writing to formally request a comprehensive special education evaluation for my child, [Name], DOB [date], currently in [grade] at [school].
+
+I am concerned that [Name] may have a disability that is affecting their ability to learn and participate in school. Specifically, I have observed:
+
+- [Specific concern 1]
+- [Specific concern 2]
+- [Specific concern 3]
+
+I understand that the school has 60 school days from my written consent to complete this evaluation under Oregon law.
+
+Please send me the consent forms and procedural safeguards information. I look forward to working together to understand [Name]'s needs.
+
+Thank you,
+[Your Name]</div>
+              <p class="template-note">This starts a legal timeline. The school must respond within 10 school days in Oregon.</p>
+            </div>
+
+            <div class="template-box animate-on-scroll">
+              <h4>Incident Documentation</h4>
+              <div class="template-content">Subject: Documentation of Incident - [Child's Name] - [Date]
+
+Dear [Teacher/Principal],
+
+I am writing to document an incident that occurred on [date] involving my child, [Name].
+
+What happened:
+[Factual description of what occurred]
+
+Impact on my child:
+[How this affected your child - emotionally, behaviorally, physically]
+
+My concerns:
+[What you're worried about - pattern, response from staff, etc.]
+
+Requested action:
+[What you want to happen next]
+
+Please respond in writing with how this will be addressed. I am requesting a meeting to discuss [prevention / accommodation adjustments / etc.].
+
+Thank you,
+[Your Name]</div>
+              <p class="template-note">Always document incidents in writing, even if you also discussed verbally.</p>
+            </div>
+
+            <div class="card card-accent mt-lg animate-on-scroll">
+              <h4 class="mt-0">Golden Rules for School Communication</h4>
+              <ul style="padding-left: var(--space-md); color: var(--charcoal); margin-bottom: 0;">
+                <li><strong>Email everything.</strong> Verbal agreements disappear.</li>
+                <li><strong>Keep copies.</strong> Save every email in a folder.</li>
+                <li><strong>Stay professional.</strong> You're building a paper trail.</li>
+                <li><strong>Follow up.</strong> If no response in 5 days, send again.</li>
+                <li><strong>Know your escalation path:</strong> Teacher → Principal → District Coordinator → State complaint</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card text-center mt-lg animate-on-scroll bg-cream-dark">
+            <h3 class="mb-sm">Need More Support?</h3>
+            <p class="text-charcoal mb-md">These are starting points. For complex situations, consider consulting with a special education advocate.</p>
+            <a href="https://www.autismsocietyoregon.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Autism Society of Oregon
+              <span class="sr-only">(opens in new tab)</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <!-- Footer -->
@@ -3189,6 +4306,43 @@
         btn.setAttribute('aria-selected', 'true');
       });
     });
+
+    // ========================================
+    // SCRIPT LIBRARY FILTER
+    // ========================================
+
+    function filterScripts(category, btn) {
+      const categories = document.querySelectorAll('.script-category');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Update active button
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show/hide categories
+      categories.forEach(cat => {
+        if (category === 'all' || cat.dataset.category === category) {
+          cat.style.display = 'block';
+        } else {
+          cat.style.display = 'none';
+        }
+      });
+    }
+
+    // ========================================
+    // SCHOOL TOOLKIT TABS
+    // ========================================
+
+    function showSchoolTab(tabId, btn) {
+      document.querySelectorAll('.school-tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.school-tabs .school-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById('school-' + tabId).classList.add('active');
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
 
     // ========================================
     // MEETUP DATES
