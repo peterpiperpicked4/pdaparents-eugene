@@ -1297,6 +1297,17 @@
     .font-xs { font-size: 0.85rem; }
     .bg-cream-dark { background: var(--cream-dark); }
     .btn-full { width: 100%; justify-content: center; }
+    .mb-xs { margin-bottom: var(--space-xs); }
+    .mb-xl { margin-bottom: var(--space-xl); }
+    .mb-0 { margin-bottom: 0; }
+    .m-0 { margin: 0; }
+    .p-md { padding: var(--space-md); }
+    .text-plum { color: var(--plum); }
+    .text-coral { color: var(--coral); }
+    .font-95 { font-size: 0.95rem; }
+    .fw-600 { font-weight: 600; }
+    .card-inner { background: var(--cream); padding: var(--space-md); border-radius: 10px; border: 1px solid var(--linen); }
+    .border-b-linen { border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); }
 
     /* External links */
     a[target="_blank"]::after {
@@ -1402,7 +1413,7 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button class="nav-link" data-page="home">Home</button>
     <button class="nav-link" data-page="start-here">Start Here</button>
     <button class="nav-link" data-page="events">Events</button>
@@ -1570,16 +1581,16 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+            <h3 class="flex-center mb-md">
               <span aria-hidden="true">🧠</span> What is PDA?
             </h3>
-            <p style="margin-bottom: var(--space-sm);">
+            <p class="mb-sm">
               <strong>PDA (Pathological Demand Avoidance)</strong>—also called <strong>Persistent Drive for Autonomy</strong> by many in the community—is a widely recognized profile that many autistic people and families identify with. It describes an anxiety-driven need to avoid everyday demands and maintain a sense of control.
             </p>
             <p style="font-style: italic; color: var(--bark); margin-bottom: var(--space-md);">
               Note: PDA is not currently a formal DSM diagnosis in the United States, but it's increasingly recognized by clinicians and researchers. Many families find the PDA framework helpful for understanding their child's needs.
             </p>
-            <p style="margin-bottom: var(--space-xs);">Kids who fit the PDA profile often:</p>
+            <p class="mb-xs">Kids who fit the PDA profile often:</p>
             <ul style="padding-left: var(--space-md); color: var(--charcoal);">
               <li>Resist demands in ways that go beyond typical behavior</li>
               <li>Need a high level of control over their environment</li>
@@ -1590,7 +1601,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+            <h3 class="flex-center mb-md">
               <span aria-hidden="true">💬</span> What This Group Is (and Isn't)
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg);">
@@ -1618,7 +1629,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+            <h3 class="flex-center mb-md">
               <span aria-hidden="true">📋</span> Meetup Norms
             </h3>
             <div class="norm-item"><span class="norm-icon" aria-hidden="true">🔒</span><span class="norm-text">Confidentiality: Stories shared stay in the room</span></div>
@@ -1630,28 +1641,28 @@
           </div>
 
           <div class="card card-accent mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+            <h3 class="flex-center mb-sm">
               <span aria-hidden="true">💛</span> A Note on Trauma
             </h3>
-            <p style="color: var(--charcoal);">
+            <p class="text-charcoal">
               Many of us carry deep stress from this journey—PTSD-like symptoms aren't uncommon. Tears happen here. Stepping out is okay. You're not required to share your story or have answers. If you feel overwhelmed, that's valid. We've been there too.
             </p>
           </div>
 
           <div class="card card-highlight mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm); color: var(--ink);">
+            <h3 class="flex-center mb-sm text-ink">
               <span aria-hidden="true">🌱</span> The Long Game: Brain Development Continues
             </h3>
             <p style="color: var(--ink); margin-bottom: var(--space-sm);">
               The prefrontal cortex—the part of the brain responsible for executive function, impulse control, and emotional regulation—isn't fully developed until around age 25. This is why many parents focus on the long-term trajectory, not day-to-day battles.
             </p>
-            <p style="color: var(--ink);">
+            <p class="text-ink">
               Parents of older PDA kids report significant improvements as their children mature. Young adults who couldn't apply for jobs suddenly can. Kids who couldn't tolerate any demands become more flexible. It's not a guarantee, but it's real hope.
             </p>
           </div>
 
-          <div class="card animate-on-scroll" style="background: var(--cream-dark);">
-            <h3 style="margin-bottom: var(--space-md);">✨ New Here? Quick Checklist</h3>
+          <div class="card animate-on-scroll bg-cream-dark">
+            <h3 class="mb-md">✨ New Here? Quick Checklist</h3>
             <button class="quick-link-card mb-sm" onclick="showPage('events')">
               <span class="quick-link-icon" aria-hidden="true">📅</span>
               <span class="quick-link-label">Save the next meetup date</span>
@@ -1686,18 +1697,18 @@
             <p>Second Saturday of each month, plus special sessions as needed.</p>
           </div>
 
-          <div class="card card-highlight mb-lg animate-on-scroll" style="text-align: center;">
+          <div class="card card-highlight mb-lg animate-on-scroll text-center">
             <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);" aria-hidden="true">📅</div>
             <h3 style="color: var(--ink); margin-bottom: var(--space-xs);">Second Saturday of Every Month</h3>
             <p style="color: var(--ink); margin-bottom: 0;">10:00 AM PT · Email for location</p>
           </div>
 
-          <h3 style="margin-bottom: var(--space-md);">Upcoming Dates</h3>
+          <h3 class="mb-md">Upcoming Dates</h3>
           <p style="color: var(--charcoal); margin-bottom: var(--space-md); font-size: 0.95rem;">
             These dates are calculated automatically—no need to check if they're current!
           </p>
 
-          <div id="upcoming-events" class="stagger" style="margin-bottom: var(--space-xl);"></div>
+          <div id="upcoming-events" class="stagger mb-xl"></div>
 
           <div class="card card-accent mb-lg animate-on-scroll">
             <h4 style="display: flex; align-items: center; gap: var(--space-xs); margin: 0 0 var(--space-xs);">
@@ -1709,7 +1720,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="margin-bottom: var(--space-md);">What to Expect at a Meetup</h3>
+            <h3 class="mb-md">What to Expect at a Meetup</h3>
             <div style="color: var(--charcoal); font-size: 0.95rem;">
               <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">🚗 Arrive: Parking available</p>
               <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">☕ Settle in: Grab coffee, find a seat</p>
@@ -1720,8 +1731,8 @@
             </div>
           </div>
 
-          <div class="card text-center animate-on-scroll" style="background: var(--cream-dark);">
-            <h3 style="margin-bottom: var(--space-xs);">Have a Topic in Mind?</h3>
+          <div class="card text-center animate-on-scroll bg-cream-dark">
+            <h3 class="mb-xs">Have a Topic in Mind?</h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">We're collecting topics parents want to discuss.</p>
             <button class="btn btn-primary" onclick="showPage('join')">Suggest a Topic →</button>
           </div>
@@ -1819,8 +1830,8 @@
               <p style="margin-top: var(--space-sm);"><a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer">autismsocietyoregon.org</a></p>
             </div>
 
-            <div class="card text-center mt-lg" style="background: var(--cream-dark);">
-              <h3 style="margin-bottom: var(--space-xs);">Know a Great Resource?</h3>
+            <div class="card text-center mt-lg bg-cream-dark">
+              <h3 class="mb-xs">Know a Great Resource?</h3>
               <p style="color: var(--charcoal); margin-bottom: var(--space-md);">Help other families by adding to our community spreadsheet.</p>
               <a href="https://docs.google.com/spreadsheets/d/1spHdt8caThR5nMhpRGV6gEcA0p7ZoLcJ81n0sa3hKzw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 Add to Spreadsheet
@@ -1977,7 +1988,7 @@
           </div>
 
           <div class="card card-accent mb-lg animate-on-scroll">
-            <p style="color: var(--charcoal);">
+            <p class="text-charcoal">
               Getting services for your child can feel overwhelming. The system is confusing, the paperwork is endless, and the order matters. This page breaks it down based on what parents in our group have learned the hard way.
             </p>
           </div>
@@ -2040,8 +2051,8 @@
             </div>
           </div>
 
-          <div class="card mt-lg mb-lg animate-on-scroll" style="background: var(--cream-dark);">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-md);">
+          <div class="card mt-lg mb-lg animate-on-scroll bg-cream-dark">
+            <h3 class="flex-center mb-md">
               <span aria-hidden="true">🧠</span> Interview Mindset
             </h3>
             <div style="background: var(--cream); padding: var(--space-md); border-radius: 10px; border: 1px solid var(--linen);">
@@ -2055,7 +2066,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="margin-bottom: var(--space-md);">📄 Documents to Have Ready</h3>
+            <h3 class="mb-md">📄 Documents to Have Ready</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-xs);">
               <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Diagnosis documentation</span></div>
               <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Neuropsych evaluation</span></div>
@@ -2069,7 +2080,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="margin-bottom: var(--space-md);">📞 Helpful Scripts</h3>
+            <h3 class="mb-md">📞 Helpful Scripts</h3>
             <div class="script-box">
               <div class="script-label">When you're lost:</div>
               <div class="script-text">"Hi, I'm trying to get services for my child. I'm lost—can you tell me what my next step should be?"</div>
@@ -2095,7 +2106,7 @@
           </div>
 
           <div class="animate-on-scroll">
-            <h3 style="margin-bottom: var(--space-md);">🔗 Helpful Links</h3>
+            <h3 class="mb-md">🔗 Helpful Links</h3>
             <a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer" class="link-item">
               <div>
                 <span class="link-item-name">Autism Society of Oregon</span>
@@ -2395,7 +2406,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+            <h3 class="flex-center mb-sm">
               <span aria-hidden="true">📧</span> Email List
             </h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
@@ -2407,7 +2418,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+            <h3 class="flex-center mb-sm">
               <span aria-hidden="true">💬</span> Private Chat
             </h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
@@ -2428,7 +2439,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll">
-            <h3 style="display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-sm);">
+            <h3 class="flex-center mb-sm">
               <span aria-hidden="true">✉️</span> Contact Us
             </h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
@@ -2439,8 +2450,8 @@
             </a>
           </div>
 
-          <div class="card animate-on-scroll" style="background: var(--cream-dark);">
-            <h3 style="margin-bottom: var(--space-sm);">💡 Suggest a Meetup Topic</h3>
+          <div class="card animate-on-scroll bg-cream-dark">
+            <h3 class="mb-sm">💡 Suggest a Meetup Topic</h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-md);">
               What would be helpful to discuss? Some ideas from past meetups:
             </p>
@@ -2473,7 +2484,7 @@
 
           <div class="card mb-lg animate-on-scroll">
             <div style="font-size: 3rem; margin-bottom: var(--space-sm);" aria-hidden="true">💛</div>
-            <h3 style="margin-bottom: var(--space-md);">Room Cost: ~$50 per meetup</h3>
+            <h3 class="mb-md">Room Cost: ~$50 per meetup</h3>
             <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
               We rent a room for about $25/hour. A typical meetup runs 2 hours. Your contribution helps cover this cost and keeps the space available for everyone.
             </p>
@@ -2485,7 +2496,7 @@
           </div>
 
           <div class="card mb-lg animate-on-scroll" style="background: var(--cream-dark); text-align: left;">
-            <h3 style="margin-bottom: var(--space-sm);">Other Ways to Help</h3>
+            <h3 class="mb-sm">Other Ways to Help</h3>
             <ul style="padding-left: var(--space-md); color: var(--charcoal);">
               <li>Sponsor a month ($50-100)</li>
               <li>Bring snacks to a meetup</li>
