@@ -1326,6 +1326,225 @@
       .page { display: block !important; }
     }
 
+    /* ========================================
+       STRATEGY CARDS
+       ======================================== */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .strategy-card {
+      background: var(--cream);
+      border: 2px solid var(--linen);
+      border-radius: 16px;
+      padding: var(--space-lg);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .strategy-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--peach);
+    }
+
+    .strategy-card h4 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--plum);
+      margin: var(--space-md) 0 var(--space-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .strategy-card p {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .strategy-card ul {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      padding-left: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .strategy-card li {
+      margin-bottom: var(--space-xs);
+    }
+
+    .card-highlight-box {
+      background: var(--peach-light);
+      padding: var(--space-md);
+      border-radius: 10px;
+      margin: var(--space-md) 0;
+    }
+
+    .card-highlight-box p {
+      color: var(--ink);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .card-do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 600px) {
+      .card-do-dont {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-do, .card-dont {
+      padding: var(--space-md);
+      border-radius: 10px;
+    }
+
+    .card-do {
+      background: rgba(155, 75, 150, 0.1);
+      border-left: 3px solid var(--plum);
+    }
+
+    .card-dont {
+      background: rgba(230, 115, 71, 0.1);
+      border-left: 3px solid var(--coral);
+    }
+
+    .card-do h4, .card-dont h4 {
+      margin-top: 0;
+    }
+
+    /* Dark mode: richer backgrounds with better contrast */
+    [data-theme="dark"] .card-do {
+      background: #352A34;
+      border-left-color: var(--plum-light);
+    }
+
+    [data-theme="dark"] .card-dont {
+      background: #3A2B27;
+      border-left-color: var(--coral-light);
+    }
+
+    .swap-item {
+      display: flex;
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--linen);
+      font-size: 0.9rem;
+    }
+
+    .swap-item:last-child {
+      border-bottom: none;
+    }
+
+    .swap-before {
+      color: var(--bark);
+      text-decoration: line-through;
+      flex: 1;
+    }
+
+    .swap-arrow {
+      color: var(--plum);
+      font-weight: 600;
+    }
+
+    .swap-after {
+      color: var(--plum);
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .teacher-template {
+      background: var(--cream-dark);
+      border: 2px dashed var(--stone);
+    }
+
+    .template-field {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 6px;
+      padding: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      min-height: 44px;
+    }
+
+    .template-field-label {
+      font-size: 0.85rem;
+      color: var(--bark);
+      margin-bottom: 4px;
+    }
+
+    .template-checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .template-checkbox {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--plum);
+      color: var(--cream);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: 100px;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .print-btn:hover {
+      background: var(--plum-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Print styles for cards */
+    @media print {
+      .cards-page-only {
+        display: block !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .strategy-card {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+      }
+      .cards-grid {
+        display: block;
+      }
+      .card-do, .card-dont {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
     /* Event Cards (generated) */
     .event-card {
       display: flex;
@@ -2145,6 +2364,16 @@
             <p>Strategies that actually work—not from books, from parents in the trenches.</p>
           </div>
 
+          <div class="card card-highlight mb-lg animate-on-scroll text-center">
+            <h3 class="mb-sm" style="color: var(--ink);">📄 Need to Share These with Someone?</h3>
+            <p style="color: var(--ink); margin-bottom: var(--space-md);">
+              Printable strategy cards for teachers, grandparents, babysitters—anyone who needs to understand in 2 minutes.
+            </p>
+            <button class="btn btn-primary" onclick="showPage('cards')">
+              View Printable Cards →
+            </button>
+          </div>
+
           <div class="disclaimer animate-on-scroll">
             <p><strong>⚠️ Important:</strong> These are parent-shared strategies, not professional recommendations. Every child is different—what works for one family may not work for yours. Use your judgment and consult professionals when needed.</p>
           </div>
@@ -2517,6 +2746,240 @@
               No one will ever be turned away for inability to donate.
             </p>
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== STRATEGY CARDS ==================== -->
+    <div id="page-cards" class="page">
+      <section class="section pt-page">
+        <div class="section-inner">
+          <div class="section-header animate-on-scroll">
+            <h2>Printable Strategy Cards</h2>
+            <p>Hand these to teachers, grandparents, babysitters—anyone who needs to understand in 2 minutes.</p>
+          </div>
+
+          <div class="text-center mb-lg no-print animate-on-scroll">
+            <button class="print-btn" onclick="window.print()">
+              <span aria-hidden="true">🖨️</span> Print All Cards
+            </button>
+            <p class="text-bark font-sm mt-lg">Tip: Print double-sided for front/back card pairs</p>
+          </div>
+
+          <div class="cards-grid">
+
+            <!-- CARD A: Quick PDA Explainer -->
+            <div class="strategy-card animate-on-scroll">
+              <h3>🧠 PDA in 60 Seconds</h3>
+              <p><strong>PDA (Pathological Demand Avoidance)</strong> is a nervous-system response, not willful defiance.</p>
+              <p>When demands feel like loss of control, the brain reads <strong>threat → fight/flight/freeze</strong>.</p>
+
+              <h4>What You Might See</h4>
+              <ul>
+                <li>Refusal/negotiation over "small" requests</li>
+                <li>Big reactions to time pressure, being watched, public correction</li>
+                <li>Can look fine… until suddenly not (masking)</li>
+              </ul>
+
+              <h4>What Helps Most</h4>
+              <ul>
+                <li>Lower pressure first (fewer words, fewer demands, more autonomy)</li>
+                <li>Connection before correction (calm + respectful tone)</li>
+                <li>Offer choice / collaboration instead of commands</li>
+              </ul>
+
+              <div class="card-highlight-box">
+                <p>💡 If you remember one thing: <strong>More pressure = less capacity.</strong> Reduce threat → behavior improves.</p>
+              </div>
+            </div>
+
+            <!-- CARD A-Back: During a Meltdown -->
+            <div class="strategy-card animate-on-scroll">
+              <h3>🌊 During Escalation: Do / Don't</h3>
+
+              <div class="card-do-dont">
+                <div class="card-do">
+                  <h4>✓ Do</h4>
+                  <ul>
+                    <li>Make it smaller: fewer words, fewer people, fewer demands</li>
+                    <li>Safety first: move peers/objects; give space; neutral voice</li>
+                    <li>Offer a low-pressure exit: "You can go to the calm spot."</li>
+                    <li>Narrate what <em>you</em> will do: "I'm going to stand over here."</li>
+                    <li>Wait it out: regulation first, learning later</li>
+                  </ul>
+                </div>
+                <div class="card-dont">
+                  <h4>✗ Don't</h4>
+                  <ul>
+                    <li>Don't lecture, reason, or demand explanations mid-storm</li>
+                    <li>Don't force eye contact, apologies, or compliance "right now"</li>
+                    <li>Don't threaten consequences or do countdowns</li>
+                    <li>Don't touch unless absolutely necessary for safety</li>
+                    <li>Don't argue with "logic" while dysregulated</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="card-highlight-box">
+                <p>⚠️ <strong>Safety exception:</strong> If there's immediate danger, use short, direct safety language—then return to low-pressure.</p>
+              </div>
+            </div>
+
+            <!-- CARD B: Declarative Language -->
+            <div class="strategy-card animate-on-scroll">
+              <h3>💬 Declarative Language Cheat Sheet</h3>
+              <p><strong>Goal:</strong> Communicate without triggering threat.</p>
+              <p><strong>Rule of thumb:</strong> Fewer questions. Fewer commands. More observations. Then walk away.</p>
+
+              <h4>Commands → Observations</h4>
+              <div class="swap-item">
+                <span class="swap-before">"Put on shoes."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Shoes are by the door."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Clean up now."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Toys are on the floor."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Eat your dinner."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Dinner's on the table."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Stop yelling."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Voices are getting loud."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Come here."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"I'm over by the door."</span>
+              </div>
+
+              <h4>Questions → Statements</h4>
+              <div class="swap-item">
+                <span class="swap-before">"Are you ready?"</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"We're starting in two minutes."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Why did you do that?"</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Something felt really hard."</span>
+              </div>
+            </div>
+
+            <!-- CARD B-Back: What NOT to Say -->
+            <div class="strategy-card animate-on-scroll">
+              <h3>🚫 What NOT to Say (and what to try instead)</h3>
+              <p><strong>Key insight:</strong> Questions are demands. Explanations can feel like pressure. Keep it short and kind.</p>
+
+              <div class="swap-item">
+                <span class="swap-before">"Calm down."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"I'm here." / "We can pause."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Because I said so."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"This is happening. I'll help you through it."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"You're fine."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Something feels hard."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"Stop being rude."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"Let's take space. We'll try again."</span>
+              </div>
+              <div class="swap-item">
+                <span class="swap-before">"If you don't ___, then ___."</span>
+                <span class="swap-arrow">→</span>
+                <span class="swap-after">"We can do it the easy way or take a break."</span>
+              </div>
+
+              <div class="card-highlight-box">
+                <p>💡 <strong>Mantra:</strong> "Questions are demands. Explanations are violence (to their nervous system)."</p>
+              </div>
+            </div>
+
+            <!-- CARD C: After-School Decompression -->
+            <div class="strategy-card animate-on-scroll">
+              <h3>🏠 After-School Decompression Protocol</h3>
+              <p><strong>Why:</strong> Many kids "hold it together" all day, then collapse at home. This is called <em>after-school restraint collapse</em>—it's real, and it's exhausting for everyone.</p>
+
+              <h4>What To Do (First 30-60 Minutes)</h4>
+              <ul>
+                <li>Zero demands—not even "how was school?"</li>
+                <li>Food + water available without commentary</li>
+                <li>A "sensory cave" option: headphones, dim light, screens, blanket, quiet</li>
+                <li>Connection without questions (be near, not <em>at</em>)</li>
+              </ul>
+
+              <h4>What NOT To Do</h4>
+              <ul>
+                <li>Don't interrogate: "How was school?" "What did you learn?"</li>
+                <li>Don't stack transitions: "homework now, then bath, then…"</li>
+                <li>Don't take the meltdown personally—it's not about you</li>
+              </ul>
+
+              <div class="card-highlight-box">
+                <p>💡 <strong>Parent wisdom:</strong> "When she comes home, I just need to not interact with her. I create a sensory cave and sometimes slide food in like I'm feeding a wild animal."</p>
+              </div>
+            </div>
+
+            <!-- CARD D: Teacher Template -->
+            <div class="strategy-card teacher-template animate-on-scroll">
+              <h3>📋 For Teachers: 5 Things to Know About My Child</h3>
+              <p>My child does best when adults <strong>reduce pressure</strong> and <strong>offer autonomy</strong>.</p>
+
+              <div class="template-field-label">Top triggers:</div>
+              <div class="template-field"></div>
+
+              <div class="template-field-label">Early signs of overload:</div>
+              <div class="template-field"></div>
+
+              <div class="template-field-label">What helps fast (regulation):</div>
+              <div class="template-field"></div>
+
+              <div class="template-field-label">Best communication style:</div>
+              <div class="template-checkboxes">
+                <span class="template-checkbox">☐ Declarative</span>
+                <span class="template-checkbox">☐ Choices</span>
+                <span class="template-checkbox">☐ Written prompts</span>
+                <span class="template-checkbox">☐ Humor</span>
+                <span class="template-checkbox">☐ Other: _____</span>
+              </div>
+
+              <div class="template-field-label">If escalation happens, please:</div>
+              <div class="template-checkboxes">
+                <span class="template-checkbox">☐ Reduce language</span>
+                <span class="template-checkbox">☐ Offer space</span>
+                <span class="template-checkbox">☐ Use safe person</span>
+                <span class="template-checkbox">☐ Quiet exit</span>
+                <span class="template-checkbox">☐ Do NOT touch</span>
+                <span class="template-checkbox">☐ Contact parent</span>
+              </div>
+
+              <div class="template-field-label">Safe person / location:</div>
+              <div class="template-field"></div>
+
+              <div class="template-field-label">Parent contact:</div>
+              <div class="template-field"></div>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-lg no-print animate-on-scroll">
+            <button class="btn btn-secondary" onclick="showPage('tools')">
+              ← Back to Tools
+            </button>
+          </div>
+
         </div>
       </section>
     </div>
