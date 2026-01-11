@@ -15,6 +15,9 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="logo-main.png">
+
   <!-- Meta -->
   <meta name="description" content="A calm, confidential community for parents raising PDA-profile kids in Eugene, Oregon. Monthly meetups, local resources, and practical tools.">
   <meta property="og:title" content="PDA Parents of Eugene" />
@@ -468,9 +471,9 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(2%, -2%) scale(1.02); }
-      66% { transform: translate(-1%, 1%) scale(0.98); }
+      0%, 100% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+      33% { transform: translate3d(2%, -2%, 0) scale3d(1.02, 1.02, 1); }
+      66% { transform: translate3d(-1%, 1%, 0) scale3d(0.98, 0.98, 1); }
     }
 
     .hero-content {
@@ -1361,6 +1364,19 @@
     .text-coral { color: var(--coral); }
     .font-95 { font-size: 0.95rem; }
     .fw-600 { font-weight: 600; }
+    .mt-sm { margin-top: var(--space-sm); }
+    .py-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+    .pl-md { padding-left: var(--space-md); }
+    .gap-lg { gap: var(--space-lg); }
+    .gap-xs { gap: var(--space-xs); }
+    .grid-2col { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .list-charcoal { padding-left: var(--space-md); color: var(--charcoal); }
+    .list-charcoal-sm { padding-left: var(--space-md); color: var(--charcoal); font-size: 0.95rem; }
+    .section-divider { border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md); }
+    .section-divider-spaced { border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md); }
+    .icon-lg { font-size: 2.5rem; }
+    .timeline-item { padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen); }
+    .timeline-item:last-child { border-bottom: none; }
     /* Blockquote styling */
     blockquote {
       margin: 0;
@@ -1384,6 +1400,29 @@
       .nav, .mobile-menu, .footer, .btn, .theme-toggle { display: none !important; }
       body { background: white; color: black; }
       .page { display: block !important; }
+      a[target="_blank"]::after { display: none !important; }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--cream-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--stone);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--bark);
+    }
+    [data-theme="dark"] ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+    [data-theme="dark"] ::-webkit-scrollbar-thumb {
+      background: var(--stone);
     }
 
     /* ========================================
@@ -1973,26 +2012,26 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <button class="nav-logo" onclick="showPage('home')" aria-label="Go to home page">
-        <img src="logo-main.png" alt="">
+      <button type="button" class="nav-logo" onclick="showPage('home')" aria-label="Go to home page">
+        <img src="logo-main.png" alt="" width="117" height="120">
       </button>
 
       <div class="nav-links">
         <button class="nav-link active" data-page="home">Home</button>
-        <button class="nav-link" data-page="start-here">Start Here</button>
-        <button class="nav-link" data-page="events">Events</button>
-        <button class="nav-link" data-page="resources">Resources</button>
-        <button class="nav-link" data-page="services">Services</button>
-        <button class="nav-link" data-page="tools">Tools</button>
-        <button class="nav-link" data-page="scripts">Scripts</button>
-        <button class="nav-link" data-page="school">School</button>
-        <button class="nav-link" data-page="join">Join</button>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <button type="button" class="nav-link" data-page="start-here">Start Here</button>
+        <button type="button" class="nav-link" data-page="events">Events</button>
+        <button type="button" class="nav-link" data-page="resources">Resources</button>
+        <button type="button" class="nav-link" data-page="services">Services</button>
+        <button type="button" class="nav-link" data-page="tools">Tools</button>
+        <button type="button" class="nav-link" data-page="scripts">Scripts</button>
+        <button type="button" class="nav-link" data-page="school">School</button>
+        <button type="button" class="nav-link" data-page="join">Join</button>
+        <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <span id="theme-icon">🌙</span>
         </button>
       </div>
 
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+      <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
         <span id="menu-icon" aria-hidden="true">☰</span>
       </button>
     </div>
@@ -2000,16 +2039,16 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="nav-link" data-page="home">Home</button>
-    <button class="nav-link" data-page="start-here">Start Here</button>
-    <button class="nav-link" data-page="events">Events</button>
-    <button class="nav-link" data-page="resources">Resources</button>
-    <button class="nav-link" data-page="services">Services</button>
-    <button class="nav-link" data-page="tools">Tools</button>
-    <button class="nav-link" data-page="scripts">Scripts</button>
-    <button class="nav-link" data-page="school">School</button>
-    <button class="nav-link" data-page="join">Join</button>
-    <button class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
+    <button type="button" class="nav-link" data-page="home">Home</button>
+    <button type="button" class="nav-link" data-page="start-here">Start Here</button>
+    <button type="button" class="nav-link" data-page="events">Events</button>
+    <button type="button" class="nav-link" data-page="resources">Resources</button>
+    <button type="button" class="nav-link" data-page="services">Services</button>
+    <button type="button" class="nav-link" data-page="tools">Tools</button>
+    <button type="button" class="nav-link" data-page="scripts">Scripts</button>
+    <button type="button" class="nav-link" data-page="school">School</button>
+    <button type="button" class="nav-link" data-page="join">Join</button>
+    <button type="button" class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
   </div>
 
   <main id="main-content">
@@ -2025,7 +2064,7 @@
 
         <div class="hero-content">
           <div class="hero-logo">
-            <img src="logo-main.png" alt="PDA Parents of Eugene">
+            <img src="logo-main.png" alt="PDA Parents of Eugene" width="117" height="120">
           </div>
 
           <h1>A quiet place for<br>PDA parents</h1>
@@ -2055,7 +2094,7 @@
             <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary">
               Get Meetup Reminders
             </a>
-            <button class="btn btn-secondary" onclick="showPage('start-here')">
+            <button type="button" class="btn btn-secondary" onclick="showPage('start-here')">
               New Here? Start Here
             </button>
           </div>
@@ -2121,22 +2160,22 @@
           </div>
 
           <div class="quick-links stagger">
-            <button class="quick-link-card" onclick="showPage('events')">
+            <button type="button" class="quick-link-card" onclick="showPage('events')">
               <span class="quick-link-icon" aria-hidden="true">📅</span>
               <span class="quick-link-label">Events & Meetups</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card" onclick="showPage('resources')">
+            <button type="button" class="quick-link-card" onclick="showPage('resources')">
               <span class="quick-link-icon" aria-hidden="true">📚</span>
               <span class="quick-link-label">Resources</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card" onclick="showPage('services')">
+            <button type="button" class="quick-link-card" onclick="showPage('services')">
               <span class="quick-link-icon" aria-hidden="true">📋</span>
               <span class="quick-link-label">DDS & Paperwork</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card" onclick="showPage('tools')">
+            <button type="button" class="quick-link-card" onclick="showPage('tools')">
               <span class="quick-link-icon" aria-hidden="true">🧰</span>
               <span class="quick-link-label">Practical Tools</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
@@ -2266,7 +2305,7 @@
               <span class="quick-link-label">Join the private chat (optional)</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card" onclick="showPage('resources')">
+            <button type="button" class="quick-link-card" onclick="showPage('resources')">
               <span class="quick-link-icon" aria-hidden="true">📚</span>
               <span class="quick-link-label">Browse resources</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
@@ -2325,7 +2364,7 @@
           <div class="card text-center animate-on-scroll bg-cream-dark">
             <h3 class="mb-xs">Have a Topic in Mind?</h3>
             <p class="text-charcoal mb-md">We're collecting topics parents want to discuss.</p>
-            <button class="btn btn-primary" onclick="showPage('join')">Suggest a Topic →</button>
+            <button type="button" class="btn btn-primary" onclick="showPage('join')">Suggest a Topic →</button>
           </div>
         </div>
       </section>
@@ -2355,9 +2394,9 @@
 
           <div class="tabs animate-on-scroll" role="tablist" aria-label="Resource categories">
             <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-local" id="tab-btn-local" onclick="showResourceTab('local', this)">📍 Local</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-national" id="tab-btn-national" onclick="showResourceTab('national', this)">🌎 National</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-socials" id="tab-btn-socials" onclick="showResourceTab('socials', this)">📱 Social</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-activities" id="tab-btn-activities" onclick="showResourceTab('activities', this)">🎯 Activities</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-national" id="tab-btn-national" onclick="showResourceTab('national', this)">🌎 National</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-socials" id="tab-btn-socials" onclick="showResourceTab('socials', this)">📱 Social</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-activities" id="tab-btn-activities" onclick="showResourceTab('activities', this)">🎯 Activities</button>
           </div>
 
           <!-- Local Tab -->
@@ -2738,7 +2777,7 @@
             <p style="color: var(--ink); margin-bottom: var(--space-md);">
               Printable strategy cards for teachers, grandparents, babysitters—anyone who needs to understand in 2 minutes.
             </p>
-            <button class="btn btn-primary" onclick="showPage('cards')">
+            <button type="button" class="btn btn-primary" onclick="showPage('cards')">
               View Printable Cards →
             </button>
           </div>
@@ -2750,15 +2789,15 @@
           <div class="tools-layout">
             <div class="tools-nav" role="tablist" aria-label="Practical tools">
               <button class="tool-nav-btn active" data-tool="talk-less" role="tab" aria-selected="true" aria-controls="tool-talk-less" id="tool-btn-talk-less">🤫 Talk Less</button>
-              <button class="tool-nav-btn" data-tool="declarative" role="tab" aria-selected="false" aria-controls="tool-declarative" id="tool-btn-declarative">💬 Declarative</button>
-              <button class="tool-nav-btn" data-tool="decompression" role="tab" aria-selected="false" aria-controls="tool-decompression" id="tool-btn-decompression">🏠 Decompression</button>
-              <button class="tool-nav-btn" data-tool="strewing" role="tab" aria-selected="false" aria-controls="tool-strewing" id="tool-btn-strewing">🌱 Strewing</button>
-              <button class="tool-nav-btn" data-tool="autonomy" role="tab" aria-selected="false" aria-controls="tool-autonomy" id="tool-btn-autonomy">🎯 Tiny Autonomy</button>
-              <button class="tool-nav-btn" data-tool="screens" role="tab" aria-selected="false" aria-controls="tool-screens" id="tool-btn-screens">🎮 Screens</button>
-              <button class="tool-nav-btn" data-tool="feeding" role="tab" aria-selected="false" aria-controls="tool-feeding" id="tool-btn-feeding">🍽️ Feeding</button>
-              <button class="tool-nav-btn" data-tool="doesnt-work" role="tab" aria-selected="false" aria-controls="tool-doesnt-work" id="tool-btn-doesnt-work">🚫 What Doesn't Work</button>
-              <button class="tool-nav-btn" data-tool="decisions" role="tab" aria-selected="false" aria-controls="tool-decisions" id="tool-btn-decisions">🧊 Decision Paralysis</button>
-              <button class="tool-nav-btn" data-tool="teens" role="tab" aria-selected="false" aria-controls="tool-teens" id="tool-btn-teens">🚀 Teen Toolkit</button>
+              <button type="button" class="tool-nav-btn" data-tool="declarative" role="tab" aria-selected="false" aria-controls="tool-declarative" id="tool-btn-declarative">💬 Declarative</button>
+              <button type="button" class="tool-nav-btn" data-tool="decompression" role="tab" aria-selected="false" aria-controls="tool-decompression" id="tool-btn-decompression">🏠 Decompression</button>
+              <button type="button" class="tool-nav-btn" data-tool="strewing" role="tab" aria-selected="false" aria-controls="tool-strewing" id="tool-btn-strewing">🌱 Strewing</button>
+              <button type="button" class="tool-nav-btn" data-tool="autonomy" role="tab" aria-selected="false" aria-controls="tool-autonomy" id="tool-btn-autonomy">🎯 Tiny Autonomy</button>
+              <button type="button" class="tool-nav-btn" data-tool="screens" role="tab" aria-selected="false" aria-controls="tool-screens" id="tool-btn-screens">🎮 Screens</button>
+              <button type="button" class="tool-nav-btn" data-tool="feeding" role="tab" aria-selected="false" aria-controls="tool-feeding" id="tool-btn-feeding">🍽️ Feeding</button>
+              <button type="button" class="tool-nav-btn" data-tool="doesnt-work" role="tab" aria-selected="false" aria-controls="tool-doesnt-work" id="tool-btn-doesnt-work">🚫 What Doesn't Work</button>
+              <button type="button" class="tool-nav-btn" data-tool="decisions" role="tab" aria-selected="false" aria-controls="tool-decisions" id="tool-btn-decisions">🧊 Decision Paralysis</button>
+              <button type="button" class="tool-nav-btn" data-tool="teens" role="tab" aria-selected="false" aria-controls="tool-teens" id="tool-btn-teens">🚀 Teen Toolkit</button>
             </div>
 
             <div class="card tool-content">
@@ -3256,7 +3295,7 @@
           </div>
 
           <div class="text-center mb-lg no-print animate-on-scroll">
-            <button class="print-btn" onclick="window.print()">
+            <button type="button" class="print-btn" onclick="window.print()">
               <span aria-hidden="true">🖨️</span> Print All Cards
             </button>
             <p class="text-bark font-sm mt-lg">Tip: Print double-sided for front/back card pairs</p>
@@ -3555,7 +3594,7 @@
           </div>
 
           <div class="text-center mt-lg no-print animate-on-scroll">
-            <button class="btn btn-secondary" onclick="showPage('tools')">
+            <button type="button" class="btn btn-secondary" onclick="showPage('tools')">
               ← Back to Tools
             </button>
           </div>
@@ -3579,10 +3618,10 @@
 
           <div class="scripts-filter animate-on-scroll" role="tablist" aria-label="Script categories">
             <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterScripts('all', this)">All</button>
-            <button class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('morning', this)">Morning</button>
-            <button class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('transitions', this)">Transitions</button>
-            <button class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('school', this)">School</button>
-            <button class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('quick', this)">Quick Wins</button>
+            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('morning', this)">Morning</button>
+            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('transitions', this)">Transitions</button>
+            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('school', this)">School</button>
+            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('quick', this)">Quick Wins</button>
           </div>
 
           <!-- MORNING & GETTING OUT -->
@@ -3973,7 +4012,7 @@
           <div class="card card-highlight text-center mt-lg animate-on-scroll">
             <h3 class="mb-sm" style="color: var(--ink);">Need more scripts?</h3>
             <p style="color: var(--ink); margin-bottom: var(--space-md);">This library is growing. Check our <a href="#" onclick="showPage('tools'); return false;">Tools</a> page for deeper dives on specific strategies.</p>
-            <button class="btn btn-secondary" onclick="showPage('tools')">View All Tools →</button>
+            <button type="button" class="btn btn-secondary" onclick="showPage('tools')">View All Tools →</button>
           </div>
 
         </div>
@@ -3995,9 +4034,9 @@
 
           <div class="school-tabs animate-on-scroll" role="tablist" aria-label="School toolkit sections">
             <button class="school-tab active" role="tab" aria-selected="true" aria-controls="school-iep" id="school-tab-iep" onclick="showSchoolTab('iep', this)">📋 IEP vs 504</button>
-            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-accommodations" id="school-tab-accommodations" onclick="showSchoolTab('accommodations', this)">🎯 Accommodations</button>
-            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-refusal" id="school-tab-refusal" onclick="showSchoolTab('refusal', this)">🚫 School Refusal</button>
-            <button class="school-tab" role="tab" aria-selected="false" aria-controls="school-templates" id="school-tab-templates" onclick="showSchoolTab('templates', this)">📧 Templates</button>
+            <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-accommodations" id="school-tab-accommodations" onclick="showSchoolTab('accommodations', this)">🎯 Accommodations</button>
+            <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-refusal" id="school-tab-refusal" onclick="showSchoolTab('refusal', this)">🚫 School Refusal</button>
+            <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-templates" id="school-tab-templates" onclick="showSchoolTab('templates', this)">📧 Templates</button>
           </div>
 
           <!-- IEP vs 504 Tab -->
@@ -4008,44 +4047,44 @@
             <table class="comparison-table animate-on-scroll">
               <thead>
                 <tr>
-                  <th></th>
-                  <th>504 Plan</th>
-                  <th>IEP</th>
+                  <th scope="col"></th>
+                  <th scope="col">504 Plan</th>
+                  <th scope="col">IEP</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>What it is</strong></td>
+                  <th scope="row">What it is</th>
                   <td>Accommodation plan</td>
                   <td>Special education services + accommodations</td>
                 </tr>
                 <tr>
-                  <td><strong>Law</strong></td>
+                  <th scope="row">Law</th>
                   <td>Section 504 (civil rights)</td>
                   <td>IDEA (special education)</td>
                 </tr>
                 <tr>
-                  <td><strong>Requires</strong></td>
+                  <th scope="row">Requires</th>
                   <td>Disability that limits major life activity</td>
                   <td>Disability + educational impact + need for specialized instruction</td>
                 </tr>
                 <tr>
-                  <td><strong>What you get</strong></td>
+                  <th scope="row">What you get</th>
                   <td>Accommodations in regular classroom</td>
                   <td>Specialized instruction, services, goals, and accommodations</td>
                 </tr>
                 <tr>
-                  <td><strong>Easier to get?</strong></td>
+                  <th scope="row">Easier to get?</th>
                   <td>Generally yes</td>
                   <td>Requires evaluation, more documentation</td>
                 </tr>
                 <tr>
-                  <td><strong>More protection?</strong></td>
+                  <th scope="row">More protection?</th>
                   <td>Basic protections</td>
                   <td>Stronger procedural protections</td>
                 </tr>
                 <tr>
-                  <td><strong>Review frequency</strong></td>
+                  <th scope="row">Review frequency</th>
                   <td>Varies (often annual)</td>
                   <td>Annual (at minimum)</td>
                 </tr>
@@ -4389,7 +4428,7 @@ Thank you,
     <div class="footer-inner">
       <div class="footer-section">
         <div class="footer-logo">
-          <img src="logo-main.png" alt="" aria-hidden="true">
+          <img src="logo-main.png" alt="" width="117" height="120" aria-hidden="true">
         </div>
         <p>A peer support community.<br>Not medical or legal advice.</p>
       </div>
