@@ -61,6 +61,15 @@
       --shadow-lg: 0 8px 40px rgba(92, 74, 66, 0.12);
       --shadow-glow: 0 0 60px rgba(155, 75, 150, 0.1);
 
+      /* Subtle backgrounds for cards */
+      --plum-subtle: rgba(155, 75, 150, 0.1);
+      --coral-subtle: rgba(230, 115, 71, 0.1);
+
+      /* Opacity scale */
+      --opacity-subtle: 0.025;
+      --opacity-light: 0.1;
+      --opacity-medium: 0.15;
+
       /* Typography */
       --font-display: 'Libre Baskerville', Georgia, serif;
       --font-body: 'Outfit', -apple-system, sans-serif;
@@ -102,6 +111,10 @@
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
       --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.25);
       --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.3);
+
+      /* Subtle backgrounds for cards - dark mode */
+      --plum-subtle: #352A34;
+      --coral-subtle: #3A2B27;
     }
 
     /* ========================================
@@ -1419,12 +1432,12 @@
     }
 
     .card-do {
-      background: rgba(155, 75, 150, 0.1);
+      background: var(--plum-subtle);
       border-left: 3px solid var(--plum);
     }
 
     .card-dont {
-      background: rgba(230, 115, 71, 0.1);
+      background: var(--coral-subtle);
       border-left: 3px solid var(--coral);
     }
 
@@ -1432,14 +1445,12 @@
       margin-top: 0;
     }
 
-    /* Dark mode: richer backgrounds with better contrast */
+    /* Dark mode: adjust border colors for better contrast */
     [data-theme="dark"] .card-do {
-      background: #352A34;
       border-left-color: var(--plum-light);
     }
 
     [data-theme="dark"] .card-dont {
-      background: #3A2B27;
       border-left-color: var(--coral-light);
     }
 
@@ -1906,6 +1917,12 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <noscript>
+    <div style="background: #9B4B96; color: white; padding: 1rem; text-align: center;">
+      This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+    </div>
+  </noscript>
+
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -2232,7 +2249,10 @@
             These dates are calculated automatically—no need to check if they're current!
           </p>
 
-          <div id="upcoming-events" class="stagger mb-xl"></div>
+          <div id="upcoming-events" class="stagger mb-xl">
+            <!-- Fallback content if JS fails -->
+            <p class="text-charcoal">Meetups are held the <strong>second Saturday of every month at 10:00 AM PT</strong>. Email for location details.</p>
+          </div>
 
           <div class="card card-accent mb-lg animate-on-scroll">
             <h4 class="flex-center mb-xs mt-0">
