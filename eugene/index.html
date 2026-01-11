@@ -27,6 +27,45 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://pdaparents.org/eugene/pdaparents-og-1200x630.jpg" />
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PDA Parents of Eugene",
+    "description": "A calm, confidential community for parents raising PDA-profile kids in Eugene, Oregon.",
+    "url": "https://pdaparents.org/eugene/",
+    "logo": "https://pdaparents.org/eugene/logo-main.png",
+    "email": "eugenePDAparents@gmail.com",
+    "areaServed": {
+      "@type": "City",
+      "name": "Eugene",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Oregon"
+      }
+    },
+    "event": {
+      "@type": "Event",
+      "name": "PDA Parents Monthly Meetup",
+      "description": "Monthly peer support meetup for parents raising PDA-profile children.",
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1M",
+        "byDay": "https://schema.org/Saturday",
+        "byMonthWeek": 2,
+        "startTime": "10:00:00",
+        "scheduleTimezone": "America/Los_Angeles"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "PDA Parents of Eugene"
+      },
+      "isAccessibleForFree": true
+    }
+  }
+  </script>
+
   <style>
     /* ========================================
        SANCTUARY DESIGN SYSTEM
@@ -1322,7 +1361,15 @@
     .text-coral { color: var(--coral); }
     .font-95 { font-size: 0.95rem; }
     .fw-600 { font-weight: 600; }
-    .card-inner { background: var(--cream); padding: var(--space-md); border-radius: 10px; border: 1px solid var(--linen); }
+    /* Blockquote styling */
+    blockquote {
+      margin: 0;
+      padding: var(--space-md);
+      background: var(--cream);
+      border-radius: 10px;
+      border-left: 3px solid var(--plum);
+    }
+    blockquote p { margin: 0; }
     .border-b-linen { border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); }
 
     /* External links */
@@ -2599,14 +2646,14 @@
             <h3 class="flex-center mb-md">
               <span aria-hidden="true">🧠</span> Interview Mindset
             </h3>
-            <div class="card-inner">
+            <blockquote class="interview-quote">
               <p class="text-italic text-ink mb-sm">
                 "Answer questions as if it were their worst day. Do not try to defend your child. Don't say 'well, they do okay when...' They're doing okay because YOU are putting in all the supports. Answer as if they didn't have your support."
               </p>
-              <p class="text-charcoal m-0">
-                Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
-              </p>
-            </div>
+            </blockquote>
+            <p class="text-charcoal m-0">
+              Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
+            </p>
           </div>
 
           <div class="card mb-lg animate-on-scroll">
