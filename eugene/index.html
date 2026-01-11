@@ -4693,10 +4693,24 @@ Thank you,
     }
 
     function getNextMeetup() {
+      const now = new Date();
       const today = new Date(); today.setHours(0,0,0,0);
       let y = today.getFullYear(), m = today.getMonth();
       let meetup = getSecondSaturday(y, m);
-      if (meetup < today) { m++; if (m > 11) { m = 0; y++; } meetup = getSecondSaturday(y, m); }
+
+      // Check if meetup date has passed
+      const meetupPassed = meetup < today;
+      // Check if today IS meetup day
+      const isMeetupDay = meetup.getTime() === today.getTime();
+      // Get current time in PST/PDT
+      const pstTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+      const isPastNoon = pstTime.getHours() >= 12; // Roll over at 11:59am (noon)
+
+      // Advance to next month if meetup passed OR it's meetup day after the meeting ends
+      if (meetupPassed || (isMeetupDay && isPastNoon)) {
+        m++; if (m > 11) { m = 0; y++; }
+        meetup = getSecondSaturday(y, m);
+      }
       return meetup;
     }
 
