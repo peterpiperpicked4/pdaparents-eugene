@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Gradient for coral blob -->
+    <linearGradient id="coralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67347;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#E8956B;stop-opacity:0.7" />
+    </linearGradient>
+    <!-- Gradient for plum blob -->
+    <linearGradient id="plumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B4B96;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#B066AA;stop-opacity:0.6" />
+    </linearGradient>
+    <!-- Subtle texture pattern -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.03"/>
+      </feComponentTransfer>
+      <feBlend mode="overlay" in="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <!-- Warm cream background -->
+  <rect width="1200" height="630" fill="#FDF8F3"/>
+
+  <!-- Decorative blobs - organic shapes like on the site -->
+  <!-- Large coral blob - top right -->
+  <ellipse cx="1050" cy="120" rx="280" ry="220" fill="url(#coralGrad)" transform="rotate(15, 1050, 120)"/>
+
+  <!-- Medium plum blob - bottom left -->
+  <ellipse cx="150" cy="520" rx="240" ry="180" fill="url(#plumGrad)" transform="rotate(-20, 150, 520)"/>
+
+  <!-- Small coral accent - bottom right -->
+  <ellipse cx="1100" cy="550" rx="120" ry="90" fill="#E67347" opacity="0.3" transform="rotate(30, 1100, 550)"/>
+
+  <!-- Small plum accent - top left -->
+  <ellipse cx="80" cy="80" rx="100" ry="80" fill="#9B4B96" opacity="0.25" transform="rotate(-10, 80, 80)"/>
+
+  <!-- Content area with subtle card effect -->
+  <rect x="100" y="140" width="1000" height="350" rx="24" fill="white" opacity="0.7"/>
+
+  <!-- Main title -->
+  <text x="600" y="260" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600" fill="#3D2C35">
+    PDA Parents of Eugene
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="330" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" fill="#5A4A52">
+    A calm, confidential community for PDA families
+  </text>
+
+  <!-- Features line -->
+  <text x="600" y="400" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" fill="#9B4B96">
+    Support Groups  ·  Resources  ·  Monthly Meetups
+  </text>
+
+  <!-- URL at bottom -->
+  <text x="600" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="500" fill="#E67347">
+    pdaparents.org/eugene
+  </text>
+
+  <!-- Small heart accent -->
+  <text x="600" y="470" text-anchor="middle" font-size="28" fill="#E67347" opacity="0.8">♥</text>
+</svg>
