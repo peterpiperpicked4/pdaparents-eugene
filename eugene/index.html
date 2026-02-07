@@ -251,7 +251,7 @@
       transition: top var(--duration-fast) var(--ease-gentle);
     }
 
-    .skip-link:focus { top: 0; outline: none; }
+    .skip-link:focus { top: 0; outline: 2px solid var(--cream); outline-offset: 2px; }
 
     .sr-only {
       position: absolute;
@@ -324,6 +324,9 @@
 
     .nav-link {
       padding: var(--space-xs) var(--space-sm);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
       font-size: 0.95rem;
       color: var(--charcoal);
       border-radius: 8px;
@@ -777,15 +780,33 @@
     .quote-text {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       color: var(--ink);
-      line-height: 1.7;
-      margin-bottom: var(--space-xs);
+      line-height: 1.8;
+      margin-bottom: 0;
     }
 
     .quote-context {
       font-size: 0.85rem;
       color: var(--bark);
+    }
+
+    .quote-card:nth-child(even) {
+      border-left-color: var(--plum);
+    }
+
+    /* Share nudge */
+    .share-nudge {
+      text-align: center;
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--stone);
+    }
+
+    .share-nudge p {
+      color: var(--charcoal);
+      margin: 0 auto var(--space-md);
+      font-size: 1.05rem;
     }
 
     /* Quick Links */
@@ -1116,7 +1137,7 @@
       transition: border-color var(--duration-fast) var(--ease-gentle);
     }
 
-    .form-input:focus { border-color: var(--plum); }
+    .form-input:focus-visible { border-color: var(--plum); }
 
     .form-textarea { resize: vertical; min-height: 100px; }
 
@@ -1199,18 +1220,31 @@
     }
 
     /* Document Checklist */
-    .doc-item {
+    .doc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-xs);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .doc-list li {
       display: flex;
       align-items: center;
       gap: var(--space-xs);
       padding: var(--space-xs) var(--space-sm);
       background: var(--cream-dark);
       border-radius: 6px;
-      margin-bottom: var(--space-xs);
+      color: var(--charcoal);
+      font-size: 0.9rem;
     }
 
-    .doc-checkbox { color: var(--plum); }
-    .doc-name { color: var(--charcoal); font-size: 0.9rem; }
+    .doc-list li::before {
+      content: "•";
+      color: var(--plum);
+      font-weight: bold;
+    }
 
     /* Script Boxes */
     .script-box {
@@ -1230,6 +1264,319 @@
       color: var(--ink);
       font-family: monospace;
       font-size: 0.9rem;
+    }
+
+    /* ========================================
+       SHAREABLE PAGE
+       ======================================== */
+
+    .share-hero {
+      text-align: center;
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--linen);
+      margin-bottom: var(--space-xl);
+    }
+
+    .share-hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--charcoal);
+      margin: 0 auto;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg);
+      background: var(--coral);
+      color: var(--cream);
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-gentle);
+    }
+
+    .share-btn:hover {
+      background: var(--coral-dark);
+      color: var(--cream);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .share-btn.copied {
+      background: var(--plum);
+    }
+
+    .share-section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--plum);
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+
+    .share-section h3 {
+      margin-bottom: var(--space-md);
+    }
+
+    .share-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .behavior-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .behavior-list li {
+      padding-left: var(--space-lg);
+      position: relative;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .behavior-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--peach);
+      border: 2px solid var(--coral);
+    }
+
+    /* Accordion */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .accordion-item {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .section-alt .accordion-item {
+      background: var(--cream-dark);
+      border-color: var(--stone);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) var(--space-lg);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-align: left;
+      line-height: 1.4;
+      gap: var(--space-sm);
+      transition: color var(--duration-fast) var(--ease-gentle);
+    }
+
+    .accordion-trigger:hover { color: var(--plum); }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      color: var(--bark);
+      transition: transform var(--duration-fast) var(--ease-gentle);
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-medium) var(--ease-gentle);
+    }
+
+    .accordion-content-inner {
+      padding: 0 var(--space-lg) var(--space-lg);
+      color: var(--charcoal);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* Reframe cards (Say This / Not That) */
+    .reframe-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .reframe-card {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 16px;
+      padding: var(--space-lg);
+    }
+
+    .section-alt .reframe-card {
+      background: var(--cream-dark);
+      border-color: var(--stone);
+    }
+
+    .reframe-situation {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--plum);
+      margin-bottom: var(--space-md);
+      font-weight: 700;
+    }
+
+    .reframe-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .reframe-instead, .reframe-try {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .reframe-instead {
+      background: var(--coral-subtle);
+    }
+
+    .reframe-try {
+      background: var(--plum-subtle);
+    }
+
+    .reframe-label {
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .reframe-instead .reframe-label { color: var(--coral-dark); }
+    .reframe-try .reframe-label { color: var(--plum-dark); }
+
+    .reframe-why {
+      font-size: 0.85rem;
+      color: var(--bark);
+      font-style: italic;
+      margin-top: var(--space-xs);
+    }
+
+    /* Quick tips */
+    .quick-tips {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .quick-tips li {
+      padding-left: var(--space-lg);
+      position: relative;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .quick-tips li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--plum);
+    }
+
+    /* Share closing */
+    .share-closing {
+      text-align: center;
+      padding: var(--space-xl);
+      background: linear-gradient(135deg, var(--peach-light) 0%, var(--peach) 100%);
+      border-radius: 20px;
+      margin-top: var(--space-lg);
+    }
+
+    [data-theme="dark"] .share-closing {
+      background: linear-gradient(135deg, var(--peach) 0%, var(--peach-light) 100%);
+    }
+
+    .share-closing p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin: 0 auto;
+    }
+
+    /* Learn more toggle */
+    .learn-more-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--plum);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      transition: color var(--duration-fast) var(--ease-gentle);
+    }
+
+    .learn-more-toggle:hover { color: var(--plum-dark); }
+
+    .learn-more-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-medium) var(--ease-gentle);
+    }
+
+    .learn-more-content.open {
+      max-height: 600px;
+    }
+
+    .learn-more-links {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .learn-more-links li {
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .learn-more-links a {
+      font-weight: 500;
     }
 
     /* ========================================
@@ -1376,6 +1723,26 @@
     .section-divider-spaced { border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md); }
     .icon-lg { font-size: 2.5rem; }
     .timeline-item { padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen); }
+    .mt-md { margin-top: var(--space-md); }
+    .flex-start-gap { display: flex; align-items: flex-start; gap: var(--space-sm); }
+    .text-plum-bold { color: var(--plum); font-weight: 600; }
+    .py-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+    .ml-sm { margin-left: var(--space-sm); }
+    .line-height-2 { line-height: 2; }
+    .font-display { font-family: var(--font-display); }
+    .font-display-lg { font-family: var(--font-display); font-size: 1.2rem; }
+    .font-display-xl { font-family: var(--font-display); font-size: 1.4rem; }
+    .font-1-1 { font-size: 1.1rem; }
+    .text-charcoal-mb-lg { color: var(--charcoal); margin-bottom: var(--space-lg); }
+    .text-ink-mb-sm { color: var(--ink); margin-bottom: var(--space-sm); }
+    .text-ink-mb-md { color: var(--ink); margin-bottom: var(--space-md); }
+    .text-ink-mb-xs { color: var(--ink); margin-bottom: var(--space-xs); }
+    .mt-md-mb-sm { margin-top: var(--space-md); margin-bottom: var(--space-sm); }
+    .note-small { font-size: 0.8rem; color: var(--bark); margin-top: var(--space-xs); }
+    .grid { display: grid; }
+    .gap-sm { gap: var(--space-sm); }
+    .bg-plum-subtle { background: var(--plum-subtle); }
+    .fw-500 { font-weight: 500; }
     .timeline-item:last-child { border-bottom: none; }
     /* Blockquote styling */
     blockquote {
@@ -1721,7 +2088,7 @@
 
     .filter-btn {
       padding: var(--space-xs) var(--space-md);
-      min-height: 40px;
+      min-height: 44px;
       border-radius: 100px;
       border: 1px solid var(--linen);
       background: var(--cream);
@@ -2018,6 +2385,7 @@
 
       <div class="nav-links">
         <button type="button" class="nav-link active" data-page="home">Home</button>
+        <button type="button" class="nav-link" data-page="about">About Us</button>
         <button type="button" class="nav-link" data-page="start-here">Start Here</button>
         <button type="button" class="nav-link" data-page="events">Events</button>
         <button type="button" class="nav-link" data-page="resources">Resources</button>
@@ -2025,6 +2393,7 @@
         <button type="button" class="nav-link" data-page="tools">Tools</button>
         <button type="button" class="nav-link" data-page="scripts">Scripts</button>
         <button type="button" class="nav-link" data-page="school">School</button>
+        <button type="button" class="nav-link" data-page="share">Share</button>
         <button type="button" class="nav-link" data-page="join">Join</button>
         <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <span id="theme-icon">🌙</span>
@@ -2040,6 +2409,7 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button type="button" class="nav-link" data-page="home">Home</button>
+    <button type="button" class="nav-link" data-page="about">About Us</button>
     <button type="button" class="nav-link" data-page="start-here">Start Here</button>
     <button type="button" class="nav-link" data-page="events">Events</button>
     <button type="button" class="nav-link" data-page="resources">Resources</button>
@@ -2047,6 +2417,7 @@
     <button type="button" class="nav-link" data-page="tools">Tools</button>
     <button type="button" class="nav-link" data-page="scripts">Scripts</button>
     <button type="button" class="nav-link" data-page="school">School</button>
+    <button type="button" class="nav-link" data-page="share">Share</button>
     <button type="button" class="nav-link" data-page="join">Join</button>
     <button type="button" class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
   </div>
@@ -2131,29 +2502,58 @@
       <section class="section section-alt">
         <div class="section-inner">
           <div class="section-header animate-on-scroll">
-            <h2>What Brings People Here</h2>
-            <p>If any of this sounds familiar, you're in the right place.</p>
+            <h2>If This Sounds Familiar</h2>
           </div>
 
           <div class="quotes stagger">
-            <div class="quote-card">
-              <p class="quote-text">"Parents often come here hoping to find out they're not the only ones going through this."</p>
-            </div>
-            <div class="quote-card">
-              <p class="quote-text">"Many families describe feeling like daily life revolves entirely around their child's needs."</p>
-            </div>
-            <div class="quote-card">
-              <p class="quote-text">"Letting go of expectations and treating any progress as a bonus helps many parents cope."</p>
-              <p class="quote-context">— How we stay sane</p>
-            </div>
-            <div class="quote-card">
-              <p class="quote-text">"Sometimes the biggest relief is just being around people who truly understand what your life is like."</p>
-            </div>
+            <blockquote class="quote-card">
+              <p class="quote-text">"I Googled 'why does my child say no to everything' at 2am. That's how I found PDA."</p>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p class="quote-text">"He can beat any adult at a board game. He can't brush his teeth without a meltdown."</p>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p class="quote-text">"The school sees defiance. I see a kid who's terrified."</p>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p class="quote-text">"Every strategy works. For about a week."</p>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p class="quote-text">"My parents think I'm too soft. My friends think I'm making excuses. I'm just trying to get through Tuesday."</p>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p class="quote-text">"He wants to go to the birthday party. He can't go to the birthday party."</p>
+            </blockquote>
+          </div>
+
+          <div class="share-nudge animate-on-scroll">
+            <p>Know someone who needs to understand what your child is going through?</p>
+            <button type="button" class="btn btn-warm" onclick="showPage('share')">
+              Send This to Someone Who Doesn't Get It
+            </button>
           </div>
         </div>
       </section>
 
       <section class="section">
+        <div class="section-inner text-center animate-on-scroll max-w-small">
+          <h2 class="mb-md">Who We Are</h2>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--charcoal); margin-bottom: var(--space-md);">
+            We started this group after our own son's neuropsych evaluation&mdash;when we finally had a name for what we were seeing, but still felt completely alone with it. We went looking for other parents who got it. Parents who knew what it meant to watch every strategy work and then stop working. Parents who wouldn't say "just be more consistent."
+          </p>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--charcoal); margin-bottom: var(--space-md);">
+            We found a few. Then a few more. Now we're more than fifteen families.
+          </p>
+          <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--ink); font-style: italic; margin-bottom: var(--space-lg);">
+            Society doesn't understand us. But we understand us.
+          </p>
+          <button type="button" class="btn btn-secondary" onclick="showPage('about')">
+            Read Our Story
+          </button>
+        </div>
+      </section>
+
+      <section class="section section-alt">
         <div class="section-inner">
           <div class="section-header animate-on-scroll">
             <h2>Explore</h2>
@@ -2198,6 +2598,70 @@
       </section>
     </div>
 
+    <!-- ==================== ABOUT US ==================== -->
+    <div id="page-about" class="page">
+      <section class="section pt-page">
+        <div class="section-narrow">
+          <div class="section-header animate-on-scroll">
+            <h2>Our Story</h2>
+            <p>Why we started this, and why we keep showing up.</p>
+          </div>
+
+          <!-- Orienting frame -->
+          <div class="animate-on-scroll mb-lg" style="font-style: italic; color: var(--bark); font-size: 1.05rem;">
+            <p>This isn't a success story. It's an orientation story&mdash;for parents who realized the usual rules don't apply to their child.</p>
+          </div>
+
+          <!-- Founder's Story -->
+          <div class="card mb-lg animate-on-scroll" style="border-left: 4px solid var(--plum);">
+            <p class="mb-md">
+              We heard the word "defiant" more times than we can count.
+            </p>
+            <p class="mb-md">
+              Then came the neuropsych evaluation. The psychologist tried every tool in the clinical playbook: rewards, timers, choices, gamification. Each one worked&mdash;until it didn't. Not randomly. Predictably. The moment something stopped feeling like a choice and became a demand, his nervous system rejected it. By the second day, he slid under the table, across the floor, and walked out. He chose to leave without the prize he'd been promised.
+            </p>
+            <p class="mb-md">
+              The evaluation reframed everything we thought we knew. What looked like defiance was anxiety. What looked like manipulation was a nervous system trying to maintain safety. The "no!" before we'd finished the sentence. The meltdowns at transitions. Why he'd follow rules he invented but rage against anyone else's. Why rewards worked on Tuesday and not on Wednesday.
+            </p>
+            <p class="mb-md">
+              What we learned, slowly and painfully, is that consistency doesn't calm an anxious nervous system. So many of our old parenting failures suddenly made sense. So <em>that's</em> why timeouts weren't effective. With deeper understanding, some things&mdash;certainly not even close to everything&mdash;became clearer. What looked like a lack of impulse control was so much easier to recognize as fight-or-flight. His huge outbursts were a response to feeling out of control. And after all the reading, after trying to better understand what we can so we can help our son move a little more easily through the world, we still come back to this daily struggle: if we can't tell our child what to do&mdash;let alone ask him&mdash;how are we supposed to parent?
+            </p>
+            <p class="mb-md">
+              The next hard thing: once we had some sort of "answer," we still felt alone. Most teachers haven't heard of PDA. Most pediatricians haven't. You can't hand someone a pamphlet and have them understand why your child&mdash;clearly intelligent, clearly verbal, clearly capable&mdash;cannot do the thing they're being asked to do.
+            </p>
+            <p class="mb-md">
+              We went looking for other parents who got it. Parents who wouldn't say "just be more consistent." Parents who knew what it meant to watch every strategy expire. Parents who understood that keeping the peace is sometimes the right call&mdash;not a failure of discipline.
+            </p>
+            <p class="mb-md">
+              We found a few. Then a few more. Now we're more than fifteen families.
+            </p>
+            <p class="mb-md">
+              Some parents here have a formal PDA profile on paper. Others don't. What connects us isn't the label&mdash;it's the pattern. If your child's behavior doesn't match the books, if the strategies that "work for most kids" don't work for yours, if you're exhausted from performing a version of parenting that was never designed for your family&mdash;you belong here.
+            </p>
+            <p class="fw-500 text-ink">
+              This group exists because the best resource for raising a child like ours isn't a book or a clinician&mdash;it's another parent sitting next to you on a Saturday morning, saying "yeah, that happened to us too."
+            </p>
+          </div>
+
+          <div class="text-center animate-on-scroll" style="padding: var(--space-xl) 0;">
+            <p style="font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); font-style: italic;">
+              Society doesn't understand us.<br>But we understand us. 💜
+            </p>
+          </div>
+
+          <div class="text-center animate-on-scroll">
+            <button type="button" class="btn btn-primary" onclick="showPage('join')">
+              Join Our Community
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="showPage('start-here')" class="ml-sm">
+              Learn About PDA
+            </button>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
     <!-- ==================== START HERE ==================== -->
     <div id="page-start-here" class="page">
       <section class="section pt-page">
@@ -2218,7 +2682,7 @@
               Note: PDA is not currently a formal DSM diagnosis in the United States, but it's increasingly recognized by clinicians and researchers. Many families find the PDA framework helpful for understanding their child's needs.
             </p>
             <p class="mb-xs">Kids who fit the PDA profile often:</p>
-            <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+            <ul class="list-charcoal">
               <li>Resist demands in ways that go beyond typical behavior</li>
               <li>Need a high level of control over their environment</li>
               <li>Use social strategies to avoid demands (negotiating, distracting, giving excuses)</li>
@@ -2234,7 +2698,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg);">
               <div>
                 <div style="font-weight: 600; color: var(--plum); margin-bottom: var(--space-xs);">✓ We Are</div>
-                <ul style="padding-left: var(--space-md); color: var(--charcoal); font-size: 0.95rem;">
+                <ul class="list-charcoal-sm">
                   <li>Peer support community</li>
                   <li>A safe space to vent</li>
                   <li>Resource sharing</li>
@@ -2244,7 +2708,7 @@
               </div>
               <div>
                 <div style="font-weight: 600; color: var(--coral); margin-bottom: var(--space-xs);">✗ We Are Not</div>
-                <ul style="padding-left: var(--space-md); color: var(--charcoal); font-size: 0.95rem;">
+                <ul class="list-charcoal-sm">
                   <li>Therapy or treatment</li>
                   <li>Medical advice</li>
                   <li>Legal guidance</li>
@@ -2280,7 +2744,7 @@
             <h3 class="flex-center mb-sm text-ink">
               <span aria-hidden="true">🌱</span> The Long Game: Brain Development Continues
             </h3>
-            <p style="color: var(--ink); margin-bottom: var(--space-sm);">
+            <p class="text-ink-mb-sm">
               The prefrontal cortex—the part of the brain responsible for executive function, impulse control, and emotional regulation—isn't fully developed until around age 25. This is why many parents focus on the long-term trajectory, not day-to-day battles.
             </p>
             <p class="text-ink">
@@ -2326,7 +2790,7 @@
 
           <div class="card card-highlight mb-lg animate-on-scroll text-center">
             <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);" aria-hidden="true">📅</div>
-            <h3 style="color: var(--ink); margin-bottom: var(--space-xs);">Second Saturday of Every Month</h3>
+            <h3 class="text-ink-mb-xs">Second Saturday of Every Month</h3>
             <p style="color: var(--ink); margin-bottom: 0;">10:00 AM PT · Email for location</p>
           </div>
 
@@ -2352,11 +2816,11 @@
           <div class="card mb-lg animate-on-scroll">
             <h3 class="mb-md">What to Expect at a Meetup</h3>
             <div style="color: var(--charcoal); font-size: 0.95rem;">
-              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">🚗 Arrive: Parking available</p>
-              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">☕ Settle in: Grab coffee, find a seat</p>
-              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">👋 Introductions: Quick name & kid age (optional)</p>
-              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">💬 Open sharing: Topics emerge organically</p>
-              <p style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--linen);">👥 Breakouts: Sometimes split by age group</p>
+              <p class="timeline-item">🚗 Arrive: Parking available</p>
+              <p class="timeline-item">☕ Settle in: Grab coffee, find a seat</p>
+              <p class="timeline-item">👋 Introductions: Quick name & kid age (optional)</p>
+              <p class="timeline-item">💬 Open sharing: Topics emerge organically</p>
+              <p class="timeline-item">👥 Breakouts: Sometimes split by age group</p>
               <p style="padding: var(--space-sm) 0; margin: 0;">🚪 Leave anytime: No explanation needed</p>
             </div>
           </div>
@@ -2384,8 +2848,8 @@
           </div>
 
           <div class="card card-highlight mb-lg animate-on-scroll">
-            <h3 style="color: var(--ink); margin-bottom: var(--space-xs);">📋 USA PDA-Positive Providers Database</h3>
-            <p style="color: var(--ink); margin-bottom: var(--space-md);">Community-maintained list of PDA-aware providers across the United States.</p>
+            <h3 class="text-ink-mb-xs">📋 USA PDA-Positive Providers Database</h3>
+            <p class="text-ink-mb-md">Community-maintained list of PDA-aware providers across the United States.</p>
             <a href="https://docs.google.com/spreadsheets/d/1spHdt8caThR5nMhpRGV6gEcA0p7ZoLcJ81n0sa3hKzw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               View Provider Database
               <span class="sr-only">(opens in new tab)</span>
@@ -2401,7 +2865,7 @@
 
           <!-- Local Tab -->
           <div id="tab-local" class="tab-content active" role="tabpanel" aria-labelledby="tab-btn-local">
-            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+            <p class="text-charcoal-mb-lg">
               The local resources below were mentioned positively by parents in our group. For contact details and the latest information, please check with the group or the provider directly.
             </p>
 
@@ -2446,7 +2910,7 @@
                 <span class="resource-tag">online</span>
                 <span class="resource-tag">self-paced</span>
               </div>
-              <p style="margin-top: var(--space-sm);"><a href="https://cmasas.org" target="_blank" rel="noopener noreferrer">cmasas.org</a></p>
+              <p class="mt-sm"><a href="https://cmasas.org" target="_blank" rel="noopener noreferrer">cmasas.org</a></p>
             </div>
 
             <div class="card resource-card">
@@ -2457,7 +2921,7 @@
                 <span class="resource-tag">navigation</span>
                 <span class="resource-tag">DDS-help</span>
               </div>
-              <p style="margin-top: var(--space-sm);"><a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer">autismsocietyoregon.org</a></p>
+              <p class="mt-sm"><a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer">autismsocietyoregon.org</a></p>
             </div>
 
             <div class="card text-center mt-lg bg-cream-dark">
@@ -2472,11 +2936,11 @@
 
           <!-- National Tab -->
           <div id="tab-national" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-national">
-            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+            <p class="text-charcoal-mb-lg">
               Curated national resources for understanding and supporting PDA-profile kids.
             </p>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">🚀 Getting Started</h4>
+            <h4 class="section-divider">🚀 Getting Started</h4>
 
             <a href="https://www.pdanorthamerica.org" target="_blank" rel="noopener noreferrer" class="link-item">
               <div>
@@ -2500,7 +2964,7 @@
               <span class="link-item-arrow" aria-hidden="true">→</span>
             </a>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">📚 Essential Books</h4>
+            <h4 class="section-divider-spaced">📚 Essential Books</h4>
 
             <a href="https://www.amazon.com/Understanding-Pathological-Demand-Avoidance-Children/dp/1849050740" target="_blank" rel="noopener noreferrer" class="link-item">
               <div>
@@ -2534,31 +2998,31 @@
 
           <!-- Socials Tab -->
           <div id="tab-socials" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-socials">
-            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+            <p class="text-charcoal-mb-lg">
               The most helpful PDA-affirming voices on Instagram, YouTube, and TikTok.
             </p>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">⭐ The "Big Three" (Start Here)</h4>
+            <h4 class="section-divider">⭐ The "Big Three" (Start Here)</h4>
 
             <div class="card resource-card">
               <h3>At Peace Parents (Casey Ehrlich)</h3>
               <div class="resource-card-type">Instagram / Podcast</div>
               <div class="resource-card-notes">The gold standard for "radical acceptance" and nervous system regulation. If you follow only one account, make it this one.</div>
-              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/atpeaceparents" target="_blank" rel="noopener noreferrer">@atpeaceparents</a></p>
+              <p class="mt-sm"><a href="https://www.instagram.com/atpeaceparents" target="_blank" rel="noopener noreferrer">@atpeaceparents</a></p>
             </div>
 
             <div class="card resource-card">
               <h3>Low Demand Amanda (Amanda Diekman)</h3>
               <div class="resource-card-type">Instagram</div>
               <div class="resource-card-notes">Author of "Low Demand Parenting." Incredible practical scripts and examples of how to drop demands without losing authority.</div>
-              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/lowdemandamanda" target="_blank" rel="noopener noreferrer">@lowdemandamanda</a></p>
+              <p class="mt-sm"><a href="https://www.instagram.com/lowdemandamanda" target="_blank" rel="noopener noreferrer">@lowdemandamanda</a></p>
             </div>
 
             <div class="card resource-card">
               <h3>Kristy Forbes (inTune Pathways)</h3>
               <div class="resource-card-type">Instagram / YouTube</div>
               <div class="resource-card-notes">Australian PDA autistic adult and parent. Widely considered the "godmother" of the modern PDA parenting movement.</div>
-              <p style="margin-top: var(--space-sm);"><a href="https://www.instagram.com/_kristyforbes/" target="_blank" rel="noopener noreferrer">@_kristyforbes</a></p>
+              <p class="mt-sm"><a href="https://www.instagram.com/_kristyforbes/" target="_blank" rel="noopener noreferrer">@_kristyforbes</a></p>
             </div>
           </div>
 
@@ -2577,7 +3041,7 @@
               5. Can we start with a short trial?</p>
             </div>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">🧗 Movement & Regulation</h4>
+            <h4 class="section-divider">🧗 Movement & Regulation</h4>
 
             <div class="card resource-card">
               <h3>Elevation Bouldering Gym</h3>
@@ -2590,14 +3054,14 @@
               <h3>Bridgeway House</h3>
               <div class="resource-card-type">Recreation + Summer Camps · Eugene</div>
               <div class="resource-card-notes">Game night, family swim, fitness, social groups. Staff are used to autism profiles—can support social practice without shame.</div>
-              <p style="margin-top: var(--space-sm);"><a href="https://bridgewayhouse.org" target="_blank" rel="noopener noreferrer">bridgewayhouse.org</a></p>
+              <p class="mt-sm"><a href="https://bridgewayhouse.org" target="_blank" rel="noopener noreferrer">bridgewayhouse.org</a></p>
             </div>
 
             <div class="card resource-card">
               <h3>KindTree – Autism Rocks</h3>
               <div class="resource-card-type">Community / Arts / Recreation · Eugene</div>
               <div class="resource-card-notes">Friday socials, drawing club, "intro to adulting." Belonging with autistic peers reduces constant performance pressure.</div>
-              <p style="margin-top: var(--space-sm);"><a href="https://kindtree.org" target="_blank" rel="noopener noreferrer">kindtree.org</a></p>
+              <p class="mt-sm"><a href="https://kindtree.org" target="_blank" rel="noopener noreferrer">kindtree.org</a></p>
             </div>
           </div>
         </div>
@@ -2623,7 +3087,7 @@
             </p>
           </div>
 
-          <h3 style="margin-bottom: var(--space-lg);">📋 The Basic Process</h3>
+          <h3 class="mb-lg">📋 The Basic Process</h3>
 
           <div class="stagger">
             <div class="step-card">
@@ -2697,16 +3161,16 @@
 
           <div class="card mb-lg animate-on-scroll">
             <h3 class="mb-md">📄 Documents to Have Ready</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-xs);">
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Diagnosis documentation</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Neuropsych evaluation</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">IEP or 504 plan</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Medical records</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Provider contact info</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Insurance information</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Birth certificate</span></div>
-              <div class="doc-item"><span class="doc-checkbox" aria-hidden="true">☐</span><span class="doc-name">Social Security number</span></div>
-            </div>
+            <ul class="doc-list">
+              <li>Diagnosis documentation</li>
+              <li>Neuropsych evaluation</li>
+              <li>IEP or 504 plan</li>
+              <li>Medical records</li>
+              <li>Provider contact info</li>
+              <li>Insurance information</li>
+              <li>Birth certificate</li>
+              <li>Social Security number</li>
+            </ul>
           </div>
 
           <div class="card mb-lg animate-on-scroll">
@@ -2726,8 +3190,8 @@
           </div>
 
           <div class="card card-highlight mb-lg animate-on-scroll">
-            <h3 style="color: var(--ink); margin-bottom: var(--space-sm);">👥 Can't Face the Paperwork Alone?</h3>
-            <p style="color: var(--ink); margin-bottom: var(--space-sm);">
+            <h3 class="text-ink-mb-sm">👥 Can't Face the Paperwork Alone?</h3>
+            <p class="text-ink-mb-sm">
               "Body doubling" helps—having someone sit with you while you tackle forms. We host occasional paperwork co-working sessions. Or ask a friend: "Can you sit with me for an hour while I do this? You don't have to help, just be there."
             </p>
             <p style="color: var(--ink); font-size: 0.9rem; margin: 0;">
@@ -2773,8 +3237,8 @@
           </div>
 
           <div class="card card-highlight mb-lg animate-on-scroll text-center">
-            <h3 class="mb-sm" style="color: var(--ink);">📄 Need to Share These with Someone?</h3>
-            <p style="color: var(--ink); margin-bottom: var(--space-md);">
+            <h3 class="mb-sm" class="text-ink">📄 Need to Share These with Someone?</h3>
+            <p class="text-ink-mb-md">
               Printable strategy cards for teachers, grandparents, babysitters—anyone who needs to understand in 2 minutes.
             </p>
             <button type="button" class="btn btn-primary" onclick="showPage('cards')">
@@ -3308,7 +3772,7 @@
           <div class="card mb-lg animate-on-scroll">
             <div style="font-size: 3rem; margin-bottom: var(--space-sm);" aria-hidden="true">💛</div>
             <h3 class="mb-md">Room Cost: ~$50 per meetup</h3>
-            <p style="color: var(--charcoal); margin-bottom: var(--space-lg);">
+            <p class="text-charcoal-mb-lg">
               We rent a room for about $25/hour. A typical meetup runs 2 hours. Your contribution helps cover this cost and keeps the space available for everyone.
             </p>
             <a href="https://account.venmo.com/u/Peter-Hollens" target="_blank" rel="noopener noreferrer" class="btn btn-warm btn-full">
@@ -3320,7 +3784,7 @@
 
           <div class="card mb-lg animate-on-scroll" style="background: var(--cream-dark); text-align: left;">
             <h3 class="mb-sm">Other Ways to Help</h3>
-            <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+            <ul class="list-charcoal">
               <li>Sponsor a month ($50-100)</li>
               <li>Bring snacks to a meetup</li>
               <li>Help with the website</li>
@@ -3577,16 +4041,16 @@
               <div class="template-field-label">Safe location (where child can go to regulate):</div>
               <div class="template-field"></div>
 
-              <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm);">If Primary Is Absent</h4>
+              <h4 class="mt-md-mb-sm">If Primary Is Absent</h4>
 
               <div class="template-field-label">Who tells the child (and when):</div>
               <div class="template-field"></div>
 
               <div class="template-field-label">Script for explaining absence:</div>
               <div class="template-field" style="min-height: 3rem;"></div>
-              <p style="font-size: 0.8rem; color: var(--bark); margin-top: var(--space-xs);">Example: "[Name] is helping another student today. [Backup] is here for you. You can still go to [safe location]."</p>
+              <p class="note-small">Example: "[Name] is helping another student today. [Backup] is here for you. You can still go to [safe location]."</p>
 
-              <h4 style="margin-top: var(--space-md); margin-bottom: var(--space-sm);">If Primary Is Leaving Permanently</h4>
+              <h4 class="mt-md-mb-sm">If Primary Is Leaving Permanently</h4>
 
               <div class="template-field-label">Transition timeline (at least 2 weeks recommended):</div>
               <div class="template-checkboxes">
@@ -3597,11 +4061,11 @@
                 <span class="template-checkbox">☐ Week 3+: Full handoff; primary available by phone if needed</span>
               </div>
 
-              <div class="template-field-label" style="margin-top: var(--space-md);">What to tell the child about why they're leaving:</div>
+              <div class="template-field-label" class="mt-md">What to tell the child about why they're leaving:</div>
               <div class="template-field" style="min-height: 3rem;"></div>
-              <p style="font-size: 0.8rem; color: var(--bark); margin-top: var(--space-xs);">Keep it honest, simple, and not about the child. Example: "[Name] is going to help kids at another school. It's not because of anything you did."</p>
+              <p class="note-small">Keep it honest, simple, and not about the child. Example: "[Name] is going to help kids at another school. It's not because of anything you did."</p>
 
-              <div class="card-highlight-box" style="margin-top: var(--space-md);">
+              <div class="card-highlight-box" class="mt-md">
                 <p>💡 <strong>Key insight:</strong> For PDA kids, relationship continuity is infrastructure—not a "nice to have." Sudden changes can trigger immediate school refusal. Plan the handoff like you'd plan any other essential accommodation.</p>
               </div>
             </div>
@@ -4102,8 +4566,8 @@
           </div>
 
           <div class="card card-highlight text-center mt-lg animate-on-scroll">
-            <h3 class="mb-sm" style="color: var(--ink);">Need more scripts?</h3>
-            <p style="color: var(--ink); margin-bottom: var(--space-md);">This library is growing. Check our <a href="#" onclick="showPage('tools'); return false;">Tools</a> page for deeper dives on specific strategies.</p>
+            <h3 class="mb-sm" class="text-ink">Need more scripts?</h3>
+            <p class="text-ink-mb-md">This library is growing. Check our <a href="#" onclick="showPage('tools'); return false;">Tools</a> page for deeper dives on specific strategies.</p>
             <button type="button" class="btn btn-secondary" onclick="showPage('tools')">View All Tools →</button>
           </div>
 
@@ -4192,7 +4656,7 @@
 
             <div class="card animate-on-scroll mt-lg">
               <h4 class="mt-0">Oregon-Specific Terms</h4>
-              <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+              <ul class="list-charcoal">
                 <li><strong>ODE</strong> - Oregon Department of Education</li>
                 <li><strong>ESD</strong> - Education Service District (regional support)</li>
                 <li><strong>Child Find</strong> - School's obligation to identify kids who may need services</li>
@@ -4207,7 +4671,7 @@
             <h3 class="mb-md">Accommodation Bank</h3>
             <p class="text-charcoal mb-lg">Copy-paste language for your IEP/504 meetings. Organized by need.</p>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin-bottom: var(--space-md);">Anxiety & Demand Reduction</h4>
+            <h4 class="section-divider">Anxiety & Demand Reduction</h4>
 
             <div class="accommodation-item animate-on-scroll">
               <h4>Reduced Homework</h4>
@@ -4246,7 +4710,7 @@
               </div>
             </div>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">Transitions & Regulation</h4>
+            <h4 class="section-divider-spaced">Transitions & Regulation</h4>
 
             <div class="accommodation-item animate-on-scroll">
               <h4>Transition Warnings</h4>
@@ -4284,7 +4748,7 @@
               </div>
             </div>
 
-            <h4 style="border-bottom: 1px solid var(--linen); padding-bottom: var(--space-xs); margin: var(--space-lg) 0 var(--space-md);">Communication & Instruction</h4>
+            <h4 class="section-divider-spaced">Communication & Instruction</h4>
 
             <div class="accommodation-item animate-on-scroll">
               <h4>Declarative Language</h4>
@@ -4314,7 +4778,7 @@
             </div>
 
             <div class="card card-highlight mt-lg animate-on-scroll">
-              <p style="color: var(--ink); margin: 0;"><strong>Pro tip:</strong> When writing accommodations, be specific. "Extended time" is vague. "150% of standard time on all assessments" is enforceable.</p>
+              <p class="text-ink m-0"><strong>Pro tip:</strong> When writing accommodations, be specific. "Extended time" is vague. "150% of standard time on all assessments" is enforceable.</p>
             </div>
           </div>
 
@@ -4379,7 +4843,7 @@
 
             <div class="card mt-lg animate-on-scroll">
               <h4 class="mt-0">Oregon Alternative Paths</h4>
-              <ul style="padding-left: var(--space-md); color: var(--charcoal);">
+              <ul class="list-charcoal">
                 <li><strong>Homebound Instruction:</strong> School provides tutoring at home. Usually requires medical documentation. Limited hours (often 5/week).</li>
                 <li><strong>Part-Time Enrollment:</strong> Attend for specific classes/times. Negotiate based on what's tolerable.</li>
                 <li><strong>Online Public School:</strong> Oregon Connections Academy, Oregon Virtual Academy, and others. Free, public school at home.</li>
@@ -4389,7 +4853,7 @@
             </div>
 
             <div class="card card-highlight mt-lg animate-on-scroll">
-              <p style="color: var(--ink); margin: 0;"><strong>Key insight:</strong> The goal isn't necessarily returning to full-time traditional school. The goal is finding an educational path that works for your specific child. Sometimes that's accommodations, sometimes it's a different setting entirely.</p>
+              <p class="text-ink m-0"><strong>Key insight:</strong> The goal isn't necessarily returning to full-time traditional school. The goal is finding an educational path that works for your specific child. Sometimes that's accommodations, sometimes it's a different setting entirely.</p>
             </div>
           </div>
 
@@ -4507,6 +4971,248 @@ Thank you,
               Autism Society of Oregon
               <span class="sr-only">(opens in new tab)</span>
             </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== UNDERSTANDING OUR CHILD (SHAREABLE PAGE) ==================== -->
+    <div id="page-share" class="page">
+      <section class="section pt-page">
+        <div class="section-narrow">
+
+          <!-- Share Button (sticky-top on mobile) -->
+          <div class="text-center mb-lg animate-on-scroll">
+            <button type="button" class="share-btn" onclick="shareThisPage()">
+              Send This Page
+            </button>
+          </div>
+
+          <!-- Section 1: Warm Opening -->
+          <div class="share-hero animate-on-scroll">
+            <h2>Understanding Our Child</h2>
+            <p>
+              Someone who loves your child wanted you to see this. We know this might be confusing&mdash;why things look so different from what you'd expect, or why the usual approaches don't seem to work. There's a real reason. It's not about bad parenting, not a lack of discipline, and not a child choosing to be difficult.
+            </p>
+            <p style="margin-top: var(--space-sm);">
+              Here's what's actually going on.
+            </p>
+          </div>
+
+          <!-- Section 2: What You Might Be Seeing -->
+          <div class="share-section animate-on-scroll">
+            <div class="share-section-label">What you might be seeing</div>
+            <h3>Things That Don't Quite Add Up</h3>
+            <p class="text-charcoal mb-md">You may have noticed patterns that are hard to explain:</p>
+            <ul class="behavior-list">
+              <li>A child who seems perfectly capable one day and completely unable the next</li>
+              <li>Refusal to do things they clearly enjoy or want to do</li>
+              <li>Extreme reactions to simple, everyday requests&mdash;getting dressed, eating, leaving the house</li>
+              <li>Negotiating, stalling, distracting, or joking to avoid what's been asked</li>
+              <li>Meltdowns that seem wildly out of proportion to the situation</li>
+              <li>Being fine at school or with extended family, then falling apart at home</li>
+            </ul>
+            <p class="text-charcoal" style="margin-top: var(--space-md);">
+              If you've seen some of this, you're not imagining it. These patterns are real, and they point to something specific happening in this child's brain.
+            </p>
+          </div>
+
+          <!-- Section 3: What's Actually Happening -->
+          <div class="share-section animate-on-scroll">
+            <div class="share-section-label">What's actually happening</div>
+            <h3>A Built-In Alarm System</h3>
+            <p class="text-charcoal mb-md">
+              This child's brain has a built-in alarm system that works differently than most. Everyday expectations&mdash;"put your shoes on," "time for dinner," "we need to leave"&mdash;can set off that alarm. Not because the request is unreasonable, but because their brain codes demands as danger.
+            </p>
+            <p class="text-charcoal mb-md">
+              This activates the same fight-or-flight response you'd feel if you were in physical danger. It's involuntary. The child isn't refusing because they want to&mdash;they're unable to comply because their nervous system has hit the panic button.
+            </p>
+            <p class="text-charcoal mb-md">
+              This is sometimes called PDA. It originally stood for Pathological Demand Avoidance, though many families prefer <em>Persistent Drive for Autonomy</em>, because it describes what the child needs rather than what they're failing at.
+            </p>
+            <p class="text-charcoal" style="font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--ink);">
+              The demand itself&mdash;not the activity&mdash;is what sets off the alarm. This child will avoid things they <em>want</em> to do if those things feel like demands. Think of it like a Chinese finger trap&mdash;the harder you pull, the tighter it gets. When pressure decreases, they can actually do more, not less.
+            </p>
+          </div>
+
+          <!-- Section 4: Misconception Accordions -->
+          <div class="share-section animate-on-scroll">
+            <div class="share-section-label">Common questions</div>
+            <h3>"But Isn't This Just..."</h3>
+            <p class="text-charcoal mb-md">
+              You're probably thinking some of these. We did too.
+            </p>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>"Aren't they just being defiant?"</span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    It looks like defiance&mdash;we thought so too, at first. But there's a key difference: this child resists even things they desperately <em>want</em> to do. A child choosing to be defiant picks their battles. This isn't picking&mdash;it's panic. After it passes, they often feel terrible about it. That tells us this is something happening <em>to</em> them, not something they're doing <em>to</em> us.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>"Don't they just need firmer limits?"</span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    We know it looks that way. For most kids, firmer limits create safety&mdash;and that's what you've seen work before. For this child, limits feel like walls closing in. The tighter we hold, the bigger the panic. When we ease up, they can actually do <em>more</em>. It's not about having no boundaries&mdash;it's about delivering them in a way this particular brain can receive.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>"Are they manipulating you?"</span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    These kids can be incredibly clever at dodging demands&mdash;that's true. But it's closer to a drowning person grabbing anything to stay afloat than a chess player making calculated moves. When you're in survival mode, you use whatever tools you have. That's not manipulation&mdash;that's a child trying to get safe. Once the pressure drops, they're usually some of the most empathetic kids you'll meet.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>"Wouldn't rewards help?"</span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    Rewards actually add more pressure&mdash;"now I <em>have</em> to do it to get the thing." For this child, that makes the anxiety worse, not better. It's like offering someone a prize for staying calm during a panic attack&mdash;the prize doesn't reduce the panic, it adds the fear of failing to earn it. What works instead is making things feel safe, collaborative, and low-pressure.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>"All kids do this&mdash;they'll grow out of it."</span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    You're right that all kids push back sometimes. The difference is that this child can't do things they're <em>excited</em> about when it feels like a demand. They'll miss a party they've been looking forward to all week. They'll go hungry rather than eat when eating becomes an expectation. It's not the task&mdash;it's how demands feel to their brain. That tells us this is different from normal pushback.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: What Actually Helps -->
+          <div class="share-section animate-on-scroll">
+            <div class="share-section-label">What actually helps</div>
+            <h3>Small Shifts That Make a Big Difference</h3>
+
+            <div class="reframe-cards mb-lg">
+              <div class="reframe-card">
+                <div class="reframe-situation">Getting ready</div>
+                <div class="reframe-row">
+                  <div class="reframe-instead">
+                    <span class="reframe-label">Instead of</span>
+                    "Put your shoes on now. We're leaving."
+                  </div>
+                  <div class="reframe-try">
+                    <span class="reframe-label">Try</span>
+                    "I wonder if your feet want shoes or sandals today?"
+                  </div>
+                </div>
+                <div class="reframe-why">Playful choice preserves autonomy. The child decides, so it doesn't feel like a command.</div>
+              </div>
+
+              <div class="reframe-card">
+                <div class="reframe-situation">Tasks or homework</div>
+                <div class="reframe-row">
+                  <div class="reframe-instead">
+                    <span class="reframe-label">Instead of</span>
+                    "Open your book to page 12."
+                  </div>
+                  <div class="reframe-try">
+                    <span class="reframe-label">Try</span>
+                    "Hmm, I'm stuck on this one&mdash;could you help me figure it out?"
+                  </div>
+                </div>
+                <div class="reframe-why">Reverses the dynamic. The child becomes the expert, not the subordinate.</div>
+              </div>
+
+              <div class="reframe-card">
+                <div class="reframe-situation">During a meltdown</div>
+                <div class="reframe-row">
+                  <div class="reframe-instead">
+                    <span class="reframe-label">Instead of</span>
+                    "Calm down and apologize right now."
+                  </div>
+                  <div class="reframe-try">
+                    <span class="reframe-label">Try</span>
+                    "I can see you're really upset. I'm right here when you're ready."
+                  </div>
+                </div>
+                <div class="reframe-why">Validates without demanding. Signals safety. A panicking brain can't process demands.</div>
+              </div>
+
+              <div class="reframe-card">
+                <div class="reframe-situation">After a success</div>
+                <div class="reframe-row">
+                  <div class="reframe-instead">
+                    <span class="reframe-label">Instead of</span>
+                    "Good job cleaning up!"
+                  </div>
+                  <div class="reframe-try">
+                    <span class="reframe-label">Try</span>
+                    "Wow, the kitchen looks amazing."
+                  </div>
+                </div>
+                <div class="reframe-why">Praises the result, not the child. Removes the implicit pressure to repeat for approval.</div>
+              </div>
+            </div>
+
+            <h4 style="font-family: var(--font-display); margin-bottom: var(--space-md);">A Few More Things That Help</h4>
+            <ul class="quick-tips">
+              <li><strong>Lower your voice and slow down.</strong> A calm, quiet presence signals safety.</li>
+              <li><strong>Give processing time.</strong> After saying something, wait 10&ndash;30 seconds. Don't repeat&mdash;repeating resets the clock and adds pressure.</li>
+              <li><strong>Offer an out.</strong> "Not now is okay. We can try again later." Paradoxically, giving permission to <em>not</em> do something often makes doing it possible.</li>
+              <li><strong>Lead with connection.</strong> Sit near them. Do your own thing. Let them come to you. Parallel presence without demands builds trust faster than any instruction.</li>
+              <li><strong>Don't take it personally.</strong> The avoidance isn't about you&mdash;it's about how demands feel to their brain. You can be their favorite person in the world and they'll still resist your requests.</li>
+            </ul>
+          </div>
+
+          <!-- Section 6: Closing Affirmation -->
+          <div class="share-closing animate-on-scroll">
+            <p>
+              The fact that you're reading this means you care about this child. That matters more than you know. You don't need to understand everything about PDA to help&mdash;you just need to know that <strong>pressure makes things harder, and patience makes things possible.</strong>
+            </p>
+            <p style="margin-top: var(--space-md);">
+              You have the power to be one of their safe people. That's the most important thing any adult can be.
+            </p>
+            <div style="margin-top: var(--space-lg);">
+              <button type="button" class="share-btn" onclick="shareThisPage()">
+                Send This to Someone Else
+              </button>
+            </div>
+          </div>
+
+          <!-- Section 7: Learn More (collapsed) -->
+          <div class="text-center animate-on-scroll" style="margin-top: var(--space-xl);">
+            <button type="button" class="learn-more-toggle" onclick="toggleLearnMore(this)" aria-expanded="false">
+              <span>Want to learn more?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="learn-more-content" id="learn-more-section">
+              <ul class="learn-more-links" style="text-align: left; max-width: 500px; margin: var(--space-md) auto 0;">
+                <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PDA Society (UK)</a> &mdash; the leading resource for understanding PDA</li>
+                <li><a href="https://www.pdanorthamerica.org" target="_blank" rel="noopener noreferrer">PDA North America</a> &mdash; US-focused resources and grandparent guide</li>
+                <li><strong>Book:</strong> <em>The PDA Paradox</em> by Harry Thompson &mdash; a first-person account</li>
+                <li>The approaches that help are sometimes called "low-demand parenting" or "Collaborative and Proactive Solutions" (Dr. Ross Greene). You can search for either term to find more.</li>
+              </ul>
+            </div>
           </div>
 
         </div>
@@ -4684,6 +5390,68 @@ Thank you,
         el.classList.remove('visible');
         observer.observe(el);
       });
+    }
+
+    // ========================================
+    // SHAREABLE PAGE: ACCORDION + SHARE
+    // ========================================
+
+    // Accordion toggle
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const isOpen = item.classList.contains('open');
+
+        if (isOpen) {
+          content.style.maxHeight = null;
+          item.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Share / copy link
+    function shareThisPage() {
+      const url = window.location.origin + window.location.pathname + '#share';
+      const text = "I wanted to share this with you — it explains what's going on better than I can. It's a 3-minute read.";
+
+      if (navigator.share) {
+        navigator.share({ title: 'Understanding Our Child', text: text, url: url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(url).then(() => {
+          document.querySelectorAll('.share-btn').forEach(btn => {
+            const original = btn.textContent;
+            btn.textContent = 'Link copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+              btn.textContent = original;
+              btn.classList.remove('copied');
+            }, 2000);
+          });
+        }).catch(() => {
+          // Fallback: select a temporary input
+          const input = document.createElement('input');
+          input.value = url;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+        });
+      }
+    }
+
+    // Learn more toggle
+    function toggleLearnMore(btn) {
+      const content = document.getElementById('learn-more-section');
+      const isOpen = content.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      const icon = btn.querySelector('.accordion-icon');
+      if (icon) icon.style.transform = isOpen ? 'rotate(45deg)' : '';
     }
 
     // ========================================
@@ -4917,6 +5685,12 @@ Thank you,
           link.appendChild(sr);
         }
       });
+
+      // Hash-based routing for shared links
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById('page-' + hash)) {
+        showPage(hash);
+      }
     });
   </script>
 </body>
