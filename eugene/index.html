@@ -83,9 +83,9 @@
       --stone: #D9D0C3;
 
       /* Logo-inspired accents */
-      --plum: #9B4B96;
-      --plum-light: #B066AA;
-      --plum-dark: #7D3C79;
+      --plum: #924693;
+      --plum-light: #A85DA3;
+      --plum-dark: #753871;
       --coral: #E67347;
       --coral-light: #F08A62;
       --coral-dark: #D4623A;
@@ -104,7 +104,7 @@
       --shadow-glow: 0 0 60px rgba(155, 75, 150, 0.1);
 
       /* Subtle backgrounds for cards */
-      --plum-subtle: rgba(155, 75, 150, 0.1);
+      --plum-subtle: rgba(146, 70, 147, 0.1);
       --coral-subtle: rgba(230, 115, 71, 0.1);
 
       /* Opacity scale */
@@ -199,7 +199,7 @@
       opacity: 0.025;
       pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      z-index: 10000;
+      z-index: 50;
     }
 
     ::selection {
@@ -247,7 +247,7 @@
       padding: var(--space-sm) var(--space-md);
       border-radius: 0 0 8px 8px;
       font-weight: 500;
-      z-index: 10001;
+      z-index: 200;
       transition: top var(--duration-fast) var(--ease-gentle);
     }
 
@@ -645,16 +645,37 @@
     }
 
     .btn-warm {
+      background: #B74B2A;
+      color: #fff;
+    }
+
+    .btn-warm:hover {
+      background: #A04125;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    [data-theme="dark"] .btn-warm {
       background: var(--coral);
       color: var(--cream);
     }
 
-    .btn-warm:hover {
+    [data-theme="dark"] .btn-warm:hover {
       background: var(--coral-dark);
       color: var(--cream);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
     }
+
+    .link-style {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: var(--plum);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .link-style:hover { color: var(--plum-dark); }
 
     /* ========================================
        SECTIONS
@@ -1968,10 +1989,11 @@
 
     /* Print */
     @media print {
-      .nav, .mobile-menu, .footer, .btn, .theme-toggle { display: none !important; }
+      .nav, .mobile-menu, .footer, .btn, .theme-toggle, .skip-link { display: none !important; }
       body { background: white; color: black; }
+      body::before { display: none !important; }
       .page { display: block !important; }
-      a[target="_blank"]::after { display: none !important; }
+      a[target="_blank"]::after { content: " (" attr(href) ")" !important; font-size: 0.8em; word-break: break-all; }
     }
 
     /* Custom scrollbar */
@@ -2584,7 +2606,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <button type="button" class="nav-logo" onclick="showPage('home')" aria-label="Go to home page">
-        <img src="logo-main.png" alt="" width="117" height="120" loading="eager">
+        <img src="logo-main.png" alt="" width="117" height="120" loading="eager" aria-hidden="true">
       </button>
 
       <div class="nav-links">
@@ -3029,17 +3051,17 @@
 
           <div class="card animate-on-scroll bg-cream-dark">
             <h3 class="mb-md">✨ New Here? Quick Checklist</h3>
-            <button class="quick-link-card mb-sm" onclick="showPage('events')">
+            <button type="button" class="quick-link-card mb-sm" onclick="showPage('events')">
               <span class="quick-link-icon" aria-hidden="true">📅</span>
               <span class="quick-link-label">Save the next meetup date</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
+            <button type="button" class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
               <span class="quick-link-icon" aria-hidden="true">📧</span>
               <span class="quick-link-label">Join the email list</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
+            <button type="button" class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
               <span class="quick-link-icon" aria-hidden="true">💬</span>
               <span class="quick-link-label">Join the private chat (optional)</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
@@ -3084,7 +3106,7 @@
               <span aria-hidden="true">✨</span> Special Events
             </h4>
             <p style="color: var(--charcoal); font-size: 0.95rem; margin: 0;">
-              We occasionally host paperwork co-working nights and other special sessions. These are announced via the email list—<a href="#" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200); return false;">join to stay in the loop</a>.
+              We occasionally host paperwork co-working nights and other special sessions. These are announced via the email list—<button type="button" class="link-style" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">join to stay in the loop</button>.
             </p>
           </div>
 
@@ -3132,7 +3154,7 @@
           </div>
 
           <div class="tabs animate-on-scroll" role="tablist" aria-label="Resource categories">
-            <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-local" id="tab-btn-local" onclick="showResourceTab('local', this)">📍 Local</button>
+            <button type="button" class="tab active" role="tab" aria-selected="true" aria-controls="tab-local" id="tab-btn-local" onclick="showResourceTab('local', this)">📍 Local</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-national" id="tab-btn-national" onclick="showResourceTab('national', this)">🌎 National</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-socials" id="tab-btn-socials" onclick="showResourceTab('socials', this)">📱 Social</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-activities" id="tab-btn-activities" onclick="showResourceTab('activities', this)">🎯 Activities</button>
@@ -3505,7 +3527,7 @@
           </div>
 
           <div class="card card-highlight mb-lg animate-on-scroll text-center">
-            <h3 class="mb-sm" class="text-ink">📄 Need to Share These with Someone?</h3>
+            <h3 class="mb-sm text-ink">📄 Need to Share These with Someone?</h3>
             <p class="text-ink-mb-md">
               Printable strategy cards for teachers, grandparents, babysitters—anyone who needs to understand in 2 minutes.
             </p>
@@ -3520,7 +3542,7 @@
 
           <div class="tools-layout">
             <div class="tools-nav" role="tablist" aria-label="Practical tools">
-              <button class="tool-nav-btn active" data-tool="talk-less" role="tab" aria-selected="true" aria-controls="tool-talk-less" id="tool-btn-talk-less">🤫 Talk Less</button>
+              <button type="button" class="tool-nav-btn active" data-tool="talk-less" role="tab" aria-selected="true" aria-controls="tool-talk-less" id="tool-btn-talk-less">🤫 Talk Less</button>
               <button type="button" class="tool-nav-btn" data-tool="declarative" role="tab" aria-selected="false" aria-controls="tool-declarative" id="tool-btn-declarative">💬 Declarative</button>
               <button type="button" class="tool-nav-btn" data-tool="decompression" role="tab" aria-selected="false" aria-controls="tool-decompression" id="tool-btn-decompression">🏠 Decompression</button>
               <button type="button" class="tool-nav-btn" data-tool="strewing" role="tab" aria-selected="false" aria-controls="tool-strewing" id="tool-btn-strewing">🌱 Strewing</button>
@@ -3957,7 +3979,7 @@
                 </div>
 
                 <div class="scripts-filter animate-on-scroll" role="tablist" aria-label="Script categories">
-                  <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterScripts('all', this)">All</button>
+                  <button type="button" class="filter-btn active" role="tab" aria-selected="true" onclick="filterScripts('all', this)">All</button>
                   <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('morning', this)">Morning</button>
                   <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('transitions', this)">Transitions</button>
                   <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('school', this)">School</button>
@@ -4262,7 +4284,7 @@
                         <span class="swap-after">"Let's figure out what part feels impossible."</span>
                       </div>
                     </div>
-                    <div class="script-tip">💡 School refusal is a symptom, not defiance. See our <a href="#" onclick="showPage('school'); return false;">School Toolkit</a> for next steps.</div>
+                    <div class="script-tip">💡 School refusal is a symptom, not defiance. See our <button type="button" class="link-style" onclick="showPage('school')">School Toolkit</button> for next steps.</div>
                   </div>
                 </div>
 
@@ -4306,7 +4328,7 @@
                         <span class="swap-after">"Safe foods are here. New thing is just visiting the plate."</span>
                       </div>
                     </div>
-                    <div class="script-tip">💡 See our <a href="#" onclick="showTool('feeding'); return false;">Feeding & ARFID</a> section for more strategies.</div>
+                    <div class="script-tip">💡 See our <button type="button" class="link-style" onclick="showTool('feeding')">Feeding & ARFID</button> section for more strategies.</div>
                   </div>
 
                   <div class="script-card animate-on-scroll">
@@ -4657,11 +4679,11 @@
                 <span class="template-checkbox">☐ Week 3+: Full handoff; primary available by phone if needed</span>
               </div>
 
-              <div class="template-field-label" class="mt-md">What to tell the child about why they're leaving:</div>
+              <div class="template-field-label mt-md">What to tell the child about why they're leaving:</div>
               <div class="template-field" style="min-height: 3rem;"></div>
               <p class="note-small">Keep it honest, simple, and not about the child. Example: "[Name] is going to help kids at another school. It's not because of anything you did."</p>
 
-              <div class="card-highlight-box" class="mt-md">
+              <div class="card-highlight-box mt-md">
                 <p>💡 <strong>Key insight:</strong> For PDA kids, relationship continuity is infrastructure—not a "nice to have." Sudden changes can trigger immediate school refusal. Plan the handoff like you'd plan any other essential accommodation.</p>
               </div>
             </div>
@@ -4770,7 +4792,7 @@
           </div>
 
           <div class="school-tabs animate-on-scroll" role="tablist" aria-label="School toolkit sections">
-            <button class="school-tab active" role="tab" aria-selected="true" aria-controls="school-iep" id="school-tab-iep" onclick="showSchoolTab('iep', this)">📋 IEP vs 504</button>
+            <button type="button" class="school-tab active" role="tab" aria-selected="true" aria-controls="school-iep" id="school-tab-iep" onclick="showSchoolTab('iep', this)">📋 IEP vs 504</button>
             <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-accommodations" id="school-tab-accommodations" onclick="showSchoolTab('accommodations', this)">🎯 Accommodations</button>
             <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-refusal" id="school-tab-refusal" onclick="showSchoolTab('refusal', this)">🚫 School Refusal</button>
             <button type="button" class="school-tab" role="tab" aria-selected="false" aria-controls="school-templates" id="school-tab-templates" onclick="showSchoolTab('templates', this)">📧 Templates</button>
@@ -6180,13 +6202,20 @@ Thank you,
     });
 
     function initScrollAnimations() {
+      const els = document.querySelectorAll('.animate-on-scroll, .stagger');
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-      document.querySelectorAll('.animate-on-scroll, .stagger').forEach(el => {
+      els.forEach(el => {
         el.classList.remove('visible');
         observer.observe(el);
       });
@@ -6366,6 +6395,50 @@ Thank you,
         schoolTabs.addEventListener('keydown', (e) => {
           if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
           const tabs = Array.from(schoolTabs.querySelectorAll('.school-tab'));
+          const current = tabs.findIndex(t => t.classList.contains('active'));
+          let next = current;
+
+          if (e.key === 'ArrowRight') next = (current + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = tabs.length - 1;
+
+          if (next !== current) {
+            e.preventDefault();
+            tabs[next].click();
+            tabs[next].focus();
+          }
+        });
+      }
+
+      // Tools sidebar tabs
+      const toolsNav = document.querySelector('.tools-nav');
+      if (toolsNav) {
+        toolsNav.addEventListener('keydown', (e) => {
+          if (!['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) return;
+          const tabs = Array.from(toolsNav.querySelectorAll('.tool-nav-btn'));
+          const current = tabs.findIndex(t => t.classList.contains('active'));
+          let next = current;
+
+          if (e.key === 'ArrowDown') next = (current + 1) % tabs.length;
+          else if (e.key === 'ArrowUp') next = (current - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = tabs.length - 1;
+
+          if (next !== current) {
+            e.preventDefault();
+            tabs[next].click();
+            tabs[next].focus();
+          }
+        });
+      }
+
+      // Resource category tabs
+      const resourceTabs = document.querySelector('.tabs[role="tablist"]');
+      if (resourceTabs) {
+        resourceTabs.addEventListener('keydown', (e) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+          const tabs = Array.from(resourceTabs.querySelectorAll('.tab'));
           const current = tabs.findIndex(t => t.classList.contains('active'));
           let next = current;
 
