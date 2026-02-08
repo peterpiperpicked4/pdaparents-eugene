@@ -1580,6 +1580,203 @@
     }
 
     /* ========================================
+       RESEARCH PAGE
+       ======================================== */
+
+    .updated-stamp {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--bark);
+      background: var(--linen);
+      padding: 3px 12px;
+      border-radius: 100px;
+      margin-top: var(--space-sm);
+    }
+
+    .confidence-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .confidence-high { background: var(--plum); color: var(--cream); }
+    .confidence-moderate { background: var(--peach); color: var(--coral-dark); }
+    .confidence-emerging { background: var(--linen); color: var(--bark); }
+
+    .confidence-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      justify-content: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .confidence-legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 768px) {
+      .findings-grid { grid-template-columns: 1fr; }
+    }
+
+    .finding-card {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-alt .finding-card {
+      background: var(--cream-dark);
+      border-color: var(--stone);
+    }
+
+    .finding-content {
+      padding: var(--space-lg);
+      flex: 1;
+    }
+
+    .finding-content h3 {
+      font-size: 1.05rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .finding-summary {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .finding-sources-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-sm) var(--space-lg);
+      background: var(--cream-dark);
+      border: none;
+      border-top: 1px solid var(--linen);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--plum);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      gap: var(--space-sm);
+      transition: background var(--duration-fast) var(--ease-gentle);
+    }
+
+    .finding-sources-btn:hover { background: var(--linen); }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .source-list li {
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    .source-list a { font-weight: 500; }
+
+    .source-library {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .source-topic {
+      background: var(--cream);
+      border: 1px solid var(--linen);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .source-topic .accordion-trigger {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .source-count {
+      font-size: 0.8rem;
+      color: var(--bark);
+      font-weight: 400;
+    }
+
+    .papers-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .papers-table th, .papers-table td {
+      padding: var(--space-sm);
+      text-align: left;
+      border-bottom: 1px solid var(--linen);
+    }
+
+    .papers-table th {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .papers-table td { color: var(--charcoal); }
+    .papers-table a { font-weight: 500; }
+
+    @media (max-width: 600px) {
+      .papers-table { font-size: 0.78rem; }
+      .papers-table th, .papers-table td { padding: var(--space-xs); }
+    }
+
+    .contribute-cta {
+      text-align: center;
+      padding: var(--space-xl);
+      background: linear-gradient(135deg, var(--peach-light) 0%, var(--peach) 100%);
+      border-radius: 20px;
+      margin-top: var(--space-xl);
+    }
+
+    [data-theme="dark"] .contribute-cta {
+      background: linear-gradient(135deg, var(--peach) 0%, var(--peach-light) 100%);
+    }
+
+    .contribute-cta p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      margin: 0 auto var(--space-md);
+    }
+
+    /* ========================================
        FOOTER
        ======================================== */
 
@@ -2393,6 +2590,7 @@
         <button type="button" class="nav-link" data-page="tools">Tools</button>
         <button type="button" class="nav-link" data-page="scripts">Scripts</button>
         <button type="button" class="nav-link" data-page="school">School</button>
+        <button type="button" class="nav-link" data-page="research">Research</button>
         <button type="button" class="nav-link" data-page="share">Share</button>
         <button type="button" class="nav-link" data-page="join">Join</button>
         <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
@@ -2417,6 +2615,7 @@
     <button type="button" class="nav-link" data-page="tools">Tools</button>
     <button type="button" class="nav-link" data-page="scripts">Scripts</button>
     <button type="button" class="nav-link" data-page="school">School</button>
+    <button type="button" class="nav-link" data-page="research">Research</button>
     <button type="button" class="nav-link" data-page="share">Share</button>
     <button type="button" class="nav-link" data-page="join">Join</button>
     <button type="button" class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
@@ -5213,6 +5412,625 @@ Thank you,
                 <li>The approaches that help are sometimes called "low-demand parenting" or "Collaborative and Proactive Solutions" (Dr. Ross Greene). You can search for either term to find more.</li>
               </ul>
             </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== RESEARCH ==================== -->
+    <div id="page-research" class="page">
+      <section class="section pt-page">
+        <div class="section-inner">
+
+          <!-- Hero -->
+          <div class="text-center animate-on-scroll" style="margin-bottom: var(--space-xl);">
+            <h2>What We Know About PDA</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--charcoal); margin: 0 auto; max-width: 650px;">
+              A living collection of research, organized by the questions parents actually ask. We're not researchers or clinicians&mdash;we're parents who went looking for answers. Here's what we found.
+            </p>
+            <div class="updated-stamp">Last updated: February 2026</div>
+          </div>
+
+          <!-- Confidence Legend -->
+          <div class="confidence-legend animate-on-scroll">
+            <div class="confidence-legend-item">
+              <span class="confidence-badge confidence-high">High confidence</span>
+              <span>Strong cross-source agreement</span>
+            </div>
+            <div class="confidence-legend-item">
+              <span class="confidence-badge confidence-moderate">Moderate consensus</span>
+              <span>Good evidence, research still growing</span>
+            </div>
+            <div class="confidence-legend-item">
+              <span class="confidence-badge confidence-emerging">Emerging</span>
+              <span>Community-endorsed, still being studied</span>
+            </div>
+          </div>
+
+          <!-- KEY FINDINGS -->
+          <div class="share-section-label" style="margin-bottom: var(--space-xs);">Key Findings</div>
+          <h3 style="margin-bottom: var(--space-lg);">What the Evidence Says</h3>
+
+          <div class="findings-grid stagger">
+
+            <!-- Finding 1 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"Is PDA just defiance?"</h3>
+                <p class="finding-summary">PDA avoidance is driven by the nervous system, not by conscious choice. Children with PDA resist even things they desperately <em>want</em> to do. A child choosing defiance picks their battles&mdash;PDA isn't picking, it's panic. After meltdowns, PDA children typically show insight, remorse, and a sense of having had no choice.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (5)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">PDA and Autism: Guide for Allies</a> &mdash; Reframing Autism</li>
+                    <li><a href="https://attwoodandgarnettevents.com" target="_blank" rel="noopener noreferrer">Differentiating PDA from ODD</a> &mdash; Attwood &amp; Garnett</li>
+                    <li><a href="https://www.pdasociety.org.uk/wp-content/uploads/2025/06/PDA-for-Educators-updated.pdf" target="_blank" rel="noopener noreferrer">PDA for Educators</a> &mdash; PDA Society (PDF)</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">Demand Avoidance</a> &mdash; National Autistic Society / PDA Society</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 2 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"Why don't rewards and consequences work?"</h3>
+                <p class="finding-summary">Rewards become demands themselves. The conditionality of "if you do X, you get Y" creates performance pressure, which increases anxiety, which increases avoidance. Even praise can trigger avoidance by adding implicit pressure to perform again. Punishment escalates the threat response.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (5)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.askellie.co.uk/uncategorized/why-reward-charts-and-sticker-systems-often-dont-work-for-pda-children/" target="_blank" rel="noopener noreferrer">Why Reward Charts Don't Work for PDA</a> &mdash; AskEllie</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Grandparent Guide</a> &mdash; PDA North America (PDF)</li>
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">"What Helps" Guides</a> &mdash; PDA Society</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 3 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"What happens when adults increase pressure?"</h3>
+                <p class="finding-summary">More pressure reliably produces more resistance. Direct commands, urgency, countdowns, authority framing, and public correction all escalate the PDA threat response. Low-arousal, collaborative approaches consistently produce better outcomes. This is the single most actionable finding.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (5)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">"What Helps" Guides</a> &mdash; PDA Society</li>
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Grandparent Guide</a> &mdash; PDA North America (PDF)</li>
+                    <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Parent's Guide to PDA</a> &mdash; ADDitude Magazine</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 4 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"Are they manipulating us?"</h3>
+                <p class="finding-summary">PDA children can be remarkably strategic at dodging demands&mdash;negotiating, distracting, charming. But these are panic-driven escape strategies, not calculated plots. It's closer to a drowning person grabbing anything available. Leading organizations explicitly state this is not a conscious choice.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">What Is PDA?</a> &mdash; PDA Society</li>
+                    <li><a href="https://attwoodandgarnettevents.com" target="_blank" rel="noopener noreferrer">Differentiating PDA from ODD</a> &mdash; Attwood &amp; Garnett</li>
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Grandparent Guide</a> &mdash; PDA North America (PDF)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 5 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"How is PDA different from ODD?"</h3>
+                <p class="finding-summary">PDA is anxiety-driven; ODD is characterized by angry, vindictive behavior targeting authority. PDA children use social strategies first (humor, negotiation) before escalating. They resist ALL demands&mdash;including fun activities. An estimated 34% of practitioners misidentify PDA using ODD terminology.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (5)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://autismparentingmagazine.com/pda-vs-odd/" target="_blank" rel="noopener noreferrer">PDA vs. ODD: Differences and Similarities</a> &mdash; Autism Parenting Magazine</li>
+                    <li><a href="https://attwoodandgarnettevents.com" target="_blank" rel="noopener noreferrer">Differentiating PDA from ODD</a> &mdash; Attwood &amp; Garnett</li>
+                    <li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1230011/full" target="_blank" rel="noopener noreferrer">Methods of Studying PDA: A Scoping Review</a> &mdash; Frontiers in Education</li>
+                    <li><a href="https://www.psychologytoday.com/us/blog/beyond-mental-health/202410/5-things-to-know-about-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">5 Things to Know About PDA</a> &mdash; Psychology Today</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 6 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"What language actually works?"</h3>
+                <p class="finding-summary">Declarative language (observations, statements of fact) works significantly better than imperative language (commands). "I notice the shoes are by the door" instead of "Put your shoes on." This bypasses the threat response by sharing information without demanding a response.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2024/01/Declarative-Language-PDA.pdf" target="_blank" rel="noopener noreferrer">Declarative Language &amp; PDA</a> &mdash; PDA North America (PDF)</li>
+                    <li><a href="https://raisingpda.com/2023/01/07/how-to-use-declarative-language/" target="_blank" rel="noopener noreferrer">How to Use Declarative Language</a> &mdash; Raising PDA Kids</li>
+                    <li><a href="https://scribblygumhouse.com/wp-content/uploads/2024/11/Declarative-Language-parent-tip-sheet.pdf" target="_blank" rel="noopener noreferrer">Declarative Language Parent Tip Sheet</a> &mdash; Scribbly Gum (PDF)</li>
+                    <li><a href="https://www.pdasociety.org.uk/what-helps-guides/pda-approaches/collaborative-and-proactive-solutions/" target="_blank" rel="noopener noreferrer">Collaborative and Proactive Solutions</a> &mdash; PDA Society</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 7 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"Why can they do it sometimes but not others?"</h3>
+                <p class="finding-summary">PDA capacity fluctuates based on cumulative stress. The nervous system's tolerance varies day to day, hour to hour. A useful metaphor: the anxiety bucket has no drain&mdash;it only fills. Yesterday's abilities don't predict today's capacity. This variability is one of the most confusing aspects for outside adults.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">What Is PDA?</a> &mdash; PDA Society</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Parent's Guide to PDA</a> &mdash; ADDitude Magazine</li>
+                    <li><a href="https://illuminateu.ca" target="_blank" rel="noopener noreferrer">Why Lowering Demands Can Feel Counterintuitive</a> &mdash; IlluminateU</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 8 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"Why do they resist things they WANT to do?"</h3>
+                <p class="finding-summary">The demand itself&mdash;not the activity&mdash;is the trigger. When something enjoyable becomes an expectation, the nervous system codes it as a threat regardless of content. A child will miss a party they've anticipated all week if attendance feels mandatory. This is the defining characteristic of PDA.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">What Is PDA?</a> &mdash; PDA Society</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Parent's Guide to PDA</a> &mdash; ADDitude Magazine</li>
+                    <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 9 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-high">High confidence</span>
+                <h3>"What approaches does the research support?"</h3>
+                <p class="finding-summary">Three frameworks are consistently recommended: the PDA Society's PANDA approach (Pick battles, Anxiety management, Negotiate, Disguise demands, Adapt), Ross Greene's Collaborative &amp; Proactive Solutions (CPS), and Declarative Language. All share a core principle: reduce perceived threat, increase perceived autonomy.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (5)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.pdasociety.org.uk/what-helps-guides/pda-approaches/collaborative-and-proactive-solutions/" target="_blank" rel="noopener noreferrer">Collaborative and Proactive Solutions</a> &mdash; PDA Society</li>
+                    <li><a href="https://www.livesinthebalance.org" target="_blank" rel="noopener noreferrer">CPS Research &amp; Workshops</a> &mdash; Lives in the Balance (Dr. Ross Greene)</li>
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2024/01/Declarative-Language-PDA.pdf" target="_blank" rel="noopener noreferrer">Declarative Language &amp; PDA</a> &mdash; PDA North America (PDF)</li>
+                    <li><a href="https://pdanorthamerica.org/wp-content/uploads/2023/08/PDA-for-Teaching-Professionals-1.pdf" target="_blank" rel="noopener noreferrer">PDA for Teaching Professionals</a> &mdash; PDA North America (PDF)</li>
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PANDA Framework</a> &mdash; PDA Society</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 10 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-moderate">Moderate consensus</span>
+                <h3>"Is PDA officially recognized?"</h3>
+                <p class="finding-summary">Recognition varies dramatically by region. Widely recognized in the UK with educational guidelines. Not a standalone DSM-5 diagnosis in the US&mdash;children are typically diagnosed with ASD, ADHD, or anxiety. Growing rapidly in the US (2025 Lives in the Balance Summit themed on PDA) and Australia. The strategies work regardless of the label.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.pdasociety.org.uk/research-professional-practice/research-overviews/" target="_blank" rel="noopener noreferrer">Research Overviews</a> &mdash; PDA Society</li>
+                    <li><a href="https://www.psychologytoday.com/us/blog/beyond-mental-health/202410/5-things-to-know-about-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">5 Things to Know About PDA</a> &mdash; Psychology Today</li>
+                    <li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1230011/full" target="_blank" rel="noopener noreferrer">Methods of Studying PDA: Scoping Review</a> &mdash; Frontiers in Education</li>
+                    <li><a href="https://www.michiganmedicine.org/health-lab/first-us-based-study-parents-and-guardians-kids-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">First US-Based Study of PDA Parents</a> &mdash; Michigan Medicine</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 11 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-moderate">Moderate consensus</span>
+                <h3>"What's happening in the nervous system?"</h3>
+                <p class="finding-summary">The leading model: the PDA brain has a hyper-sensitive threat detection system. Everyday demands trigger fight/flight/freeze before the reasoning brain can process the request. Intolerance of uncertainty and trait anxiety independently predict extreme demand avoidance. The polyvagal theory framework offers additional explanation.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6373319/" target="_blank" rel="noopener noreferrer">Trait Autism &amp; Anxiety in EDA</a> &mdash; White et al. (2023), NIH/PMC</li>
+                    <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    <li><a href="https://www.psychologytoday.com/us/blog/expressive-trauma-integration/202506/viewing-demand-avoidance-through-a-neuroimmune-lens" target="_blank" rel="noopener noreferrer">Demand Avoidance Through a Neuroimmune Lens</a> &mdash; Psychology Today</li>
+                    <li><a href="https://pdanorthamerica.org" target="_blank" rel="noopener noreferrer">Back to Basics: What Is PDA?</a> &mdash; PDA North America</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Finding 12 -->
+            <div class="finding-card accordion-item">
+              <div class="finding-content">
+                <span class="confidence-badge confidence-emerging">Emerging</span>
+                <h3>"What should we call it?"</h3>
+                <p class="finding-summary">"Pathological Demand Avoidance" remains the clinical term, but "Persistent Drive for Autonomy" is gaining traction&mdash;shifting focus from deficit to need. Whether PDA is a distinct autism subtype or a dimensional trait is actively debated. The terminology question is largely irrelevant to the strategies, which work regardless of classification.</p>
+              </div>
+              <button type="button" class="finding-sources-btn accordion-trigger" aria-expanded="false">
+                <span>Sources (4)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-content" role="region">
+                <div class="accordion-content-inner">
+                  <ul class="source-list">
+                    <li><a href="https://www.umhan.com/articles/pathological-demand-avoidance-demand-avoidance-or-pervasive-drive-for-autonomy" target="_blank" rel="noopener noreferrer">PDA, Demand Avoidance, or Pervasive Drive for Autonomy?</a> &mdash; UMHAN</li>
+                    <li><a href="https://www.rabbishoshana.com/post/pda-autism-is-not" target="_blank" rel="noopener noreferrer">What Is PDA? Well, PDA is NOT...</a> &mdash; Rabbi Shoshana</li>
+                    <li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1230011/full" target="_blank" rel="noopener noreferrer">Methods of Studying PDA: Scoping Review</a> &mdash; Frontiers in Education</li>
+                    <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PDA and Diagnosis</a> &mdash; PDA Society</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end findings-grid -->
+
+          <!-- ACADEMIC PAPERS -->
+          <div style="margin-top: var(--space-2xl);" class="animate-on-scroll">
+            <div class="share-section-label" style="margin-bottom: var(--space-xs);">Peer-Reviewed Research</div>
+            <h3 style="margin-bottom: var(--space-md);">Key Academic Papers</h3>
+            <p class="text-charcoal mb-md" style="font-size: 0.9rem;">Direct links to the most-cited studies. These are the papers that clinicians and researchers reference most frequently.</p>
+            <div style="overflow-x: auto;">
+              <table class="papers-table">
+                <thead>
+                  <tr>
+                    <th>Paper</th>
+                    <th>Finding</th>
+                    <th>Confidence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">O'Nions et al. (2014)</a>, <em>Autism</em></td>
+                    <td>PDA shows elevated emotional symptoms vs. ASD and conduct groups</td>
+                    <td><span class="confidence-badge confidence-high">High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">Greene et al. (2019)</a>, <em>CCFPR</em></td>
+                    <td>CPS effectiveness across clinical and educational settings</td>
+                    <td><span class="confidence-badge confidence-high">High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://acamh.onlinelibrary.wiley.com/" target="_blank" rel="noopener noreferrer">Stuart et al. (2020)</a>, <em>CAMH</em></td>
+                    <td>Intolerance of uncertainty predicts PDA features</td>
+                    <td><span class="confidence-badge confidence-moderate">Moderate-High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.sciencedirect.com/" target="_blank" rel="noopener noreferrer">O'Nions &amp; Eaton (2020)</a>, <em>Paediatrics &amp; Child Health</em></td>
+                    <td>Most-cited clinical overview; low-demand approach recommended</td>
+                    <td><span class="confidence-badge confidence-high">High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://journals.sagepub.com/" target="_blank" rel="noopener noreferrer">Kildahl et al. (2021)</a>, <em>Autism</em></td>
+                    <td>Systematic review: 13 studies, evidence base small but growing</td>
+                    <td><span class="confidence-badge confidence-moderate">Moderate</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6373319/" target="_blank" rel="noopener noreferrer">White et al. (2023)</a>, <em>JADD</em></td>
+                    <td>Autistic traits + anxiety independently predict demand avoidance</td>
+                    <td><span class="confidence-badge confidence-moderate">Moderate-High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://onlinelibrary.wiley.com/" target="_blank" rel="noopener noreferrer">Doyle &amp; Kenny (2023)</a>, <em>JRSEN</em></td>
+                    <td>34% of practitioners misidentify PDA using ODD terminology</td>
+                    <td><span class="confidence-badge confidence-high">High</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://journals.sagepub.com/" target="_blank" rel="noopener noreferrer">Westby (2025)</a>, <em>SAGE Journals</em></td>
+                    <td>Comprehensive PDA overview and resource compilation</td>
+                    <td><span class="confidence-badge confidence-moderate">Moderate</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SOURCE LIBRARY -->
+          <div style="margin-top: var(--space-2xl);" class="animate-on-scroll">
+            <div class="share-section-label" style="margin-bottom: var(--space-xs);">Source Library</div>
+            <h3 style="margin-bottom: var(--space-xs);">Browse by Topic</h3>
+            <p class="text-charcoal mb-lg" style="font-size: 0.9rem;">Every resource we've found, organized by what you're looking for. Click a topic to expand.</p>
+
+            <div class="source-library">
+
+              <!-- Topic: PDA vs ODD -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>PDA vs. ODD (Oppositional Defiant Disorder) <span class="source-count">&mdash; 8 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://autismparentingmagazine.com/pda-vs-odd/" target="_blank" rel="noopener noreferrer">PDA vs. ODD: Differences and Similarities</a> &mdash; Autism Parenting Magazine</li>
+                      <li><a href="https://attwoodandgarnettevents.com" target="_blank" rel="noopener noreferrer">Differentiating PDA from ODD</a> &mdash; Attwood &amp; Garnett Events</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                      <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">PDA, ODD, ADHD: Oppositional Teen Behavior</a> &mdash; ADDitude Magazine</li>
+                      <li><a href="https://www.psychologytoday.com/us/blog/beyond-mental-health/202410/5-things-to-know-about-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">5 Things to Know About PDA</a> &mdash; Psychology Today</li>
+                      <li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2024.1230011/full" target="_blank" rel="noopener noreferrer">Methods of Studying PDA: Scoping Review</a> &mdash; Frontiers in Education</li>
+                      <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                      <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PDA Society Homepage</a> &mdash; PDA Society (UK)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Why Rewards Backfire -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Why Rewards, Charts &amp; Punishment Backfire <span class="source-count">&mdash; 6 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.askellie.co.uk/uncategorized/why-reward-charts-and-sticker-systems-often-dont-work-for-pda-children/" target="_blank" rel="noopener noreferrer">Why Reward Charts Don't Work for PDA Children</a> &mdash; AskEllie</li>
+                      <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Grandparent Guide</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">"What Helps" Guides</a> &mdash; PDA Society</li>
+                      <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Parent's Guide to PDA Strategies</a> &mdash; ADDitude Magazine</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Declarative Language -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Declarative Language &amp; Indirect Communication <span class="source-count">&mdash; 5 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2024/01/Declarative-Language-PDA.pdf" target="_blank" rel="noopener noreferrer">Declarative Language &amp; PDA</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://raisingpda.com/2023/01/07/how-to-use-declarative-language/" target="_blank" rel="noopener noreferrer">How to Use Declarative Language</a> &mdash; Raising PDA Kids</li>
+                      <li><a href="https://scribblygumhouse.com/wp-content/uploads/2024/11/Declarative-Language-parent-tip-sheet.pdf" target="_blank" rel="noopener noreferrer">Declarative Language Parent Tip Sheet</a> &mdash; Scribbly Gum Counselling (PDF)</li>
+                      <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies &mdash; Language Examples</a> &mdash; Reframing Autism</li>
+                      <li><a href="https://www.pdasociety.org.uk/what-helps-guides/pda-approaches/collaborative-and-proactive-solutions/" target="_blank" rel="noopener noreferrer">Collaborative and Proactive Solutions</a> &mdash; PDA Society</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: CPS / Ross Greene -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Ross Greene's Collaborative &amp; Proactive Solutions <span class="source-count">&mdash; 5 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.livesinthebalance.org" target="_blank" rel="noopener noreferrer">Lives in the Balance</a> &mdash; Dr. Ross Greene (CPS home)</li>
+                      <li><a href="https://www.pdasociety.org.uk/what-helps-guides/pda-approaches/collaborative-and-proactive-solutions/" target="_blank" rel="noopener noreferrer">CPS &amp; PDA</a> &mdash; PDA Society</li>
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2023/08/PDA-for-Teaching-Professionals-1.pdf" target="_blank" rel="noopener noreferrer">PDA for Teaching Professionals</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">CPS: A Review of Research Findings</a> &mdash; Greene et al. (2019), PubMed</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: PANDA Framework -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>PANDA Framework (Pick Battles, Anxiety, Negotiate, Disguise, Adapt) <span class="source-count">&mdash; 5 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PANDA Approach</a> &mdash; PDA Society (UK)</li>
+                      <li><a href="https://autismparentingmagazine.com/pda-vs-odd/" target="_blank" rel="noopener noreferrer">Understanding PDA</a> &mdash; Autism Parenting Magazine</li>
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Grandparent Guide</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://www.pdasociety.org.uk/wp-content/uploads/2025/06/PDA-for-Educators-updated.pdf" target="_blank" rel="noopener noreferrer">PDA for Educators</a> &mdash; PDA Society (PDF)</li>
+                      <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Strategies for Teachers -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>PDA Strategies for Teachers &amp; Schools <span class="source-count">&mdash; 7 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.pdasociety.org.uk/wp-content/uploads/2025/06/PDA-for-Educators-updated.pdf" target="_blank" rel="noopener noreferrer">PDA for Educators (Updated)</a> &mdash; PDA Society (PDF)</li>
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2023/08/PDA-for-Teaching-Professionals-1.pdf" target="_blank" rel="noopener noreferrer">PDA for Teaching Professionals</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://behaviourhelp.com/a-z-conditions-disorders/pathological-demand-avoidance/ten-effective-classroom-strategies-for-teachers-supporting-students-with-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">Ten Effective Classroom Strategies</a> &mdash; BehaviourHelp</li>
+                      <li><a href="https://sendsupported.com/wp-content/uploads/2018/11/teacher_leaflet.pdf" target="_blank" rel="noopener noreferrer">Teacher's Guide to Understanding PDA</a> &mdash; SENDsupported (PDF)</li>
+                      <li><a href="https://ddwa.org.au/wp-content/uploads/2024/08/PDA-Support-Strategies-at-School-for-PDA-Profile-30-July-2024.pdf" target="_blank" rel="noopener noreferrer">PDA Support Strategies at School</a> &mdash; Developmental Disability WA (PDF)</li>
+                      <li><a href="https://pdanorthamerica.org/when-school-goes-wrong-for-your-pdaer/" target="_blank" rel="noopener noreferrer">When School Goes Wrong for Your PDAer</a> &mdash; PDA North America</li>
+                      <li><a href="https://iepfocus.com/pathological-demand-avoidance-pda-a-comprehensive-overview-for-parents-and-educators/" target="_blank" rel="noopener noreferrer">PDA: Overview for Parents and Educators</a> &mdash; IEPfocus</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Explaining PDA to Family -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Explaining PDA to Grandparents &amp; Family <span class="source-count">&mdash; 6 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://pdanorthamerica.org/wp-content/uploads/2025/05/A-Brief-Guide-for-Supporting-Your-PDA-Grandchild.pdf" target="_blank" rel="noopener noreferrer">Brief Guide for Supporting Your PDA Grandchild</a> &mdash; PDA North America (PDF)</li>
+                      <li><a href="https://www.pdasociety.org.uk/what-helps-guides/talking-to-others-about-pda/" target="_blank" rel="noopener noreferrer">Talking to Others About PDA</a> &mdash; PDA Society</li>
+                      <li><a href="https://www.expresscic.org.uk/post/supporting-family-members-and-friends-who-are-parenting-a-child-with-pda" target="_blank" rel="noopener noreferrer">Supporting Family Members</a> &mdash; Express CIC</li>
+                      <li><a href="https://reframingautism.org.au/pathological-demand-avoidance-pda-and-autism-guide-for-allies/" target="_blank" rel="noopener noreferrer">Guide for Allies</a> &mdash; Reframing Autism</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                      <li><a href="https://pdanorthamerica.org" target="_blank" rel="noopener noreferrer">PDA North America Homepage</a> &mdash; PDA North America</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Low-Demand Parenting -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Low-Demand Parenting &amp; Daily Strategies <span class="source-count">&mdash; 6 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Parent's Guide to Navigating PDA</a> &mdash; ADDitude Magazine</li>
+                      <li><a href="https://pdaparenting.com/pda-and-autism-parenting-guide/" target="_blank" rel="noopener noreferrer">PDA and Autism Parenting Guide</a> &mdash; PDA Parenting</li>
+                      <li><a href="https://illuminateu.ca" target="_blank" rel="noopener noreferrer">Why Lowering Demands Can Feel Counterintuitive</a> &mdash; IlluminateU</li>
+                      <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">"What Helps" Guides</a> &mdash; PDA Society</li>
+                      <li><a href="https://www.michiganmedicine.org/health-lab/first-us-based-study-parents-and-guardians-kids-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">First US-Based Study of PDA Parents</a> &mdash; Michigan Medicine</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: PDA Society Guidance -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>PDA Society Core Guidance <span class="source-count">&mdash; 5 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://www.pdasociety.org.uk" target="_blank" rel="noopener noreferrer">PDA Society Homepage</a> &mdash; PDA Society (UK)</li>
+                      <li><a href="https://www.pdasociety.org.uk/research-professional-practice/research-overviews/" target="_blank" rel="noopener noreferrer">Research Overviews</a> &mdash; PDA Society</li>
+                      <li><a href="https://www.pdasociety.org.uk/wp-content/uploads/2025/05/Identifying-Assessing-a-PDA-profile-Practice-Guidance-v1.1-1.pdf" target="_blank" rel="noopener noreferrer">Identifying &amp; Assessing a PDA Profile</a> &mdash; PDA Society Practice Guidance (PDF)</li>
+                      <li><a href="https://www.pdasociety.org.uk/what-helps-guides/pda-approaches/collaborative-and-proactive-solutions/" target="_blank" rel="noopener noreferrer">Collaborative and Proactive Solutions</a> &mdash; PDA Society</li>
+                      <li><a href="https://www.pdasociety.org.uk/wp-content/uploads/2025/06/PDA-for-Educators-updated.pdf" target="_blank" rel="noopener noreferrer">PDA for Educators (Updated)</a> &mdash; PDA Society (PDF)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Casey Ehrlich / At Peace Parents -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Casey Ehrlich / At Peace Parents <span class="source-count">&mdash; 4 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><a href="https://illuminateu.ca" target="_blank" rel="noopener noreferrer">At Peace Parents</a> &mdash; Casey Ehrlich, PhD</li>
+                      <li><a href="https://www.michiganmedicine.org/health-lab/first-us-based-study-parents-and-guardians-kids-pathological-demand-avoidance" target="_blank" rel="noopener noreferrer">First US-Based Study of PDA Parents</a> &mdash; Michigan Medicine (University of Michigan partnership)</li>
+                      <li><a href="https://childmind.org/article/pathological-demand-avoidance-in-kids/" target="_blank" rel="noopener noreferrer">PDA in Kids</a> &mdash; Child Mind Institute</li>
+                      <li><a href="https://www.additudemag.com/pathological-demand-avoidance-strategies/" target="_blank" rel="noopener noreferrer">Understanding PDA: What It Is, Why It Happens</a> &mdash; ADDitude Magazine</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Topic: Books & Key Voices -->
+              <div class="source-topic accordion-item">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Books &amp; Key Voices <span class="source-count">&mdash; 5 sources</span></span>
+                  <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" role="region">
+                  <div class="accordion-content-inner">
+                    <ul class="source-list">
+                      <li><strong><em>The PDA Paradox</em></strong> by Harry Thompson &mdash; First-person account of living with PDA</li>
+                      <li><strong><em>The Teacher's Introduction to Pathological Demand Avoidance</em></strong> by Clare Truman (2021) &mdash; UK educational framework</li>
+                      <li><a href="https://attwoodandgarnettevents.com" target="_blank" rel="noopener noreferrer">Dr. Tony Attwood</a> &mdash; PDA as "postulophobia" (phobia of demands)</li>
+                      <li><a href="https://www.livesinthebalance.org" target="_blank" rel="noopener noreferrer">Dr. Ross Greene</a> &mdash; Collaborative &amp; Proactive Solutions</li>
+                      <li><a href="https://www.rabbishoshana.com/post/pda-autism-is-not" target="_blank" rel="noopener noreferrer">Rabbi Shoshana</a> &mdash; FAQs on PDA by a PDAer</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end source-library -->
+          </div>
+
+          <!-- Contribute CTA -->
+          <div class="contribute-cta animate-on-scroll">
+            <p><strong>This is a living document. We're always learning.</strong></p>
+            <p>If you've found research, a resource, or a perspective we're missing&mdash;we want to hear about it. We read everything.</p>
+            <a href="mailto:eugenePDAparents@gmail.com?subject=PDA%20Resource%20Suggestion&body=Hi%2C%0A%0AI%20found%20a%20resource%20that%20might%20be%20useful%3A%0A%0ALink%3A%20%0ATopic%3A%20%0ANotes%3A%20" class="btn btn-warm" style="margin-top: var(--space-sm);">
+              Send Us a Resource
+            </a>
           </div>
 
         </div>
