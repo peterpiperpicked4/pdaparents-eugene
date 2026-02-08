@@ -342,6 +342,13 @@
       color: var(--plum);
     }
 
+    .nav-share-cta {
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.9rem;
+      min-height: 38px;
+      margin-left: var(--space-xs);
+    }
+
     .theme-toggle {
       width: 40px;
       height: 40px;
@@ -2586,13 +2593,10 @@
         <button type="button" class="nav-link" data-page="start-here">Start Here</button>
         <button type="button" class="nav-link" data-page="events">Events</button>
         <button type="button" class="nav-link" data-page="resources">Resources</button>
-        <button type="button" class="nav-link" data-page="services">Services</button>
-        <button type="button" class="nav-link" data-page="tools">Tools</button>
-        <button type="button" class="nav-link" data-page="scripts">Scripts</button>
+        <button type="button" class="nav-link" data-page="toolkit">Toolkit</button>
         <button type="button" class="nav-link" data-page="school">School</button>
         <button type="button" class="nav-link" data-page="research">Research</button>
-        <button type="button" class="nav-link" data-page="share">Share</button>
-        <button type="button" class="nav-link" data-page="join">Join</button>
+        <button type="button" class="btn btn-warm nav-share-cta" data-page="share">Share</button>
         <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <span id="theme-icon">🌙</span>
         </button>
@@ -2611,14 +2615,13 @@
     <button type="button" class="nav-link" data-page="start-here">Start Here</button>
     <button type="button" class="nav-link" data-page="events">Events</button>
     <button type="button" class="nav-link" data-page="resources">Resources</button>
-    <button type="button" class="nav-link" data-page="services">Services</button>
-    <button type="button" class="nav-link" data-page="tools">Tools</button>
-    <button type="button" class="nav-link" data-page="scripts">Scripts</button>
+    <button type="button" class="nav-link" data-page="toolkit">Toolkit</button>
     <button type="button" class="nav-link" data-page="school">School</button>
     <button type="button" class="nav-link" data-page="research">Research</button>
-    <button type="button" class="nav-link" data-page="share">Share</button>
-    <button type="button" class="nav-link" data-page="join">Join</button>
     <button type="button" class="nav-link" onclick="toggleTheme()">Toggle Theme</button>
+    <div style="border-top: 1px solid var(--plum-light); margin-top: var(--space-sm); padding-top: var(--space-sm);">
+      <button type="button" class="btn btn-warm" data-page="share" style="width: 100%;">Share</button>
+    </div>
   </div>
 
   <main id="main-content">
@@ -2769,12 +2772,12 @@
               <span class="quick-link-label">Resources</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button type="button" class="quick-link-card" onclick="showPage('services')">
+            <button type="button" class="quick-link-card" onclick="showPage('resources'); setTimeout(function(){ var b=document.getElementById('tab-btn-services'); if(b) showResourceTab('services',b); },200);">
               <span class="quick-link-icon" aria-hidden="true">📋</span>
               <span class="quick-link-label">DDS & Paperwork</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button type="button" class="quick-link-card" onclick="showPage('tools')">
+            <button type="button" class="quick-link-card" onclick="showPage('toolkit')">
               <span class="quick-link-icon" aria-hidden="true">🧰</span>
               <span class="quick-link-label">Practical Tools</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
@@ -2849,12 +2852,85 @@
           </div>
 
           <div class="text-center animate-on-scroll">
-            <button type="button" class="btn btn-primary" onclick="showPage('join')">
+            <a href="#about-connect" class="btn btn-primary" onclick="document.getElementById('about-connect').scrollIntoView({behavior:'smooth'}); return false;">
               Join Our Community
-            </button>
+            </a>
             <button type="button" class="btn btn-secondary" onclick="showPage('start-here')" class="ml-sm">
               Learn About PDA
             </button>
+          </div>
+
+          <!-- Connect Section (merged from Join page) -->
+          <div id="about-connect" style="border-top: 2px solid var(--plum-light); margin-top: var(--space-xl); padding-top: var(--space-xl);">
+            <div class="section-header animate-on-scroll">
+              <h2>Connect</h2>
+              <p>Low-friction ways to stay in the loop.</p>
+            </div>
+
+            <div class="card mb-lg animate-on-scroll">
+              <h3 class="flex-center mb-sm">
+                <span aria-hidden="true">📧</span> Email List
+              </h3>
+              <p class="text-charcoal mb-md">
+                Get meetup reminders, location details, and occasional updates. 1-2 emails per month max. Unsubscribe anytime.
+              </p>
+              <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary btn-full">
+                Join Email List →
+              </a>
+            </div>
+
+            <div class="card mb-lg animate-on-scroll">
+              <h3 class="flex-center mb-sm">
+                <span aria-hidden="true">💬</span> Private Chat
+              </h3>
+              <p class="text-charcoal mb-md">
+                Connect with other parents between meetups. Ask questions, vent, share wins.
+              </p>
+              <div class="chat-norms">
+                <div class="chat-norms-title">Chat Norms:</div>
+                <ul>
+                  <li>Confidentiality applies here too</li>
+                  <li>No unsolicited advice—ask first</li>
+                  <li>Be kind; we're all struggling</li>
+                  <li>No child names or identifying details</li>
+                </ul>
+              </div>
+              <a href="mailto:eugenePDAparents@gmail.com?subject=Chat%20Access%20Request" class="btn btn-secondary">
+                Request Chat Access →
+              </a>
+            </div>
+
+            <div class="card mb-lg animate-on-scroll">
+              <h3 class="flex-center mb-sm">
+                <span aria-hidden="true">✉️</span> Contact Us
+              </h3>
+              <p class="text-charcoal mb-md">
+                Questions? Suggestions? Want to help?
+              </p>
+              <a href="mailto:eugenePDAparents@gmail.com" class="btn btn-primary">
+                Email Us →
+              </a>
+            </div>
+
+            <div class="card animate-on-scroll bg-cream-dark">
+              <h3 class="mb-sm">💡 Suggest a Meetup Topic</h3>
+              <p class="text-charcoal mb-md">
+                What would be helpful to discuss? Some ideas from past meetups:
+              </p>
+              <div class="topic-pills">
+                <span class="topic-pill">IEP vs 504</span>
+                <span class="topic-pill">In-laws & holidays</span>
+                <span class="topic-pill">Sibling trauma</span>
+                <span class="topic-pill">Parent self-care</span>
+                <span class="topic-pill">Teen independence</span>
+                <span class="topic-pill">School refusal</span>
+                <span class="topic-pill">Medication</span>
+                <span class="topic-pill">ARFID/feeding</span>
+              </div>
+              <a href="mailto:eugenePDAparents@gmail.com?subject=Topic%20Suggestion" class="btn btn-primary mt-lg">
+                Suggest a Topic →
+              </a>
+            </div>
           </div>
 
         </div>
@@ -2958,12 +3034,12 @@
               <span class="quick-link-label">Save the next meetup date</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card mb-sm" onclick="showPage('join')">
+            <button class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
               <span class="quick-link-icon" aria-hidden="true">📧</span>
               <span class="quick-link-label">Join the email list</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
             </button>
-            <button class="quick-link-card mb-sm" onclick="showPage('join')">
+            <button class="quick-link-card mb-sm" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">
               <span class="quick-link-icon" aria-hidden="true">💬</span>
               <span class="quick-link-label">Join the private chat (optional)</span>
               <span class="quick-link-arrow" aria-hidden="true">→</span>
@@ -3008,7 +3084,7 @@
               <span aria-hidden="true">✨</span> Special Events
             </h4>
             <p style="color: var(--charcoal); font-size: 0.95rem; margin: 0;">
-              We occasionally host paperwork co-working nights and other special sessions. These are announced via the email list—<a href="#" onclick="showPage('join'); return false;">join to stay in the loop</a>.
+              We occasionally host paperwork co-working nights and other special sessions. These are announced via the email list—<a href="#" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200); return false;">join to stay in the loop</a>.
             </p>
           </div>
 
@@ -3027,7 +3103,7 @@
           <div class="card text-center animate-on-scroll bg-cream-dark">
             <h3 class="mb-xs">Have a Topic in Mind?</h3>
             <p class="text-charcoal mb-md">We're collecting topics parents want to discuss.</p>
-            <button type="button" class="btn btn-primary" onclick="showPage('join')">Suggest a Topic →</button>
+            <button type="button" class="btn btn-primary" onclick="showPage('about'); setTimeout(function(){ var el=document.getElementById('about-connect'); if(el) el.scrollIntoView({behavior:'smooth'}); },200);">Suggest a Topic →</button>
           </div>
         </div>
       </section>
@@ -3060,6 +3136,7 @@
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-national" id="tab-btn-national" onclick="showResourceTab('national', this)">🌎 National</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-socials" id="tab-btn-socials" onclick="showResourceTab('socials', this)">📱 Social</button>
             <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-activities" id="tab-btn-activities" onclick="showResourceTab('activities', this)">🎯 Activities</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="tab-services" id="tab-btn-services" onclick="showResourceTab('services', this)">📋 Paperwork & DDS</button>
           </div>
 
           <!-- Local Tab -->
@@ -3263,171 +3340,163 @@
               <p class="mt-sm"><a href="https://kindtree.org" target="_blank" rel="noopener noreferrer">kindtree.org</a></p>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
 
-    <!-- ==================== SERVICES ==================== -->
-    <div id="page-services" class="page">
-      <section class="section pt-page">
-        <div class="section-narrow">
-          <div class="section-header animate-on-scroll">
-            <h2>Services & Paperwork</h2>
-            <p>Navigating DDS, Lane County, and OHP—step by step.</p>
-          </div>
-
-          <div class="disclaimer animate-on-scroll">
-            <p><strong>⚠️ Important:</strong> These are parent-shared strategies, not professional recommendations. This is not legal or official guidance. Processes change—always verify current requirements directly with Lane County DDS or relevant agencies.</p>
-          </div>
-
-          <div class="card card-accent mb-lg animate-on-scroll">
-            <p class="text-charcoal">
-              Getting services for your child can feel overwhelming. The system is confusing, the paperwork is endless, and the order matters. This page breaks it down based on what parents in our group have learned the hard way.
-            </p>
-          </div>
-
-          <h3 class="mb-lg">📋 The Basic Process</h3>
-
-          <div class="stagger">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <div>
-                <div class="step-title">Start with Lane County</div>
-                <div class="step-desc">Contact Lane County Developmental Disabilities Services first. Don't start with state paperwork.</div>
-                <div class="step-tip">💡 Call and say: "I'm lost—can you tell me the next step?"</div>
-              </div>
+          <!-- Paperwork & DDS Tab -->
+          <div id="tab-services" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-services">
+            <div class="disclaimer animate-on-scroll">
+              <p><strong>⚠️ Important:</strong> These are parent-shared strategies, not professional recommendations. This is not legal or official guidance. Processes change—always verify current requirements directly with Lane County DDS or relevant agencies.</p>
             </div>
 
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <div>
-                <div class="step-title">Complete County Application</div>
-                <div class="step-desc">Fill out the Lane County intake forms. Have your diagnoses, contact info, and medical records ready.</div>
-                <div class="step-tip">💡 Answer questions as if it's their worst day—describe needs without your supports.</div>
-              </div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <div>
-                <div class="step-title">Needs Assessment Interview</div>
-                <div class="step-desc">They'll interview you (and possibly your child) to assess support needs.</div>
-                <div class="step-tip">💡 Don't defend or minimize. The worse the picture, the more help you qualify for.</div>
-              </div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">4</div>
-              <div>
-                <div class="step-title">Then State Paperwork (ONE Oregon)</div>
-                <div class="step-desc">After county steps, you may need to complete state applications through ONE Oregon.</div>
-                <div class="step-tip">💡 Doing this out of order can reset your progress—ask the county first.</div>
-              </div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">5</div>
-              <div>
-                <div class="step-title">Get Assigned Hours</div>
-                <div class="step-desc">Based on your assessment, you'll receive a certain number of support hours.</div>
-                <div class="step-tip">💡 PDA diagnosis + inability to do healthcare tasks independently can increase hours.</div>
-              </div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">6</div>
-              <div>
-                <div class="step-title">Choose a Provider Agency</div>
-                <div class="step-desc">Select an agency to provide DSP (Direct Support Professional) services.</div>
-                <div class="step-tip">💡 Ask other parents who they use. Interview potential DSPs—you can fire them!</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mt-lg mb-lg animate-on-scroll bg-cream-dark">
-            <h3 class="flex-center mb-md">
-              <span aria-hidden="true">🧠</span> Interview Mindset
-            </h3>
-            <blockquote class="interview-quote">
-              <p class="text-italic text-ink mb-sm">
-                "Answer questions as if it were their worst day. Do not try to defend your child. Don't say 'well, they do okay when...' They're doing okay because YOU are putting in all the supports. Answer as if they didn't have your support."
+            <div class="card card-accent mb-lg animate-on-scroll">
+              <p class="text-charcoal">
+                Getting services for your child can feel overwhelming. The system is confusing, the paperwork is endless, and the order matters. This page breaks it down based on what parents in our group have learned the hard way.
               </p>
-            </blockquote>
-            <p class="text-charcoal m-0">
-              Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
-            </p>
-          </div>
-
-          <div class="card mb-lg animate-on-scroll">
-            <h3 class="mb-md">📄 Documents to Have Ready</h3>
-            <ul class="doc-list">
-              <li>Diagnosis documentation</li>
-              <li>Neuropsych evaluation</li>
-              <li>IEP or 504 plan</li>
-              <li>Medical records</li>
-              <li>Provider contact info</li>
-              <li>Insurance information</li>
-              <li>Birth certificate</li>
-              <li>Social Security number</li>
-            </ul>
-          </div>
-
-          <div class="card mb-lg animate-on-scroll">
-            <h3 class="mb-md">📞 Helpful Scripts</h3>
-            <div class="script-box">
-              <div class="script-label">When you're lost:</div>
-              <div class="script-text">"Hi, I'm trying to get services for my child. I'm lost—can you tell me what my next step should be?"</div>
             </div>
-            <div class="script-box">
-              <div class="script-label">When checking progress:</div>
-              <div class="script-text">"Can you confirm I've completed step 1 and tell me what step 2 is?"</div>
-            </div>
-            <div class="script-box">
-              <div class="script-label">When stuck on paperwork:</div>
-              <div class="script-text">"I'm having trouble with this form. Is there someone who can walk me through it?"</div>
-            </div>
-          </div>
 
-          <div class="card card-highlight mb-lg animate-on-scroll">
-            <h3 class="text-ink-mb-sm">👥 Can't Face the Paperwork Alone?</h3>
-            <p class="text-ink-mb-sm">
-              "Body doubling" helps—having someone sit with you while you tackle forms. We host occasional paperwork co-working sessions. Or ask a friend: "Can you sit with me for an hour while I do this? You don't have to help, just be there."
-            </p>
-            <p style="color: var(--ink); font-size: 0.9rem; margin: 0;">
-              📅 Check our Events page for upcoming paperwork nights.
-            </p>
-          </div>
+            <h3 class="mb-lg">📋 The Basic Process</h3>
 
-          <div class="animate-on-scroll">
-            <h3 class="mb-md">🔗 Helpful Links</h3>
-            <a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer" class="link-item">
-              <div>
-                <span class="link-item-name">Autism Society of Oregon</span>
-                <span class="link-item-note">Will walk you through the process</span>
+            <div class="stagger">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                  <div class="step-title">Start with Lane County</div>
+                  <div class="step-desc">Contact Lane County Developmental Disabilities Services first. Don't start with state paperwork.</div>
+                  <div class="step-tip">💡 Call and say: "I'm lost—can you tell me the next step?"</div>
+                </div>
               </div>
-              <span class="link-item-arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="https://www.lanecounty.org" target="_blank" rel="noopener noreferrer" class="link-item">
-              <div>
-                <span class="link-item-name">Lane County DD Services</span>
-                <span class="link-item-note">Start here first</span>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                  <div class="step-title">Complete County Application</div>
+                  <div class="step-desc">Fill out the Lane County intake forms. Have your diagnoses, contact info, and medical records ready.</div>
+                  <div class="step-tip">💡 Answer questions as if it's their worst day—describe needs without your supports.</div>
+                </div>
               </div>
-              <span class="link-item-arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="https://one.oregon.gov" target="_blank" rel="noopener noreferrer" class="link-item">
-              <div>
-                <span class="link-item-name">ONE Oregon</span>
-                <span class="link-item-note">State benefits portal</span>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                  <div class="step-title">Needs Assessment Interview</div>
+                  <div class="step-desc">They'll interview you (and possibly your child) to assess support needs.</div>
+                  <div class="step-tip">💡 Don't defend or minimize. The worse the picture, the more help you qualify for.</div>
+                </div>
               </div>
-              <span class="link-item-arrow" aria-hidden="true">→</span>
-            </a>
+
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                  <div class="step-title">Then State Paperwork (ONE Oregon)</div>
+                  <div class="step-desc">After county steps, you may need to complete state applications through ONE Oregon.</div>
+                  <div class="step-tip">💡 Doing this out of order can reset your progress—ask the county first.</div>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                  <div class="step-title">Get Assigned Hours</div>
+                  <div class="step-desc">Based on your assessment, you'll receive a certain number of support hours.</div>
+                  <div class="step-tip">💡 PDA diagnosis + inability to do healthcare tasks independently can increase hours.</div>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">6</div>
+                <div>
+                  <div class="step-title">Choose a Provider Agency</div>
+                  <div class="step-desc">Select an agency to provide DSP (Direct Support Professional) services.</div>
+                  <div class="step-tip">💡 Ask other parents who they use. Interview potential DSPs—you can fire them!</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mt-lg mb-lg animate-on-scroll bg-cream-dark">
+              <h3 class="flex-center mb-md">
+                <span aria-hidden="true">🧠</span> Interview Mindset
+              </h3>
+              <blockquote class="interview-quote">
+                <p class="text-italic text-ink mb-sm">
+                  "Answer questions as if it were their worst day. Do not try to defend your child. Don't say 'well, they do okay when...' They're doing okay because YOU are putting in all the supports. Answer as if they didn't have your support."
+                </p>
+              </blockquote>
+              <p class="text-charcoal m-0">
+                Example: "Can they bathe themselves?" → If you have to be in the room, if you have to remind them, if you have to hand them things—the answer isn't "yes."
+              </p>
+            </div>
+
+            <div class="card mb-lg animate-on-scroll">
+              <h3 class="mb-md">📄 Documents to Have Ready</h3>
+              <ul class="doc-list">
+                <li>Diagnosis documentation</li>
+                <li>Neuropsych evaluation</li>
+                <li>IEP or 504 plan</li>
+                <li>Medical records</li>
+                <li>Provider contact info</li>
+                <li>Insurance information</li>
+                <li>Birth certificate</li>
+                <li>Social Security number</li>
+              </ul>
+            </div>
+
+            <div class="card mb-lg animate-on-scroll">
+              <h3 class="mb-md">📞 Helpful Scripts</h3>
+              <div class="script-box">
+                <div class="script-label">When you're lost:</div>
+                <div class="script-text">"Hi, I'm trying to get services for my child. I'm lost—can you tell me what my next step should be?"</div>
+              </div>
+              <div class="script-box">
+                <div class="script-label">When checking progress:</div>
+                <div class="script-text">"Can you confirm I've completed step 1 and tell me what step 2 is?"</div>
+              </div>
+              <div class="script-box">
+                <div class="script-label">When stuck on paperwork:</div>
+                <div class="script-text">"I'm having trouble with this form. Is there someone who can walk me through it?"</div>
+              </div>
+            </div>
+
+            <div class="card card-highlight mb-lg animate-on-scroll">
+              <h3 class="text-ink-mb-sm">👥 Can't Face the Paperwork Alone?</h3>
+              <p class="text-ink-mb-sm">
+                "Body doubling" helps—having someone sit with you while you tackle forms. We host occasional paperwork co-working sessions. Or ask a friend: "Can you sit with me for an hour while I do this? You don't have to help, just be there."
+              </p>
+              <p style="color: var(--ink); font-size: 0.9rem; margin: 0;">
+                📅 Check our Events page for upcoming paperwork nights.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll">
+              <h3 class="mb-md">🔗 Helpful Links</h3>
+              <a href="https://autismsocietyoregon.org" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div>
+                  <span class="link-item-name">Autism Society of Oregon</span>
+                  <span class="link-item-note">Will walk you through the process</span>
+                </div>
+                <span class="link-item-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="https://www.lanecounty.org" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div>
+                  <span class="link-item-name">Lane County DD Services</span>
+                  <span class="link-item-note">Start here first</span>
+                </div>
+                <span class="link-item-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="https://one.oregon.gov" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div>
+                  <span class="link-item-name">ONE Oregon</span>
+                  <span class="link-item-note">State benefits portal</span>
+                </div>
+                <span class="link-item-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ==================== TOOLS ==================== -->
-    <div id="page-tools" class="page">
+    <!-- page-services removed — content merged into Resources -->
+    <!-- ==================== TOOLKIT ==================== -->
+    <div id="page-toolkit" class="page">
       <section class="section pt-page">
         <div class="section-inner">
           <div class="section-header animate-on-scroll">
@@ -3462,6 +3531,7 @@
               <button type="button" class="tool-nav-btn" data-tool="decisions" role="tab" aria-selected="false" aria-controls="tool-decisions" id="tool-btn-decisions">🧊 Decision Paralysis</button>
               <button type="button" class="tool-nav-btn" data-tool="teens" role="tab" aria-selected="false" aria-controls="tool-teens" id="tool-btn-teens">🚀 Teen Toolkit</button>
               <button type="button" class="tool-nav-btn" data-tool="meltdowns" role="tab" aria-selected="false" aria-controls="tool-meltdowns" id="tool-btn-meltdowns">📊 Meltdowns as Data</button>
+              <button type="button" class="tool-nav-btn" data-tool="scripts" role="tab" aria-selected="false" aria-controls="tool-scripts" id="tool-btn-scripts">📝 Scripts</button>
             </div>
 
             <div class="card tool-content">
@@ -3876,89 +3946,416 @@
                   <p>💡 <strong>The reframe:</strong> "Meltdowns happening doesn't mean I'm on the wrong track. My child has a nervous system disability. My job is to help them back to safety, not to prevent all distress."</p>
                 </div>
               </div>
+
+              <!-- Scripts -->
+              <div id="tool-scripts" class="tool-panel" role="tabpanel" aria-labelledby="tool-btn-scripts">
+                <h3><span aria-hidden="true">📝</span> Script Library</h3>
+                <p>Copy-paste phrases for everyday PDA moments. Fewer words, less pressure.</p>
+
+                <div class="disclaimer animate-on-scroll">
+                  <p><strong>Remember:</strong> These are starting points, not magic words. Delivery matters—calm voice, then walk away. What works today may not work tomorrow. Adapt freely.</p>
+                </div>
+
+                <div class="scripts-filter animate-on-scroll" role="tablist" aria-label="Script categories">
+                  <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterScripts('all', this)">All</button>
+                  <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('morning', this)">Morning</button>
+                  <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('transitions', this)">Transitions</button>
+                  <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('school', this)">School</button>
+                  <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('quick', this)">Quick Wins</button>
+                </div>
+
+                <!-- MORNING & GETTING OUT -->
+                <div class="script-category" data-category="morning">
+                  <h3 class="script-category-header"><span aria-hidden="true">🌅</span> Morning & Getting Out</h3>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Won't wake up / get out of bed</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Wake up! You need to get up now!"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Light's coming on in 2 minutes."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Come on, get up, we're going to be late"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Breakfast is ready when you are."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Open curtains, leave the room. Let natural light and hunger do the work.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Won't get dressed</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Get dressed now, we're running late"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Clothes are on the bed."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Why aren't you dressed yet?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm getting dressed in my room."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"You can't wear that, put on something else"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"It's cold today. Jacket's by the door."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Lay out clothes the night before. Accept "good enough" clothing choices.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Won't eat breakfast</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"You need to eat something before school"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"There's toast on the counter."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Sit down and eat your breakfast"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Grab-and-go option in the car if you want."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Strewing works for food too—make it, leave it, say nothing.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Won't leave the house</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"We need to go NOW"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm heading to the car."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Hurry up, let's go!"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Car's leaving in 3 minutes."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Why do we go through this every day?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'll be outside."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 State what YOU will do, then actually do it. Remove yourself as the pressure source.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Won't get in the car</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Get in the car right now"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm starting the car. Music's ready."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"We're going to be late because of you"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Door's open when you're ready."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Let them choose their seat, control the music, have a comfort item. Tiny autonomy helps.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Running late / time pressure</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"We're late! Hurry up!"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">(Stay calm. Say less. They feel your stress.)</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"If you'd gotten up when I asked..."</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"We're leaving now. Shoes can go on in the car."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Build in buffer time. Being late is better than a morning meltdown that ruins the whole day.</div>
+                  </div>
+                </div>
+
+                <!-- TRANSITIONS -->
+                <div class="script-category" data-category="transitions">
+                  <h3 class="script-category-header"><span aria-hidden="true">🔄</span> Transitions</h3>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Ending screen time</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Turn it off now, time's up"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Screens off in 5. What's a good stopping point?"</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"I'm taking the iPad"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Let me know when you've saved your game."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"You've been on that thing all day"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Dinner's ready. Device stays here."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Give them control of the stopping point within your timeframe. Never yank the device.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Activity changes</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Stop what you're doing, we need to..."</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"In 10 minutes, we're switching to..."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Come here right now"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'll be in the kitchen when you're ready."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Countdown warnings help—but vague time ("soon") feels more threatening than specific ("7 minutes").</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Coming inside</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Time to come in!"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Door's open. Snack on the counter."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Get inside right now"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm going in. Join me when you're ready."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Make inside more appealing than demanding they leave outside.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Leaving fun places</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"We're leaving in 5 minutes whether you like it or not"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"5 more minutes. What's one last thing you want to do?"</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Time to go, say goodbye"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm walking to the car. See you there."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Let them have the "last" thing. It gives closure and control.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Unexpected changes</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Change of plans, we're doing X instead"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Something changed. Here's what's happening now: [brief facts]"</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"I know you wanted to, but..."</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"This is hard. The new plan is [X]. What would help?"</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Acknowledge the disappointment briefly, state facts, offer one choice within the new reality.</div>
+                  </div>
+                </div>
+
+                <!-- SCHOOL MOMENTS -->
+                <div class="script-category" data-category="school">
+                  <h3 class="script-category-header"><span aria-hidden="true">🏫</span> School Moments</h3>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>School morning stress</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"You have to go to school"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"School today. What do you need to get through it?"</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Everyone else goes to school"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I know it's hard. I'll be here at pickup."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Focus on "getting through" rather than "being happy about it." Validate the difficulty.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Pickup meltdowns</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"How was school? What happened?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">(Silence. Just drive. Snack available.)</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Why are you upset? What's wrong?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm here." (Then nothing else.)</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 After-school restraint collapse is real. They held it together all day. Zero demands for at least 30 minutes.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Homework mentions</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Did you do your homework?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Homework stuff is on the table if you need it."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"You need to finish your homework before..."</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">(Consider: Is homework worth the battle? Email the teacher.)</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Many PDA families eliminate homework entirely. School is enough demand. Ask your teacher about alternatives.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>"How was school?"</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"How was school? What did you learn?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">(Don't ask. If they want to tell you, they will.)</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Did you have a good day?"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm glad you're home."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Questions are demands. "How was school?" feels like an interrogation after a hard day.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>School refusal starting</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"You HAVE to go to school"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Something about school feels really hard right now."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"What's wrong with you? Everyone goes to school"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Let's figure out what part feels impossible."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 School refusal is a symptom, not defiance. See our <a href="#" onclick="showPage('school'); return false;">School Toolkit</a> for next steps.</div>
+                  </div>
+                </div>
+
+                <!-- QUICK WINS -->
+                <div class="script-category" data-category="quick">
+                  <h3 class="script-category-header"><span aria-hidden="true">⚡</span> Quick Wins</h3>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Hygiene refusal (teeth, bath, etc.)</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Go brush your teeth"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Toothbrush is ready." (Toothpaste already on it.)</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"You need to take a bath"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Bath's running. Bubbles are in."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Reduce steps. Toothpaste on brush. Clothes laid out. Water already running. Each step is a demand.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Mealtime basics</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Come eat dinner"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Food's on the table."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Sit down and eat"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Plate's here when you're hungry."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"You need to try one bite"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Safe foods are here. New thing is just visiting the plate."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 See our <a href="#" onclick="showTool('feeding'); return false;">Feeding & ARFID</a> section for more strategies.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Bedtime start</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Time for bed, let's go"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"Bedtime routine starting in 10. What do you want to do first?"</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Go to bed right now"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm heading to read in your room. Join me if you want."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Give choice within structure. "Teeth or PJs first?" Both happen, but they chose the order.</div>
+                  </div>
+
+                  <div class="script-card animate-on-scroll">
+                    <h4>Public meltdown</h4>
+                    <div class="script-swaps">
+                      <div class="script-swap">
+                        <span class="swap-before">"Stop it, people are watching"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"We're going somewhere quieter."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"Calm down right now"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"I'm here. We can leave when you're ready."</span>
+                      </div>
+                      <div class="script-swap">
+                        <span class="swap-before">"If you don't stop, we're never coming back"</span>
+                        <span class="swap-arrow">→</span>
+                        <span class="swap-after">"This is hard. Let's find a quiet spot."</span>
+                      </div>
+                    </div>
+                    <div class="script-tip">💡 Ignore the audience. Prioritize your child's nervous system. You can process with them later—not during.</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ==================== JOIN ==================== -->
-    <div id="page-join" class="page">
-      <section class="section pt-page">
-        <div class="section-narrow max-w-form">
-          <div class="section-header animate-on-scroll">
-            <h2>Join & Connect</h2>
-            <p>Low-friction ways to stay in the loop.</p>
-          </div>
-
-          <div class="card mb-lg animate-on-scroll">
-            <h3 class="flex-center mb-sm">
-              <span aria-hidden="true">📧</span> Email List
-            </h3>
-            <p class="text-charcoal mb-md">
-              Get meetup reminders, location details, and occasional updates. 1-2 emails per month max. Unsubscribe anytime.
-            </p>
-            <a href="mailto:eugenePDAparents@gmail.com?subject=Add%20me%20to%20the%20email%20list" class="btn btn-primary btn-full">
-              Join Email List →
-            </a>
-          </div>
-
-          <div class="card mb-lg animate-on-scroll">
-            <h3 class="flex-center mb-sm">
-              <span aria-hidden="true">💬</span> Private Chat
-            </h3>
-            <p class="text-charcoal mb-md">
-              Connect with other parents between meetups. Ask questions, vent, share wins.
-            </p>
-            <div class="chat-norms">
-              <div class="chat-norms-title">Chat Norms:</div>
-              <ul>
-                <li>Confidentiality applies here too</li>
-                <li>No unsolicited advice—ask first</li>
-                <li>Be kind; we're all struggling</li>
-                <li>No child names or identifying details</li>
-              </ul>
-            </div>
-            <a href="mailto:eugenePDAparents@gmail.com?subject=Chat%20Access%20Request" class="btn btn-secondary">
-              Request Chat Access →
-            </a>
-          </div>
-
-          <div class="card mb-lg animate-on-scroll">
-            <h3 class="flex-center mb-sm">
-              <span aria-hidden="true">✉️</span> Contact Us
-            </h3>
-            <p class="text-charcoal mb-md">
-              Questions? Suggestions? Want to help?
-            </p>
-            <a href="mailto:eugenePDAparents@gmail.com" class="btn btn-primary">
-              Email Us →
-            </a>
-          </div>
-
-          <div class="card animate-on-scroll bg-cream-dark">
-            <h3 class="mb-sm">💡 Suggest a Meetup Topic</h3>
-            <p class="text-charcoal mb-md">
-              What would be helpful to discuss? Some ideas from past meetups:
-            </p>
-            <div class="topic-pills">
-              <span class="topic-pill">IEP vs 504</span>
-              <span class="topic-pill">In-laws & holidays</span>
-              <span class="topic-pill">Sibling trauma</span>
-              <span class="topic-pill">Parent self-care</span>
-              <span class="topic-pill">Teen independence</span>
-              <span class="topic-pill">School refusal</span>
-              <span class="topic-pill">Medication</span>
-              <span class="topic-pill">ARFID/feeding</span>
-            </div>
-            <a href="mailto:eugenePDAparents@gmail.com?subject=Topic%20Suggestion" class="btn btn-primary mt-lg">
-              Suggest a Topic →
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-
+    <!-- page-join removed — content merged into About Us -->
     <!-- ==================== DONATE (hidden page) ==================== -->
     <div id="page-donate" class="page">
       <section class="section pt-page">
@@ -4349,8 +4746,8 @@
           </div>
 
           <div class="text-center mt-lg no-print animate-on-scroll">
-            <button type="button" class="btn btn-secondary" onclick="showPage('tools')">
-              ← Back to Tools
+            <button type="button" class="btn btn-secondary" onclick="showPage('toolkit')">
+              ← Back to Toolkit
             </button>
           </div>
 
@@ -4358,422 +4755,7 @@
       </section>
     </div>
 
-    <!-- ==================== SCRIPT LIBRARY ==================== -->
-    <div id="page-scripts" class="page">
-      <section class="section pt-page">
-        <div class="section-inner">
-          <div class="section-header animate-on-scroll">
-            <h2>Script Library</h2>
-            <p>Copy-paste phrases for everyday PDA moments. Fewer words, less pressure.</p>
-          </div>
-
-          <div class="disclaimer animate-on-scroll">
-            <p><strong>Remember:</strong> These are starting points, not magic words. Delivery matters—calm voice, then walk away. What works today may not work tomorrow. Adapt freely.</p>
-          </div>
-
-          <div class="scripts-filter animate-on-scroll" role="tablist" aria-label="Script categories">
-            <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterScripts('all', this)">All</button>
-            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('morning', this)">Morning</button>
-            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('transitions', this)">Transitions</button>
-            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('school', this)">School</button>
-            <button type="button" class="filter-btn" role="tab" aria-selected="false" onclick="filterScripts('quick', this)">Quick Wins</button>
-          </div>
-
-          <!-- MORNING & GETTING OUT -->
-          <div class="script-category" data-category="morning">
-            <h3 class="script-category-header"><span aria-hidden="true">🌅</span> Morning & Getting Out</h3>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Won't wake up / get out of bed</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Wake up! You need to get up now!"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Light's coming on in 2 minutes."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Come on, get up, we're going to be late"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Breakfast is ready when you are."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Open curtains, leave the room. Let natural light and hunger do the work.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Won't get dressed</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Get dressed now, we're running late"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Clothes are on the bed."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Why aren't you dressed yet?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm getting dressed in my room."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"You can't wear that, put on something else"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"It's cold today. Jacket's by the door."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Lay out clothes the night before. Accept "good enough" clothing choices.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Won't eat breakfast</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"You need to eat something before school"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"There's toast on the counter."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Sit down and eat your breakfast"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Grab-and-go option in the car if you want."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Strewing works for food too—make it, leave it, say nothing.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Won't leave the house</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"We need to go NOW"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm heading to the car."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Hurry up, let's go!"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Car's leaving in 3 minutes."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Why do we go through this every day?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'll be outside."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 State what YOU will do, then actually do it. Remove yourself as the pressure source.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Won't get in the car</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Get in the car right now"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm starting the car. Music's ready."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"We're going to be late because of you"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Door's open when you're ready."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Let them choose their seat, control the music, have a comfort item. Tiny autonomy helps.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Running late / time pressure</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"We're late! Hurry up!"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">(Stay calm. Say less. They feel your stress.)</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"If you'd gotten up when I asked..."</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"We're leaving now. Shoes can go on in the car."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Build in buffer time. Being late is better than a morning meltdown that ruins the whole day.</div>
-            </div>
-          </div>
-
-          <!-- TRANSITIONS -->
-          <div class="script-category" data-category="transitions">
-            <h3 class="script-category-header"><span aria-hidden="true">🔄</span> Transitions</h3>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Ending screen time</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Turn it off now, time's up"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Screens off in 5. What's a good stopping point?"</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"I'm taking the iPad"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Let me know when you've saved your game."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"You've been on that thing all day"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Dinner's ready. Device stays here."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Give them control of the stopping point within your timeframe. Never yank the device.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Activity changes</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Stop what you're doing, we need to..."</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"In 10 minutes, we're switching to..."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Come here right now"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'll be in the kitchen when you're ready."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Countdown warnings help—but vague time ("soon") feels more threatening than specific ("7 minutes").</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Coming inside</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Time to come in!"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Door's open. Snack on the counter."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Get inside right now"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm going in. Join me when you're ready."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Make inside more appealing than demanding they leave outside.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Leaving fun places</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"We're leaving in 5 minutes whether you like it or not"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"5 more minutes. What's one last thing you want to do?"</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Time to go, say goodbye"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm walking to the car. See you there."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Let them have the "last" thing. It gives closure and control.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Unexpected changes</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Change of plans, we're doing X instead"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Something changed. Here's what's happening now: [brief facts]"</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"I know you wanted to, but..."</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"This is hard. The new plan is [X]. What would help?"</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Acknowledge the disappointment briefly, state facts, offer one choice within the new reality.</div>
-            </div>
-          </div>
-
-          <!-- SCHOOL MOMENTS -->
-          <div class="script-category" data-category="school">
-            <h3 class="script-category-header"><span aria-hidden="true">🏫</span> School Moments</h3>
-
-            <div class="script-card animate-on-scroll">
-              <h4>School morning stress</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"You have to go to school"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"School today. What do you need to get through it?"</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Everyone else goes to school"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I know it's hard. I'll be here at pickup."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Focus on "getting through" rather than "being happy about it." Validate the difficulty.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Pickup meltdowns</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"How was school? What happened?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">(Silence. Just drive. Snack available.)</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Why are you upset? What's wrong?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm here." (Then nothing else.)</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 After-school restraint collapse is real. They held it together all day. Zero demands for at least 30 minutes.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Homework mentions</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Did you do your homework?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Homework stuff is on the table if you need it."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"You need to finish your homework before..."</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">(Consider: Is homework worth the battle? Email the teacher.)</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Many PDA families eliminate homework entirely. School is enough demand. Ask your teacher about alternatives.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>"How was school?"</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"How was school? What did you learn?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">(Don't ask. If they want to tell you, they will.)</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Did you have a good day?"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm glad you're home."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Questions are demands. "How was school?" feels like an interrogation after a hard day.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>School refusal starting</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"You HAVE to go to school"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Something about school feels really hard right now."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"What's wrong with you? Everyone goes to school"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Let's figure out what part feels impossible."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 School refusal is a symptom, not defiance. See our <a href="#" onclick="showPage('school'); return false;">School Toolkit</a> for next steps.</div>
-            </div>
-          </div>
-
-          <!-- QUICK WINS -->
-          <div class="script-category" data-category="quick">
-            <h3 class="script-category-header"><span aria-hidden="true">⚡</span> Quick Wins</h3>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Hygiene refusal (teeth, bath, etc.)</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Go brush your teeth"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Toothbrush is ready." (Toothpaste already on it.)</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"You need to take a bath"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Bath's running. Bubbles are in."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Reduce steps. Toothpaste on brush. Clothes laid out. Water already running. Each step is a demand.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Mealtime basics</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Come eat dinner"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Food's on the table."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Sit down and eat"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Plate's here when you're hungry."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"You need to try one bite"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Safe foods are here. New thing is just visiting the plate."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 See our <a href="#" onclick="showPage('tools'); showTool('feeding'); return false;">Feeding & ARFID</a> section for more strategies.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Bedtime start</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Time for bed, let's go"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"Bedtime routine starting in 10. What do you want to do first?"</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Go to bed right now"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm heading to read in your room. Join me if you want."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Give choice within structure. "Teeth or PJs first?" Both happen, but they chose the order.</div>
-            </div>
-
-            <div class="script-card animate-on-scroll">
-              <h4>Public meltdown</h4>
-              <div class="script-swaps">
-                <div class="script-swap">
-                  <span class="swap-before">"Stop it, people are watching"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"We're going somewhere quieter."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"Calm down right now"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"I'm here. We can leave when you're ready."</span>
-                </div>
-                <div class="script-swap">
-                  <span class="swap-before">"If you don't stop, we're never coming back"</span>
-                  <span class="swap-arrow">→</span>
-                  <span class="swap-after">"This is hard. Let's find a quiet spot."</span>
-                </div>
-              </div>
-              <div class="script-tip">💡 Ignore the audience. Prioritize your child's nervous system. You can process with them later—not during.</div>
-            </div>
-          </div>
-
-          <div class="card card-highlight text-center mt-lg animate-on-scroll">
-            <h3 class="mb-sm" class="text-ink">Need more scripts?</h3>
-            <p class="text-ink-mb-md">This library is growing. Check our <a href="#" onclick="showPage('tools'); return false;">Tools</a> page for deeper dives on specific strategies.</p>
-            <button type="button" class="btn btn-secondary" onclick="showPage('tools')">View All Tools →</button>
-          </div>
-
-        </div>
-      </section>
-    </div>
-
+    <!-- page-scripts removed — content merged into Toolkit -->
     <!-- ==================== SCHOOL TOOLKIT ==================== -->
     <div id="page-school" class="page">
       <section class="section pt-page">
@@ -6305,6 +6287,11 @@ Thank you,
       });
     });
 
+    function showTool(toolId) {
+      const btn = document.querySelector('[data-tool="' + toolId + '"]');
+      if (btn) btn.click();
+    }
+
     // ========================================
     // SCRIPT LIBRARY FILTER
     // ========================================
@@ -6504,10 +6491,20 @@ Thank you,
         }
       });
 
-      // Hash-based routing for shared links
+      // Hash-based routing for shared links (with redirect map for old pages)
       const hash = window.location.hash.replace('#', '');
-      if (hash && document.getElementById('page-' + hash)) {
-        showPage(hash);
+      if (hash) {
+        const redirects = {
+          'services': () => { showPage('resources'); setTimeout(() => { const btn = document.getElementById('tab-btn-services'); if (btn) showResourceTab('services', btn); }, 200); },
+          'scripts': () => { showPage('toolkit'); setTimeout(() => { const btn = document.querySelector('[data-tool="scripts"]'); if (btn) btn.click(); }, 200); },
+          'tools': () => { showPage('toolkit'); },
+          'join': () => { showPage('about'); setTimeout(() => { const el = document.getElementById('about-connect'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 200); }
+        };
+        if (redirects[hash]) {
+          redirects[hash]();
+        } else if (document.getElementById('page-' + hash)) {
+          showPage(hash);
+        }
       }
     });
   </script>
